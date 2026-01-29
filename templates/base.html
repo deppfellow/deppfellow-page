@@ -18,6 +18,10 @@
      <script src="{% static 'vendor/alpine.min.js' %}" defer></script>
 </head>
 <body>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
     
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
