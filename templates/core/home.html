@@ -1,8 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<section id="bio">
-    <h1>I Build High-Performance Systems.</h1>
-    <p>This is my Page. Demonstrating full-stack mastery using Django, HTMX, and SQLite</p>
+<section id="hero-section">
+    <!-- Header image -->
+    <div class="header-container">
+        <img src="{% static 'img/header.webp' %}" alt="Deppfellow Page" class="header-image">
+    </div>
+
+    <div class="navbar-container">
+        <a href="/" class="navbar-link">Home</a>
+        <div class="navbar-right">
+            <a href="#" class="navbar-link">Projects</a>
+            <a href="#" class="navbar-link">Blogs</a>
+        </div>
+
+    </div>
+
+    <!-- Bio -->
+    <div class="bio-container">
+        <h1>Yo, Deppfellow Here!</h1>
+        <p>
+            Here, I dump all my notes, archive, and documentations, beside serving as my profile page.
+            I'll write all reports, resources, even my random thoughs that whatever catches my fancy.
+            It's like my personal warehouse but I made it public.
+            You might found something useful, interesting, or even junks.
+            Wanna exchange ideas? DM me at <a href="https://x.com/fidrafif" target="_blank">@fidrafif</a> on X
+        </p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-container">
+        <a href="https://github.com/deppfellow" target="_blank" class="social-btn">Github</a>
+        <a href="https://x.com/fidrafif" target="_blank" class="social-btn">Twitter</a>
+        <a href="https://#" target="_blank" class="social-btn">Linkedin</a>
+    </div>
 </section>
 {% endblock %}
