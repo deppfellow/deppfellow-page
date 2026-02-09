@@ -9,5 +9,6 @@ dependencies = [
     "django-htmx>=1.27.0",
     "django-litestream>=0.5.2",
     "markdown>=3.10.1",
+    "pillow>=12.1.0",
     "ruff>=0.14.14",
 ]

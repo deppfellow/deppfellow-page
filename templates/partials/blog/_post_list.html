@@ -1,0 +1,14 @@
+{% for post in page_obj %}
+<article class="post-preview">
+    <h2><a href="#">{{ post.title }}</a></h2>
+    <small>{{ post.published_at|date:"F j, Y" }}</small>
+    <p>{{ post.content|truncatewords:30 }}</p>
+</article>
+{% endfor %}
+
+<!-- Infinite Scroll Trigger -->
+{% if page_obj.has_next %}
+<div hx-get="?page={{ page_obj.next_page_number }}" hx-trigger="revealed" hx-target="this" hx-swap="outerHTML">
+    Loading more mediocre thoughts...
+</div>
+{% endif %}

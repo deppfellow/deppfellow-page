@@ -53,3 +53,23 @@ Ensure you're using `{% static %}` template correctly so Django generates the ri
 ### The 'Why'
 
 By default, Django only look static file inside `static/` folder within each registered app. Since your architecture places global assets (vendor libs and design tokens) in a shared root directory, STATICFILES_DIRS is mandatory to bridge that gap.
+
+## 2. 500 AttributeError: 'WSGIRequest' object has no attribute 'htmx'
+
+`AttributeError: 'WSGIRequest' object has no attribute 'htmx'` occurs because the HTMX Middleware is missing from your configuration. Even though `django_htmx` is in your `INSTALLED_APPS`, the middleware is what actually attaches the `.htmx` property to the `request` object.
+
+1) Fix the Middleware
+
+Add `'django_htmx.middleware.HtmxMiddleware'` to `MIDDLEWARE` list in `config/settings.py`.
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_htmx.middleware.HtmxMiddleware', # Add this line here!
+]
+```

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - Deppfellow Page{% endblock title %}
+
+{% block content %}
+<section id="hero-section">
+    {% include 'partials/_header.html' %}
+
+    <h1>Blog Posts</h1>
+    <div class="post-list">
+        {% include "partials/blog/_post_list.html" %}
+    </div>
+</section>
+{% endblock content %}
