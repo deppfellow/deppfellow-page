@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,23 @@
     <title>{% block title %}Deppfellow Page{% endblock %}</title>
 
     <!-- CSS -->
-     <link rel="stylesheet" href="{% static 'css/variables.css' %}">
-     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock extra_css %}
 
     <!-- HTMX -->
-     <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
+    <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
 
     <!-- AlpineJS -->
-     <script src="{% static 'vendor/alpine.min.js' %}" defer></script>
+    <script src="{% static 'vendor/alpine.min.js' %}" defer></script>
 </head>
+
 <body>
     <main>
         {% block content %}{% endblock %}
     </main>
-    
+
     {% block extra_js %}{% endblock %}
 </body>
+
 </html>

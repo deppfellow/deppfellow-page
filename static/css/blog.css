@@ -1,0 +1,14 @@
+.post-preview {
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--text-secondary);
+    padding-bottom: var(--space-sm);
+}
+
+.post-preview h2 {
+    margin-bottom: 0;
+}
+
+.post-preview h2 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
