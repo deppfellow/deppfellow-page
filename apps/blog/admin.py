@@ -6,6 +6,7 @@ from .models import Tag, Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_published', 'is_project', 'published_at')
     list_filter = ('is_published', 'is_project', 'tags')
+    filter_horizontal = ('tags',)  # Added this for better M2M management
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'content')
 

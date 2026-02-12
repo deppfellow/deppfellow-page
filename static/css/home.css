@@ -11,13 +11,13 @@
 .bio-container h1 {
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: var(--space-sm);
     letter-spacing: -0.03em;
+    margin-bottom: var(--space-sm);
 }
 
 .bio-container p {
-    font-size: 1.1rem;
     color: var(--text-secondary);
+    font-size: 1.1rem;
     line-height: 1.65;
     margin-bottom: var(--space-sm);
 }

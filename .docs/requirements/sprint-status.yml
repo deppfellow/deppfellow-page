@@ -30,8 +30,8 @@
 development_status:
   epic-1: in-progress
   1-1-core-scaffold-and-home-page: done
-  1-2-unified-post-model-and-blog-index: in-progress
-  1-3-post-project-detail-view: backlog
+  1-2-unified-post-model-and-blog-index: done
+  1-3-post-project-detail-view: done
   1-4-portfolio-index-and-pinned-projects: backlog
   epic-1-retrospective: optional
 

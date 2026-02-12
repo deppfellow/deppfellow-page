@@ -62,3 +62,22 @@ Unlike Standard Django `TestCase` (which only tests Python logic), Playwright:
 *   **Verifies JavaScript**: Validates that Alpine.js models open and close.
 *   **Tests HTMX Swaps**: Ensures that partial HTML fragments are correctly swapped into the DOM.
 *   **Simulates User Experience**: Tests keyboard shortcuts (like `Cmd+K`) and mobile responsiveness.
+
+## 3. Django Template Search Path
+
+> Related: Story 1.3
+
+Understanding where Django looks for templates is the key to preventing `TemplateNotFound` errors.
+
+### The Search Algorithm
+
+When you call `render(request, 'path/to/template.html')`, Django searches in this order:
+
+1.  **Project DIRS**: Any directories listed in `TEMPLATES['DIRS']` in `settings.py` (usually the root `templates/` folder).
+2.  **App Templates**: If not found in the root, Django checks each app folder listed in `INSTALLED_APPS` for a `templates/` subdirectory (e.g., `apps/blog/templates/`).
+
+### Organization Best Practices
+
+*   **Full Pages**: Keep main view templates in the app-specific folder (e.g., `templates/blog/post_detail.html`).
+*   **Partials**: Store re-usable snippets in a dedicated `partials/` folder.
+*   **Referencing**: If a file is in a subfolder, you **must** include that subfolder in the string: `render(request, 'partials/blog/my_snippet.html')`.

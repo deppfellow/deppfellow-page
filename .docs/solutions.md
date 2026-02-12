@@ -90,3 +90,35 @@ uv run playwright install-deps
 
 > [!NOTE]
 > This command requires `sudo` privileges as it installs packages via the system package manager (e.g., `apt-get`).
+
+## 4. 404 TemplateDoesNotExist at /blog/<slug>/
+
+> Related: Story 1.3
+
+This happens when the template path provided to `render()` doesn't exactly match the file's location inside a `templates/` directory.
+
+### The Fix
+
+1.  **Verify Location**: Ensure the file exists (e.g., `templates/blog/post_detail.html`).
+2.  **Check the Path String**: In your view, make sure the string exactly matches the relative path from the `templates/` root. 
+    *   *Incorrect*: `render(request, 'post_detail.html')`
+    *   *Correct*: `render(request, 'blog/post_detail.html')`
+
+## 5. M2M Tags "Disappearing" in Django Admin
+
+> Related: Story 1.3
+
+When using the default multi-select widget for Many-to-Many fields (like `tags`), any save operation that doesn't include the previous tags (via `Ctrl+Click`) will overwrite them, causing them to "disappear" from the database.
+
+### The "Senior" Solution
+
+Instead of relying on user behavior, update the UI to be "fail-safe" by using `filter_horizontal` in your `ModelAdmin`.
+
+1.  **Update `admin.py`**:
+    ```python
+    @admin.register(Post)
+    class PostAdmin(admin.ModelAdmin):
+        filter_horizontal = ('tags',)
+    ```
+
+This changes the widget into a two-column interface where selected items stay visible in the "Chosen" column, preventing accidental deletions.

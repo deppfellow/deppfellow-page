@@ -1,6 +1,6 @@
 {% for post in page_obj %}
 <article class="post-preview">
-    <h2><a href="#">{{ post.title }}</a></h2>
+    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
     <small>{{ post.published_at|date:"F j, Y" }}</small>
     <p>{{ post.content|truncatewords:30 }}</p>
 </article>

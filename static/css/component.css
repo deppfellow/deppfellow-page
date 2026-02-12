@@ -1,24 +1,24 @@
 /* Header Image */
 /* ------------ */
 .header-container {
-    width: 100%;
-    margin-bottom: var(--space-sm);
     border-radius: 12px;
+    margin-bottom: var(--space-sm);
     overflow: hidden;
+    width: 100%;
 }
 
 .header-image {
-    width: 100%;
-    height: auto;
     display: block;
-    object-fit: cover;
+    height: auto;
     height: 200px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .navbar-container {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding-bottom: var(--space-sm)
 }
 
@@ -28,10 +28,10 @@
 }
 
 .navbar-link {
-    display: inline-block;
     color: var(--text-primary);
-    text-decoration: none;
+    display: inline-block;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .navbar-link:hover {
@@ -42,23 +42,23 @@
 /* -------------- */
 .social-container {
     display: flex;
-    gap: var(--space-md);
     flex-wrap: wrap;
+    gap: var(--space-md);
 }
 
 .social-btn {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-lg);
     border: 1px solid var(--text-secondary);
     border-radius: 4px;
     color: var(--text-primary);
-    text-decoration: none;
+    display: inline-block;
     font-weight: 500;
+    padding: var(--space-sm) var(--space-lg);
+    text-decoration: none;
     transition: background-color 0.2s, color 0.2s;
 }
 
 .social-btn:hover {
     background-color: var(--text-primary);
-    color: var(--bg-primary);
     border-color: var(--text-primary);
+    color: var(--bg-primary);
 }
