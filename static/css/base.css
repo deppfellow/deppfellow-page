@@ -1,3 +1,20 @@
+*, *::before, *::after {
+    box-sizing: border-box; /* important part */
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix height and scrolling basics */
+html, body {
+    height: 100%;
+}
+
+/* Ensure images don't overflow */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
 body {
     align-items: center;
     background-color: var(--bg-primary);

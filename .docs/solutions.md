@@ -122,3 +122,31 @@ Instead of relying on user behavior, update the UI to be "fail-safe" by using `f
     ```
 
 This changes the widget into a two-column interface where selected items stay visible in the "Chosen" column, preventing accidental deletions.
+
+## 6. [2026-02-12] TemplateSyntaxError with Model Methods
+
+> Related: Story 1.4
+
+### Bug
+When attempting to call `project.get_absolute_url` in a template, a `TemplateSyntaxError` was thrown: "Invalid block tag on line 20: 'project.get_absolute_url', expected 'empty' or 'endfor'."
+
+### Solution
+In Django templates, model methods and variables must be wrapped in double curly braces `{{ }}` for rendering. The error occurred because it was wrapped in logic tags `{% %}` which Django interpreted as a non-existent template tag.
+
+**Incorrect:**
+`{% project.get_absolute_url %}`
+
+**Correct:**
+`{{ project.get_absolute_url }}`
+
+## 7. [2026-02-14] Card Layout: Excessive Empty Space at Bottom
+
+> Related: Story 1.4 (Pinned Projects Grid)
+
+### Bug
+Card elements in the grid had inconsistent heights and large gaps of white space at the bottom, especially when an image was absent or content was short. This was caused by a fixed `min-height: 30dvh` in the `project-card` class.
+
+### Solution
+1. **Remove Fixed Height**: Delete `min-height` or fixed `height` properties from the card container to let content define the intrinsic height.
+2. **Use Flexbox for Content**: Set the card to `display: flex; flex-direction: column;`.
+3. **Sticky Footers**: Set `flex: 1` on the main content area and `margin-top: auto` on the bottom element (like "Know more") to ensure it always sticks to the bottom-left of the card regardless of text length.

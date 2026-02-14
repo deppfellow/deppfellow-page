@@ -12,7 +12,7 @@
     {% include 'partials/_header.html' %}
 
     <!-- Bio -->
-    <div class="bio-container">
+    <div class="bio-section">
         <h1>Yo, Deppfellow Here!</h1>
         <p>
             Here, I dump all my notes, archive, and documentations, beside serving as my profile page.
@@ -24,10 +24,47 @@
     </div>
 
     <!-- Social Links -->
-    <div class="social-container">
+    <div class="social-section">
         <a href="https://github.com/deppfellow" target="_blank" class="social-btn">Github</a>
         <a href="https://x.com/fidrafif" target="_blank" class="social-btn">Twitter</a>
         <a href="https://#" target="_blank" class="social-btn">Linkedin</a>
     </div>
+
+    <!-- Pinned Projects -->
+    <section class="pinned-project-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            {% for project in pinned_projects %}
+            <div class="project-card">
+                {% if project.image %}
+                <div class="project-image-container">
+                    <!-- <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image"> -->
+                    <img src="{% static 'img/LococoP - Ifrit.jpg' %}" alt="{{ project.title }}" class="project-image">
+                </div>
+                {% endif %}
+
+                <div class="project-content">
+                    <h3>{{ project.title }}</h3>
+
+                    {% if project.tags.all %}
+                    <div class="project-tags">
+                        {% for tag in project.tags.all %}
+                        <span class="tag">#{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <small>{{ project.content|truncatewords:20 }}</small>
+
+                    <!-- Link at the bottom -->
+                    <div class="project-know-more">
+                        <a href="{{ project.get_absolute_url }}">Know more ➞</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
 </section>
 {% endblock %}

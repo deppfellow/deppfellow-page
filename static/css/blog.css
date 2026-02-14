@@ -1,3 +1,8 @@
+#hero-section h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+}
+
 .post-preview {
     border-bottom: 1px solid var(--text-secondary);
     margin-bottom: var(--space-lg);

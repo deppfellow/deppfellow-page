@@ -32,11 +32,11 @@ development_status:
   1-1-core-scaffold-and-home-page: done
   1-2-unified-post-model-and-blog-index: done
   1-3-post-project-detail-view: done
-  1-4-portfolio-index-and-pinned-projects: backlog
+  1-4-portfolio-index-and-pinned-projects: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-command-palette-ui-alpine-js-modal: backlog
+  epic-2: in-progress
+  2-1-command-palette-ui-alpine-js-modal: in-progress
   2-2-htmx-search-engine: backlog
   2-3-keyboard-navigation-and-accessibility: backlog
   epic-2-retrospective: optional

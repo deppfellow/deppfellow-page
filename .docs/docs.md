@@ -81,3 +81,47 @@ When you call `render(request, 'path/to/template.html')`, Django searches in thi
 *   **Full Pages**: Keep main view templates in the app-specific folder (e.g., `templates/blog/post_detail.html`).
 *   **Partials**: Store re-usable snippets in a dedicated `partials/` folder.
 *   **Referencing**: If a file is in a subfolder, you **must** include that subfolder in the string: `render(request, 'partials/blog/my_snippet.html')`.
+
+## 4. Modern CSS Reset & Box-Sizing
+
+> Related: Story 1.4
+
+Standardizing the layout across different browsers requires a "Reset" to remove cumulative default margins and paddings. This gives the developer full control over every pixel of whitespace.
+
+### The Universal Selector
+We use `*` to apply properties to every element, including pseudo-elements.
+
+```css
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+```
+
+### Why `border-box`?
+By default (`content-box`), adding padding or a border increases the element's actual width. With `border-box`, the padding and border are contained **within** the defined width, preventing layout breakage when elements are set to `width: 100%`.
+
+## 5. The "Sticky Footer" Card Pattern
+
+> Related: Story 1.4 (Pinned Projects)
+
+When building grids of cards with varying content lengths, you often want the "action" element (e.g., a "Know more" link) to stay aligned at the bottom of the card.
+
+### The Implementation
+1.  **Container**: `display: flex; flex-direction: column;`
+2.  **Content area**: `flex: 1;` (Tells this box to grow and fill all available space).
+3.  **Footer element**: `margin-top: auto;` (Pushes the element to the bottom of the now-stretched content area).
+
+## 6. Django URL Strategies: Top-Level Routing
+
+> Related: Story 1.4
+
+In modular Django projects, you often want clear, short URLs (e.g., `/projects/` instead of `/blog/projects/`) even if the logic resides in a specific app.
+
+### Shared View Strategy
+If two features (Blog and Projects) share the same Data Model (`Post`), it is better to keep the views in one app (`blog`) for cohesion but structure the routing globally.
+
+### Approaches
+1.  **Direct Import in Root**: Import the specific view into `config/urls.py` and mount it directly.
+2.  **Core App Delegation**: Mount the route in a `core` app's `urls.py`. This is preferred as `core` usually handles the site's top-level architecture while leaving the business logic in the domain-specific app.

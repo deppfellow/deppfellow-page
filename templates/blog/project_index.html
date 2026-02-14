@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects - Deppfellow{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/component.css' %}">
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="container">
+    {% include 'partials/_header.html' %}
+    <header class="page-header">
+        <h1>Projects</h1>
+    </header>
+
+    <!-- Change project-grid to project-list -->
+    <div class="project-list">
+        {% for project in projects %}
+        <a href="{{ project.get_absolute_url }}" class="project-card">
+            {% if project.image %}
+            <div class="project-image-container">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+            </div>
+            {% endif %}
+
+            <div class="project-content">
+                <h2>{{ project.title }}</h2>
+                <small class="project-date">{{ project.published_at|date:"F j, Y" }}</small>
+
+                {% if project.tags.all %}
+                <div class="project-tags">
+                    {% for tag in project.tags.all %}
+                    <span class="tag">#{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="project-description">
+                    {{ project.content|truncatewords:40 }}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock content %}

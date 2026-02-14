@@ -19,8 +19,14 @@
         <div class="post-breadcrumb">
             <a href="{% url 'home' %}">Home</a>
             <span class="separator">▸</span>
+
+            {% if post.is_project %}
+            <a href="{% url 'project_index' %}">Projects</a>
+            {% else %}
             <a href="{% url 'post_list' %}">Blog</a>
+            {% endif %}
             <span class="separator">▸</span>
+
             <span>{{ post.title|truncatechars:30 }}</span>
         </div>
 

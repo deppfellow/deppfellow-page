@@ -33,3 +33,13 @@ def post_detail(request, slug):
         'post': post,
         'html_content': html_content
     })
+
+def project_index(request):
+    projects = Post.objects.filter(
+        is_project=True,
+        is_published=True,
+    ).order_by('-published_at')
+
+    return render(request, 'blog/project_index.html', {
+        'projects': projects,
+    })

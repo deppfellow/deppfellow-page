@@ -6,24 +6,134 @@
     padding-bottom: var(--space-lg);
 }
 
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
 /* Bio Section */
 /* ----------- */
-.bio-container h1 {
+.bio-section h1 {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: var(--space-sm);
 }
 
-.bio-container p {
+.bio-section p {
     color: var(--text-secondary);
     font-size: 1.1rem;
     line-height: 1.65;
     margin-bottom: var(--space-sm);
 }
 
-.bio-container a {
+.bio-section a {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+/* Pinned Project Section */
+/* ---------------------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.project-grid {
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+}
+
+.project-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--text-secondary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    background-color: transparent; 
+}
+
+.project-image-container {
+    height: 180px;
+    width: 100%;
+}
+
+.project-image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    gap: var(--space-sm);
+    flex: 1;
+}
+
+.project-content h3 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.project-know-more {
+    margin-top: auto;
+    padding-top: var(--space-sm);
+}
+
+.project-know-more a {
+    color: #f97316; /* Orange Link */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.project-know-more a:hover {
+    text-decoration: underline;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    color: var(--text-secondary);
+    font-size: 0.8rem
+}
+
+/* .project-know-more {
+
+} */
+
+@media (prefers-color-scheme: dark) {
+    .project-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    .project-image-container {
+        background-color: #334155;
+    }
 }

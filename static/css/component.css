@@ -40,7 +40,7 @@
 
 /* Social buttons */
 /* -------------- */
-.social-container {
+.social-section {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
