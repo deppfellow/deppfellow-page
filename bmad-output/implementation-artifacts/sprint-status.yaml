@@ -1,0 +1,112 @@
+# generated: 2026-06-21
+# last_updated: 2026-07-05
+# project: deppfellow-page
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: .docs/bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog -> in-progress: Automatically when first story is created (via create-story)
+#   - in-progress -> done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-06-21
+last_updated: 2026-07-05
+project: deppfellow-page
+project_key: NOKEY
+tracking_system: file-system
+story_location: .docs/bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 0: Project Scaffold And Reviewable Foundation
+  epic-0: in-progress
+  0-1-epic-0-project-scaffold-and-reviewable-foundation: review
+  epic-0-retrospective: optional
+
+  # Epic 1: Foundation And Public Content Display
+  epic-1: in-progress
+  1-1-published-content-schema-and-read-models: ready-for-dev
+  1-2-published-content-read-apis: ready-for-dev
+  1-3-backend-contentrenderer-baseline: ready-for-dev
+  1-4-editorial-prose-system-and-static-layout: ready-for-dev
+  1-5-static-public-post-pages: ready-for-dev
+  1-6-category-and-tag-browsing: ready-for-dev
+  1-7-public-404-and-reader-failure-states: ready-for-dev
+  1-8-epic-1-content-display-test-coverage: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Authentication And Protected Author Boundary
+  epic-2: backlog
+  2-1-single-user-session-data-model: backlog
+  2-2-password-login-and-logout-api: backlog
+  2-3-current-author-dependency-and-protected-api-boundary: backlog
+  2-4-protected-admin-route-boundary-in-astro: backlog
+  2-5-epic-2-authentication-test-coverage: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Writing, Editing, And Publishing
+  epic-3: backlog
+  3-1-protected-post-write-api: backlog
+  3-2-split-pane-editor-shell: backlog
+  3-3-renderer-backed-on-demand-preview: backlog
+  3-4-draft-save-and-edit-existing-drafts: backlog
+  3-5-publish-and-unpublish-workflow: backlog
+  3-6-editor-image-upload-with-webp-conversion: backlog
+  3-7-edit-published-posts: backlog
+  3-8-epic-3-writing-and-upload-test-coverage: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Threaded Log Continuity
+  epic-4: backlog
+  4-1-sequential-log-entry-model: backlog
+  4-2-log-detail-chain-navigation: backlog
+  4-3-log-cross-reference-rendering: backlog
+  4-4-public-log-timeline-page: backlog
+  4-5-infinite-scroll-logfeed: backlog
+  4-6-epic-4-threaded-log-test-coverage: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Search And Discovery
+  epic-5: backlog
+  5-1-published-search-data-endpoint: backlog
+  5-2-build-time-minisearch-index-generation: backlog
+  5-3-search-interface-and-results: backlog
+  5-4-search-access-from-public-navigation: backlog
+  5-5-epic-5-search-test-coverage: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Deployment, Testing, And Operational Readiness
+  epic-6: backlog
+  6-1-docker-compose-runtime-topology: backlog
+  6-2-caddy-routing-and-media-delivery: backlog
+  6-3-migration-and-startup-safety: backlog
+  6-4-ci-quality-gate: backlog
+  6-5-smoke-tests-and-release-verification: backlog
+  6-6-backup-and-restore-guidance: backlog
+  6-7-performance-and-accessibility-verification: backlog
+  6-8-final-artifact-consistency-and-epic-6-test-coverage: backlog
+  epic-6-retrospective: optional
