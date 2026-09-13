@@ -1,0 +1,75 @@
+{
+  "title": "Choose the home composition",
+  "question": "The deal led with Two-Column Catalogue. Lock one structure for the home page, or re-roll.",
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "steer": true,
+  "canon": false,
+  "options": [
+    {
+      "id": "structure-two-column",
+      "label": "Two-Column Catalogue",
+      "kicker": "THE ROLL",
+      "thesis": "A ruled catalogue spread: the observer's note in the left column, the dated plates listed in the right.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["ruled catalogue columns", "photographic plate", "engraved scale rail"],
+      "viewport": "Plate title block and an engraved scale rail across the top, the observer's note standing in the left column, ten dated plate entries in the right with date, title and magnitude.",
+      "risk": "Two columns drift toward a generic blog sidebar unless the rules and column rhythm carry the authority.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "plate title block", "x": 0, "y": 0, "w": 6, "h": 1, "accent": true },
+          { "label": "scale rail (nav)", "x": 6, "y": 0, "w": 6, "h": 1 },
+          { "label": "observer note (ABOUT)", "x": 0, "y": 1, "w": 4, "h": 6 },
+          { "label": "dated plate entries (latest 10)", "x": 5, "y": 1, "w": 7, "h": 8, "accent": true },
+          { "label": "colophon rule", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      }
+    },
+    {
+      "id": "structure-grid",
+      "label": "Star-fixed Grid",
+      "kicker": "",
+      "thesis": "The viewport is one equatorial grid: the note sits at the centre and the latest plates are pinned to coordinates.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["graph-paper field", "plate photographs", "instrument engraving"],
+      "viewport": "A faint grid across the whole plate, the observer's note at the centre, ten entries pinned around it, navigation riding the top declination line.",
+      "risk": "The grid is wallpaper unless position encodes something true, such as date or category.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "declination line (nav)", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "field: articles", "x": 0, "y": 1, "w": 3, "h": 5 },
+          { "label": "field: projects", "x": 3, "y": 1, "w": 3, "h": 5 },
+          { "label": "pinned entries (latest 10)", "x": 6, "y": 1, "w": 6, "h": 3 },
+          { "label": "observer note (ABOUT)", "x": 6, "y": 4, "w": 6, "h": 2, "accent": true },
+          { "label": "coordinate legend", "x": 0, "y": 6, "w": 12, "h": 3 }
+        ]
+      }
+    },
+    {
+      "id": "structure-finder",
+      "label": "The Finder Chart",
+      "kicker": "",
+      "thesis": "The home page as a finder chart: a labelled field per category, and a ruled index of the latest objects.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["chart paper", "plate index", "engraved legend"],
+      "viewport": "Three labelled fields across the top carrying real counts, the latest ten objects below in a ruled index with coordinates, the legend along the base.",
+      "risk": "Finder charts are diagrams first, so the fields must hold true counts and links or the page becomes a decorative map.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "legend rail (nav)", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "field: articles", "x": 0, "y": 1, "w": 4, "h": 4 },
+          { "label": "field: projects", "x": 4, "y": 1, "w": 4, "h": 4, "accent": true },
+          { "label": "field: logs", "x": 8, "y": 1, "w": 4, "h": 4 },
+          { "label": "object index (latest 10)", "x": 0, "y": 5, "w": 12, "h": 4 },
+          { "label": "base rule", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import "@fontsource/spectral/400.css";
+import "@fontsource/spectral/600.css";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/literata";
+import "@fontsource-variable/eb-garamond";
+import Base from "../layouts/Base.astro";
+
+const notes = await getCollection("notes");
+const latest = notes
+  .filter((note) => note.data.category === "Articles")
+  .sort((a, b) => b.data.created.getTime() - a.data.created.getTime())
+  .slice(0, 4);
+
+const about = await getEntry("meta", "about");
+const AboutBody = about ? (await render(about)).Content : null;
+
+const candidates = [
+  { id: "source-serif-4", name: "Source Serif 4", note: "incumbent", stack: '"Source Serif 4 Variable", ui-serif, Georgia, serif' },
+  { id: "spectral", name: "Spectral", note: "sharp, low contrast, screen-built", stack: '"Spectral", ui-serif, Georgia, serif' },
+  { id: "newsreader", name: "Newsreader", note: "editorial, higher contrast, tighter", stack: '"Newsreader Variable", ui-serif, Georgia, serif' },
+  { id: "literata", name: "Literata", note: "sturdy, slab-adjacent, large x-height", stack: '"Literata Variable", ui-serif, Georgia, serif' },
+  { id: "eb-garamond", name: "EB Garamond", note: "old-style, letterpress, small x-height", stack: '"EB Garamond Variable", ui-serif, Georgia, serif' },
+];
+---
+
+<Base title="Type specimen">
+  <main class="mx-auto w-full max-w-[1100px] px-6 pb-24 sm:px-10">
+    <header class="border-b border-rule py-6">
+      <p class="label text-star">Type specimen - reading faces at real sizes</p>
+    </header>
+
+    {
+      candidates.map((candidate) => (
+        <section class="border-b border-rule py-14">
+          <p class="label mb-8 flex items-baseline gap-3 text-star">
+            <span class="text-bone">{candidate.name}</span>
+            <span class="text-star/70">{candidate.note}</span>
+          </p>
+
+          <div class="note measure text-bone" style={`font-family:${candidate.stack}`}>
+            {AboutBody && <AboutBody />}
+          </div>
+
+          <ol class="mt-10 border border-rule">
+            {latest.map((note, index) => (
+              <li class="plate-row border-t border-rule first:border-t-0">
+                <a href="/articles/" class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:items-baseline sm:gap-x-8 sm:gap-y-0">
+                  <span class="label flex items-baseline gap-2 text-star">
+                    {index === 0 && <span aria-hidden="true" class="mt-[0.35em] h-[6px] w-[6px] shrink-0 bg-ember"></span>}
+                    <time datetime={note.data.created.toISOString().slice(0, 10)}>
+                      {note.data.created.toISOString().slice(0, 10)}
+                    </time>
+                  </span>
+                  <span
+                    class="plate-title text-bone"
+                    style={`font-family:${candidate.stack}; font-size:1.25rem; line-height:1.35`}
+                  >
+                    {note.data.title}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+  </main>
+</Base>

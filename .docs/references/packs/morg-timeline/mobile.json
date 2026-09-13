@@ -1,0 +1,707 @@
+{
+  "meta": {
+    "url": "https://morg.systems/78550a77",
+    "title": "Full Timeline - Morg Systems",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "docHeight": 4037,
+    "docWidth": 390,
+    "prefersDark": true,
+    "contentRoot": {
+      "tag": "body",
+      "class": null,
+      "blocks": 0
+    }
+  },
+  "body": {
+    "fontFamily": "\"Libre Franklin\", serif",
+    "fontSize": "14px",
+    "lineHeight": "19.999px",
+    "fontWeight": "400",
+    "color": "rgba(0, 0, 0, 0.87)",
+    "backgroundColor": "rgb(238, 238, 238)",
+    "padding": "0px",
+    "margin": "0px"
+  },
+  "containers": [
+    {
+      "sel": "contentRoot",
+      "text": "Morg SystemsFull TimelineNo particular tag2026-01-02 Japanese 2025 in Review2025-03-22 Yokubi2025-01-01 Japanese 2024 in",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 844,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": "rgb(238, 238, 238)"
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 40.5
+      }
+    },
+    {
+      "sel": "article",
+      "text": "Full TimelineNo particular tag2026-01-02 Japanese 2025 in Review2025-03-22 Yokubi2025-01-01 Japanese 2024 in Review2024-",
+      "box": {
+        "width": 379,
+        "contentWidth": 349,
+        "height": 3648,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "14px",
+        "paddingRight": "14px",
+        "paddingTop": "14px",
+        "paddingBottom": "14px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": "1px solid rgb(212, 212, 213)",
+        "borderTop": "1px solid rgb(212, 212, 213)",
+        "backgroundColor": "rgb(255, 255, 255)"
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 36.3
+      }
+    },
+    {
+      "sel": "body",
+      "text": "Morg SystemsFull TimelineNo particular tag2026-01-02 Japanese 2025 in Review2025-03-22 Yokubi2025-01-01 Japanese 2024 in",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 844,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": "rgb(238, 238, 238)"
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 40.5
+      }
+    },
+    {
+      "sel": "h1",
+      "text": "Full Timeline",
+      "box": {
+        "width": 349,
+        "contentWidth": 349,
+        "height": 47,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "5.6px",
+        "paddingBottom": "5.6px",
+        "marginTop": "0px",
+        "marginBottom": "14px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": "rgba(118, 118, 118, 0.1)"
+      },
+      "measure": {
+        "chPx": 18.06,
+        "ch": 19.3
+      }
+    },
+    {
+      "sel": "p",
+      "text": "",
+      "box": {
+        "width": 349,
+        "contentWidth": 349,
+        "height": 0,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "14px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 36.3
+      }
+    },
+    {
+      "sel": "time",
+      "text": "2026-01-02",
+      "box": {
+        "width": 84,
+        "contentWidth": 0,
+        "height": 19,
+        "display": "inline",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 8.39,
+        "ch": 0
+      }
+    },
+    {
+      "sel": "[class*=date]",
+      "text": "2020-08-29",
+      "box": {
+        "width": 349,
+        "contentWidth": 349,
+        "height": 21,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 36.3
+      }
+    },
+    {
+      "sel": "[class*=meta]",
+      "text": "2020-08-29",
+      "box": {
+        "width": 349,
+        "contentWidth": 349,
+        "height": 21,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "14px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.63,
+        "ch": 36.3
+      }
+    },
+    {
+      "sel": "nav",
+      "text": "Morg Systems",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 45,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.13,
+        "ch": 42.7
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 402
+    },
+    {
+      "fontFamily": "\"Roboto Mono\", SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 268
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "rgb(118, 118, 118)",
+      "count": 134
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "21px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 23
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "13.2999px",
+      "fontWeight": "400",
+      "lineHeight": "19.999px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 5
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "21px",
+      "letterSpacing": "normal",
+      "color": "rgb(128, 128, 128)",
+      "count": 4
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "13.2999px",
+      "fontWeight": "400",
+      "lineHeight": "19.999px",
+      "letterSpacing": "normal",
+      "color": "rgb(51, 51, 51)",
+      "count": 3
+    },
+    {
+      "fontFamily": "Merriweather, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "23.1429px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 3
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "21px",
+      "letterSpacing": "normal",
+      "color": "rgb(128, 128, 128)",
+      "count": 3
+    },
+    {
+      "fontFamily": "Icons",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "14px",
+      "letterSpacing": "normal",
+      "color": "rgb(255, 255, 255)",
+      "count": 3
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 2
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "19.999px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "13.2999px",
+      "fontWeight": "700",
+      "lineHeight": "19.999px",
+      "letterSpacing": "normal",
+      "color": "rgb(128, 128, 128)",
+      "count": 1
+    },
+    {
+      "fontFamily": "Merriweather, sans-serif",
+      "fontSize": "28px",
+      "fontWeight": "700",
+      "lineHeight": "36px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "14px",
+      "letterSpacing": "0.7px",
+      "color": "rgba(0, 0, 0, 0.85)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "12px",
+      "letterSpacing": "0.7px",
+      "color": "rgb(27, 28, 29)",
+      "count": 1
+    },
+    {
+      "fontFamily": "Icons",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "12px",
+      "letterSpacing": "0.7px",
+      "color": "rgb(27, 28, 29)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "19.999px",
+      "letterSpacing": "normal",
+      "color": "rgb(128, 128, 128)",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "text": [
+      {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "count": 702
+      },
+      {
+        "color": "rgb(118, 118, 118)",
+        "count": 134
+      },
+      {
+        "color": "rgb(128, 128, 128)",
+        "count": 8
+      },
+      {
+        "color": "rgb(51, 51, 51)",
+        "count": 3
+      },
+      {
+        "color": "rgba(0, 0, 0, 0.85)",
+        "count": 1
+      },
+      {
+        "color": "rgb(27, 28, 29)",
+        "count": 1
+      }
+    ],
+    "backgrounds": [
+      {
+        "color": "rgb(255, 255, 255)",
+        "count": 3
+      },
+      {
+        "color": "rgba(118, 118, 118, 0.1)",
+        "count": 1
+      }
+    ]
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Full Timeline",
+      "fontFamily": "Merriweather, sans-serif",
+      "fontSize": "28px",
+      "fontWeight": "700",
+      "lineHeight": "36px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "14px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "Backlinks",
+      "fontFamily": "Merriweather, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "23.1429px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "fontStyle": "normal",
+      "marginTop": "-2.57143px",
+      "marginBottom": "14px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "Uplinks",
+      "fontFamily": "Merriweather, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "23.1429px",
+      "letterSpacing": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "fontStyle": "normal",
+      "marginTop": "25.4286px",
+      "marginBottom": "14px",
+      "textTransform": "none"
+    }
+  ],
+  "links": {
+    "color": "rgb(128, 128, 128)",
+    "textDecorationLine": "underline",
+    "textDecorationStyle": "solid",
+    "textDecorationColor": "rgb(128, 128, 128)",
+    "textUnderlineOffset": "auto",
+    "fontWeight": "700",
+    "borderBottom": null,
+    "sampleText": "Morg Systems"
+  },
+  "rows": {
+    "listContainer": {
+      "tag": "div",
+      "class": "ui list listing",
+      "rows": 134,
+      "box": {
+        "width": 349,
+        "contentWidth": 349,
+        "height": 3470,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "14px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      }
+    },
+    "secondRow": "2025-03-22 Yokubi",
+    "sampleText": "2026-01-02 Japanese 2025 in Review",
+    "rowDisplay": "list-item",
+    "rowGridTemplateColumns": "none",
+    "rowGap": null,
+    "rowPaddingY": "0px / 3px",
+    "listDisplay": "block",
+    "listGap": null,
+    "listPaddingLeft": "0px",
+    "listStyle": "none",
+    "gapBetweenRowsPx": 0,
+    "rowStridePx": 19,
+    "dateElement": {
+      "tag": "time",
+      "text": "2026-01-02",
+      "fontFamily": "\"Roboto Mono\", SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "fontSize": "14px",
+      "fontStyle": "normal",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "textTransform": "none",
+      "width": 84
+    },
+    "titleElement": {
+      "text": "Japanese 2025 in Review",
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "lineHeight": "16px",
+      "color": "rgb(118, 118, 118)",
+      "textDecorationLine": "underline",
+      "description": null
+    }
+  },
+  "rules": [],
+  "nav": [
+    {
+      "text": "Morg Systems",
+      "href": ".",
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "13.2999px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(128, 128, 128)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "Full Timeline",
+      "href": "78550a77",
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(128, 128, 128)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "Morg Systems",
+      "href": ".",
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(128, 128, 128)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "Full Timeline",
+      "href": "78550a77",
+      "fontFamily": "\"Libre Franklin\", serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(128, 128, 128)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "",
+      "href": ".",
+      "fontFamily": "Lato, \"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "textDecorationLine": "none",
+      "padding": "13px 16px",
+      "borderRadius": "0px 0px 0px 4px",
+      "backgroundColor": null
+    },
+    {
+      "text": "",
+      "href": "https://github.com/Morgawr/morg-zettel/edit/master/./78550a77.md",
+      "fontFamily": "Lato, \"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "textDecorationLine": "none",
+      "padding": "13px 16px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "",
+      "href": "impulse",
+      "fontFamily": "Lato, \"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "textDecorationLine": "none",
+      "padding": "13px 16px",
+      "borderRadius": "0px 4px 4px 0px",
+      "backgroundColor": null
+    }
+  ],
+  "images": [
+    {
+      "src": "https://raw.githubusercontent.com/srid/neuron/master/assets/neuron.svg",
+      "alt": "logo",
+      "width": 80,
+      "height": 80,
+      "borderRadius": "0px",
+      "objectFit": "fill"
+    }
+  ],
+  "rhythm": [
+    {
+      "tag": "p",
+      "text": "",
+      "gapFromPrevPx": 14,
+      "marginTop": "0px",
+      "marginBottom": "14px",
+      "lineHeight": "21px"
+    },
+    {
+      "tag": "p",
+      "text": "",
+      "gapFromPrevPx": 3522,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "21px"
+    }
+  ]
+}

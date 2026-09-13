@@ -1,0 +1,971 @@
+{
+  "meta": {
+    "url": "https://rasyidanaf.com/notes/",
+    "title": "Notes | Rasyidan A F",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "docHeight": 3251,
+    "docWidth": 390,
+    "prefersDark": true,
+    "contentRoot": {
+      "tag": "section",
+      "class": "date-group",
+      "blocks": 6
+    }
+  },
+  "body": {
+    "fontFamily": "\"JetBrains Mono\", monospace",
+    "fontSize": "16px",
+    "lineHeight": "24px",
+    "fontWeight": "400",
+    "color": "rgb(248, 250, 252)",
+    "backgroundColor": "rgb(2, 8, 23)",
+    "padding": "0px",
+    "margin": "0px"
+  },
+  "containers": [
+    {
+      "sel": "contentRoot",
+      "text": "22 AUG 202621:06 UTC+7NOTEforgejo service as declarative nix codeI wish more people understood that with nix and nixos m",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 1973,
+        "display": "block",
+        "gridTemplateColumns": "minmax(120px, 160px) minmax(0px, 1fr)",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "36px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 37.3
+      }
+    },
+    {
+      "sel": "main",
+      "text": "notes Short public records, explorations, findings, and things worth remembering. [tags] [rss] 03 SEPT 202616:35 UTC+7NO",
+      "box": {
+        "width": 390,
+        "contentWidth": 358,
+        "height": 3119,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "16px",
+        "paddingRight": "16px",
+        "paddingTop": "32px",
+        "paddingBottom": "32px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 37.3
+      }
+    },
+    {
+      "sel": "article",
+      "text": "16:35 UTC+7NOTEBenchmarking Coffeeshops in Tebet, South JakartaSince I have been visiting many coffee shops in Tebet, So",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 311,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "28px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 37.3
+      }
+    },
+    {
+      "sel": "body",
+      "text": "const theme = (() => { if ( typeof localStorage !== \"undefined\" && localStorage.getItem(\"theme\") ) { return localStorage",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 3251,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": "rgb(2, 8, 23)"
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 40.7
+      }
+    },
+    {
+      "sel": "h1",
+      "text": "notes",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 46,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 18.23,
+        "ch": 19.6
+      }
+    },
+    {
+      "sel": "p",
+      "text": "Short public records, explorations, findings, and things worth remembering.",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 82,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "14.4px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 37.3
+      }
+    },
+    {
+      "sel": "time",
+      "text": "16:35 UTC+7",
+      "box": {
+        "width": 85,
+        "contentWidth": 85,
+        "height": 19,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 7.42,
+        "ch": 11.5
+      }
+    },
+    {
+      "sel": "[class*=date]",
+      "text": "03 SEPT 202616:35 UTC+7NOTEBenchmarking Coffeeshops in Tebet, South JakartaSince I have been visiting many coffee shops ",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 360,
+        "display": "block",
+        "gridTemplateColumns": "minmax(120px, 160px) minmax(0px, 1fr)",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "36px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 37.3
+      }
+    },
+    {
+      "sel": "[class*=meta]",
+      "text": "16:35 UTC+7NOTE",
+      "box": {
+        "width": 358,
+        "contentWidth": 358,
+        "height": 19,
+        "display": "flex",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": "10.4px",
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "9.6px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 7.42,
+        "ch": 48.2
+      }
+    },
+    {
+      "sel": "header",
+      "text": "[menu] home about projects blog notes home about projects blog notes [light] [dark] const t=document.getElementById(\"mod",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 56,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": "rgb(2, 8, 23)"
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 40.7
+      }
+    },
+    {
+      "sel": "nav",
+      "text": "home about projects blog notes",
+      "box": {
+        "width": 0,
+        "contentWidth": 0,
+        "height": 0,
+        "display": "none",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9.59,
+        "ch": 0
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 56
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "11.52px",
+      "fontWeight": "400",
+      "lineHeight": "17.28px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 54
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "27.2px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 43
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 36
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12.4px",
+      "fontWeight": "400",
+      "lineHeight": "18.6px",
+      "letterSpacing": "0.31px",
+      "color": "rgb(248, 250, 252)",
+      "count": 16
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 10
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 8
+    },
+    {
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16.8px",
+      "fontWeight": "600",
+      "lineHeight": "24.36px",
+      "letterSpacing": "-0.42px",
+      "color": "rgb(248, 250, 252)",
+      "count": 7
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14.08px",
+      "fontWeight": "400",
+      "lineHeight": "23.936px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 7
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12.48px",
+      "fontWeight": "400",
+      "lineHeight": "18.72px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 3
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "13.2px",
+      "fontWeight": "600",
+      "lineHeight": "19.8px",
+      "letterSpacing": "0.858px",
+      "color": "rgb(251, 146, 60)",
+      "count": 3
+    },
+    {
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "30.4px",
+      "fontWeight": "700",
+      "lineHeight": "45.6px",
+      "letterSpacing": "-0.76px",
+      "color": "rgb(248, 250, 252)",
+      "count": 2
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12.4px",
+      "fontWeight": "700",
+      "lineHeight": "18.6px",
+      "letterSpacing": "1.116px",
+      "color": "rgb(248, 250, 252)",
+      "count": 2
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "letterSpacing": "normal",
+      "color": "rgb(251, 171, 81)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "rgb(251, 171, 81)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "28px",
+      "letterSpacing": "normal",
+      "color": "rgb(248, 250, 252)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "lineHeight": "24px",
+      "letterSpacing": "-0.4px",
+      "color": "rgb(248, 250, 252)",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "text": [
+      {
+        "color": "rgb(248, 250, 252)",
+        "count": 239
+      },
+      {
+        "color": "rgb(251, 146, 60)",
+        "count": 3
+      },
+      {
+        "color": "rgb(251, 171, 81)",
+        "count": 2
+      }
+    ],
+    "backgrounds": [
+      {
+        "color": "rgb(30, 41, 59)",
+        "count": 7
+      },
+      {
+        "color": "rgb(2, 8, 23)",
+        "count": 3
+      }
+    ]
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "notes",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "30.4px",
+      "fontWeight": "700",
+      "lineHeight": "45.6px",
+      "letterSpacing": "-0.76px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "03 SEPT 2026",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "13.2px",
+      "fontWeight": "600",
+      "lineHeight": "19.8px",
+      "letterSpacing": "0.858px",
+      "color": "rgb(251, 146, 60)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "22 AUG 2026",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "13.2px",
+      "fontWeight": "600",
+      "lineHeight": "19.8px",
+      "letterSpacing": "0.858px",
+      "color": "rgb(251, 146, 60)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "21 AUG 2026",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "13.2px",
+      "fontWeight": "600",
+      "lineHeight": "19.8px",
+      "letterSpacing": "0.858px",
+      "color": "rgb(251, 146, 60)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "keyboard shortcuts",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "lineHeight": "24px",
+      "letterSpacing": "-0.4px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "Benchmarking Coffeeshops in Tebet, South Jakarta",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16.8px",
+      "fontWeight": "600",
+      "lineHeight": "24.36px",
+      "letterSpacing": "-0.42px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "8.8px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "forgejo service as declarative nix code",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16.8px",
+      "fontWeight": "600",
+      "lineHeight": "24.36px",
+      "letterSpacing": "-0.42px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "8.8px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "svelte components",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16.8px",
+      "fontWeight": "600",
+      "lineHeight": "24.36px",
+      "letterSpacing": "-0.42px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "8.8px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h3",
+      "text": "git rebase",
+      "fontFamily": "\"IBM Plex Mono\", monospace",
+      "fontSize": "16.8px",
+      "fontWeight": "600",
+      "lineHeight": "24.36px",
+      "letterSpacing": "-0.42px",
+      "color": "rgb(248, 250, 252)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "8.8px",
+      "textTransform": "none"
+    }
+  ],
+  "links": {
+    "color": "rgb(248, 250, 252)",
+    "textDecorationLine": "none",
+    "textDecorationStyle": "solid",
+    "textDecorationColor": "rgb(248, 250, 252)",
+    "textUnderlineOffset": "auto",
+    "fontWeight": "500",
+    "borderBottom": null,
+    "sampleText": "home"
+  },
+  "rows": {
+    "listContainer": {
+      "tag": "ul",
+      "class": null,
+      "rows": 7,
+      "box": {
+        "width": 358,
+        "contentWidth": 336.4,
+        "height": 190,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "21.6px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "12px",
+        "marginBottom": "12px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      }
+    },
+    "secondRow": "svelte table",
+    "sampleText": "svelte animation",
+    "rowDisplay": "list-item",
+    "rowGridTemplateColumns": "none",
+    "rowGap": null,
+    "rowPaddingY": "0px / 0px",
+    "listDisplay": "block",
+    "listGap": null,
+    "listPaddingLeft": "21.6px",
+    "listStyle": "disc",
+    "gapBetweenRowsPx": 0,
+    "rowStridePx": 27,
+    "dateElement": {
+      "tag": "a",
+      "text": "svelte animation",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontStyle": "normal",
+      "color": "rgb(248, 250, 252)",
+      "textTransform": "none",
+      "width": 154
+    },
+    "titleElement": {
+      "text": "svelte animation",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "27.2px",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "underline",
+      "description": null
+    }
+  },
+  "rules": [],
+  "nav": [
+    {
+      "text": "home",
+      "href": "/",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "about",
+      "href": "/about",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "projects",
+      "href": "/projects",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "blog",
+      "href": "/blog",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "notes",
+      "href": "/notes",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(251, 171, 81)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "home",
+      "href": "/",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "about",
+      "href": "/about",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "projects",
+      "href": "/projects",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "blog",
+      "href": "/blog",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "notes",
+      "href": "/notes",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(251, 171, 81)",
+      "textDecorationLine": "underline",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "[tags]",
+      "href": "/notes/tags/",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12.48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    },
+    {
+      "text": "[rss]",
+      "href": "/notes/rss.xml",
+      "fontFamily": "\"JetBrains Mono\", monospace",
+      "fontSize": "12.48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(248, 250, 252)",
+      "textDecorationLine": "none",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "backgroundColor": null
+    }
+  ],
+  "images": [],
+  "rhythm": [
+    {
+      "tag": "p",
+      "text": "Short public records, explorations, findings, and things worth remembering.",
+      "gapFromPrevPx": 14,
+      "marginTop": "14.4px",
+      "marginBottom": "0px",
+      "lineHeight": "27.2px"
+    },
+    {
+      "tag": "h2",
+      "text": "03 SEPT 2026",
+      "gapFromPrevPx": 71,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "19.8px"
+    },
+    {
+      "tag": "li",
+      "text": "16:35 UTC+7NOTEBenchmarking Coffeeshops in Tebet, South JakartaSince I have been visiting many coffee shops in Tebet, So",
+      "gapFromPrevPx": 18,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "24px"
+    },
+    {
+      "tag": "p",
+      "text": "Since I have been visiting many coffee shops in Tebet, South Jakarta, I have religiously logged each one in Obsidian. I ",
+      "gapFromPrevPx": -225,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "27.2px"
+    },
+    {
+      "tag": "li",
+      "text": "[coffeeshop]",
+      "gapFromPrevPx": 16,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    },
+    {
+      "tag": "li",
+      "text": "[coffee]",
+      "gapFromPrevPx": -17,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    },
+    {
+      "tag": "li",
+      "text": "[jakarta]",
+      "gapFromPrevPx": -17,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    },
+    {
+      "tag": "h2",
+      "text": "22 AUG 2026",
+      "gapFromPrevPx": 65,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "19.8px"
+    },
+    {
+      "tag": "li",
+      "text": "21:06 UTC+7NOTEforgejo service as declarative nix codeI wish more people understood that with nix and nixos modules, you",
+      "gapFromPrevPx": 18,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "24px"
+    },
+    {
+      "tag": "p",
+      "text": "I wish more people understood that with nix and nixos modules, you can do some IaaC stuff which declares how a service s",
+      "gapFromPrevPx": -253,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "27.2px"
+    },
+    {
+      "tag": "li",
+      "text": "[git]",
+      "gapFromPrevPx": 16,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    },
+    {
+      "tag": "li",
+      "text": "[nix]",
+      "gapFromPrevPx": -17,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    },
+    {
+      "tag": "li",
+      "text": "[forgejo]",
+      "gapFromPrevPx": -17,
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "lineHeight": "17.28px"
+    }
+  ]
+}

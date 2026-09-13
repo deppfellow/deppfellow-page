@@ -1,0 +1,117 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll assigned Closed Stacks. Keep it, take an alternate, or re-roll.",
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "steer": true,
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Closed Stacks",
+      "kicker": "THE ROLL",
+      "lineage": "library card catalogues and reading-room card indexes",
+      "thesis": "One index, two readers: you walk the drawers, agents read the same cards.",
+      "palette": ["#090a0c", "#111111", "#e5e5e7", "#5683da", "#ff8964"],
+      "materials": ["typed index cards", "drawer hardware", "reading-room baize"],
+      "viewport": "The cabinet at night: drawer labels as navigation, one card on the desk, the latest ten fanned from the open drawer.",
+      "risk": "Repro-stalgia: typed cards read as cosplay unless the marks carry real state.",
+      "raised": [
+        { "from": "challenger-cyclorama", "raise": "The cabinet sits in one continuous field of light, with no section boxes or panel chrome anywhere." },
+        { "from": "challenger-depot-blind", "raise": "Motion is one mechanical step that overshoots and settles; nothing glides, nothing fades in." },
+        { "from": "challenger-cutting-bench", "raise": "State is a mark, never a hue: new, updated, and today are grease-pencil marks in the single accent." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Plates and Declinations",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "observatory plate atlases and long-exposure sky surveys",
+      "thesis": "The corpus as a measured sky: every note a dated plate, every wikilink a real constellation line.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["photographic plates", "ruled catalogue columns", "engraved instrument scales"],
+      "viewport": "A single exposed plate: navigation rides ruled catalogue columns, entries are dated like observations.",
+      "risk": "Dark ground with fine light marks is a familiar cosmic look, and it only earns its place if the stars carry real dates and neighbours rather than decoration."
+    },
+    {
+      "id": "challenger-ribbon",
+      "label": "Provenance Ribbon",
+      "verdict": "competitive",
+      "lineage": "museum accession ledgers and custody records",
+      "thesis": "Every note shows its custody: what is known, what is inferred, and who wrote it.",
+      "palette": ["#e9e0cc", "#a3252b", "#8e8778"],
+      "materials": ["laid paper", "silk ribbon", "absorbed stamp ink"],
+      "viewport": "One ribbon column down the page, dated folds in ledger serif, tracing a note's life.",
+      "case": "Fuses cleanly: provenance is already this product's word (origin, promote, previous) and known-versus-inferred type maps honestly onto human and agent authorship; the buff ground is the one material conflict, translated onto the pinned black.",
+      "risk": "Archival red on buff reads institutional, and the ribbon can become ornament instead of the chain it describes."
+    },
+    {
+      "id": "challenger-rack",
+      "label": "Timetable Slide Rack",
+      "verdict": "competitive",
+      "lineage": "pocket airline timetables and tinted glass slides",
+      "thesis": "One type size for the whole site; rank is carried by weight, case and rule alone.",
+      "palette": ["#d8a429", "#3b4a52", "#16181a", "#efe6d0"],
+      "materials": ["tinted glass", "carbon matte", "lit stock"],
+      "viewport": "A raked rack of slides along one bed, a tick rail showing position, each slide restating its own heading.",
+      "case": "Fuses cleanly onto the list surfaces: the rack is the archive, the tick rail answers long log runs, and a single type size is a real discipline for a text-first site; the lit bed becomes one raking light on black.",
+      "risk": "Goldenrod fights the pinned palette, and one type size goes flat without iron rules for rank."
+    },
+    {
+      "id": "challenger-noir",
+      "label": "Two-Ink One-Sheet",
+      "verdict": "competitive",
+      "lineage": "postwar crime-film one-sheets",
+      "thesis": "The whole site printed in two inks, with the shadow carrying the hierarchy.",
+      "palette": ["#0b0b0b", "#d1a23a", "#f3ec06"],
+      "materials": ["ink black", "sour amber", "cream stock"],
+      "viewport": "A title set like a charge being read out, a small figure, a long shadow, and a ruled billing block at the foot.",
+      "case": "Fuses on identification: it is the most cinematic hand dealt and the closest to a monochrome editorial at full commitment; the shadow-as-navigation device is where it fails clarity.",
+      "risk": "Shadow-led navigation is theatre rather than wayfinding, and the cream stock clashes with the pinned canvas."
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "Cyclorama Dawn",
+      "verdict": "declined",
+      "lineage": "stage lighting plots and cyclorama washes",
+      "thesis": "Atmosphere organised as horizon bands, from depthless black through cobalt and rose to white day.",
+      "palette": ["#0a0a0c", "#1f4fa8", "#c98a8a", "#f4f1ea"],
+      "materials": ["depthless black", "cobalt wash", "rose gather"],
+      "viewport": "Stacked horizon bands of light with the content held inside them, cue names in lighting-plot stencil caps.",
+      "kept": "One continuous atmospheric field.",
+      "hero": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn-hero.webp"
+    },
+    {
+      "id": "challenger-depot-blind",
+      "label": "Depot Destination Blind",
+      "verdict": "declined",
+      "lineage": "bus and tram destination blinds",
+      "thesis": "Content rides stacked cloth courses that step under one fixed window, one size of condensed caps throughout.",
+      "palette": ["#12402c", "#e8c332", "#efe9dc"],
+      "materials": ["dyed duck cloth", "chrome-yellow legend", "punched eyelet tape"],
+      "viewport": "A roll of cloth courses stepping under one window, a punched tape edge as the index.",
+      "kept": "Motion as one snapped course that overshoots and settles.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-depot-blind-courses-hero.webp"
+    },
+    {
+      "id": "challenger-cutting-bench",
+      "label": "Cutting Bench Rail",
+      "verdict": "declined",
+      "lineage": "film cutting benches and work prints",
+      "thesis": "One ink on true black, rank by cell count, and state carried entirely by marks.",
+      "palette": ["#0d0d0d", "#e2701f", "#f2f2f2"],
+      "materials": ["film grain", "grease pencil", "perforated rail"],
+      "viewport": "A perforated rail crossing the sheet, frames strung along it, set-aside frames hanging below on pins.",
+      "kept": "State as a mark, not a hue.",
+      "hero": "https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail-hero.webp"
+    }
+  ],
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "What a personal engineering blog ships: a centred column on light paper, one reading serif, sans metadata, one link blue.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "system type"],
+    "viewport": "A centred column, a dated post list, an about paragraph at the top.",
+    "risk": "Indistinguishable from the competition by design."
+  }
+}

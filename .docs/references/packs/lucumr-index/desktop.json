@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "url": "https://lucumr.pocoo.org/",
+    "title": "Blog | Armin Ronacher's Thoughts and Writings",
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1
+    },
+    "docHeight": 1893,
+    "docWidth": 1425,
+    "prefersDark": true,
+    "contentRoot": {
+      "tag": "div",
+      "class": "footer",
+      "blocks": 4
+    }
+  },
+  "body": {
+    "fontFamily": "Merriweather, serif",
+    "fontSize": "17px",
+    "lineHeight": "25px",
+    "fontWeight": "400",
+    "color": "rgb(220, 231, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "padding": "0px",
+    "margin": "0px"
+  },
+  "containers": [
+    {
+      "sel": "contentRoot",
+      "text": "© Copyright 2026 by Armin Ronacher. Content licensed under the Creative Commons Attribution-NonCommercial 4.0 Internatio",
+      "box": {
+        "width": 860,
+        "contentWidth": 860,
+        "height": 150,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "55px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.28,
+        "ch": 83.6
+      }
+    },
+    {
+      "sel": "body",
+      "text": "let $THEME = null; function selectTheme(theme) { const node = document.documentElement; if (theme === \"system\") { localS",
+      "box": {
+        "width": 1425,
+        "contentWidth": 1425,
+        "height": 1893,
+        "display": "flex",
+        "gridTemplateColumns": "none",
+        "flexDirection": "column",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 130.5
+      }
+    },
+    {
+      "sel": "h1",
+      "text": "Astra for Coding: Why Are We Doing This Again?",
+      "box": {
+        "width": 302,
+        "contentWidth": 0,
+        "height": 51,
+        "display": "inline",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 0
+      }
+    },
+    {
+      "sel": "p",
+      "text": "Some thoughts on Astra and newfangled long-horizon models.",
+      "box": {
+        "width": 327,
+        "contentWidth": 0,
+        "height": 51,
+        "display": "inline",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 0
+      }
+    },
+    {
+      "sel": "[class*=date]",
+      "text": "Sep 07, 2026",
+      "box": {
+        "width": 120,
+        "contentWidth": 120,
+        "height": 24,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 9,
+        "ch": 13.3
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(220, 231, 243)",
+      "count": 36
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "28.9px",
+      "letterSpacing": "normal",
+      "color": "rgb(220, 231, 243)",
+      "count": 25
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(174, 195, 214)",
+      "count": 24
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(102, 179, 255)",
+      "count": 17
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "23.8px",
+      "letterSpacing": "normal",
+      "color": "rgb(174, 195, 214)",
+      "count": 10
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "count": 10
+    },
+    {
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "rgb(255, 255, 255)",
+      "count": 3
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "28.9px",
+      "letterSpacing": "normal",
+      "color": "rgb(102, 179, 255)",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "text": [
+      {
+        "color": "rgb(220, 231, 243)",
+        "count": 57
+      },
+      {
+        "color": "rgb(174, 195, 214)",
+        "count": 34
+      },
+      {
+        "color": "rgb(102, 179, 255)",
+        "count": 18
+      },
+      {
+        "color": "rgb(150, 175, 218)",
+        "count": 10
+      }
+    ],
+    "backgrounds": []
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Astra for Coding: Why Are We Doing This Again?",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h1",
+      "text": "Latent Powers",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h1",
+      "text": "Anger, Anxiety and Agency",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h1",
+      "text": "Fast and Hard Code",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "textTransform": "none"
+    }
+  ],
+  "links": {
+    "color": "rgb(102, 179, 255)",
+    "textDecorationLine": "underline",
+    "textDecorationStyle": "solid",
+    "textDecorationColor": "rgb(102, 179, 255)",
+    "textUnderlineOffset": "auto",
+    "fontWeight": "400",
+    "borderBottom": null,
+    "sampleText": "Armin Ronacher"
+  },
+  "rows": {
+    "listContainer": {
+      "tag": "div",
+      "class": "entry-wrapper",
+      "rows": 10,
+      "box": {
+        "width": 800,
+        "contentWidth": 800,
+        "height": 861,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      }
+    },
+    "secondRow": "Sep 05, 2026 Latent Powers Are we all discovering the same things at once?",
+    "sampleText": "Sep 07, 2026 Astra for Coding: Why Are We Doing This Again? Some thoughts on Astra and newfangled long-horizon models.",
+    "rowDisplay": "block",
+    "rowGridTemplateColumns": "none",
+    "rowGap": null,
+    "rowPaddingY": "0px / 0px",
+    "listDisplay": "block",
+    "listGap": null,
+    "listPaddingLeft": "0px",
+    "listStyle": "disc",
+    "gapBetweenRowsPx": 25,
+    "rowStridePx": 112,
+    "dateElement": {
+      "tag": "div",
+      "text": "Sep 07, 2026",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "14px",
+      "fontStyle": "italic",
+      "color": "rgb(174, 195, 214)",
+      "textTransform": "none",
+      "width": 120
+    },
+    "titleElement": {
+      "text": "Astra for Coding: Why Are We Doing This Again?",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "color": "rgb(102, 179, 255)",
+      "textDecorationLine": "none",
+      "description": {
+        "text": "Some thoughts on Astra and newfangled long-horizon models.",
+        "fontSize": "17px",
+        "color": "rgb(220, 231, 243)",
+        "fontFamily": "Merriweather, serif"
+      }
+    }
+  },
+  "rules": [],
+  "nav": [],
+  "images": [],
+  "rhythm": []
+}

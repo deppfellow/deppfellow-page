@@ -1,0 +1,72 @@
+{
+  "title": "Choose the home composition",
+  "question": "Re-rolled hand. The deal now leads with Plate Stack. Lock one structure for the home page, or re-roll.",
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "steer": true,
+  "canon": false,
+  "options": [
+    {
+      "id": "structure-plate-stack",
+      "label": "Plate Stack",
+      "kicker": "THE ROLL",
+      "thesis": "One centred column: the observer's note sits on top of a stack of dated plates whose edges show how much lies beneath.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["photographic plates", "ruled catalogue columns", "engraved rule work"],
+      "viewport": "A ruled band across the top carrying the site name and the category links, the observer's note as the top sheet, then the latest ten articles as plates stacked down the centre with only their top edges showing.",
+      "risk": "The most legible of the three and the least distinctive: it earns the world only through rule work, paper edges and the marks.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "rule band: name + category links", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+          { "label": "observer note (ABOUT)", "x": 2, "y": 1, "w": 8, "h": 2 },
+          { "label": "plate stack: latest 10 articles", "x": 2, "y": 3, "w": 8, "h": 6, "accent": true },
+          { "label": "base rule", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      }
+    },
+    {
+      "id": "structure-declination-table",
+      "label": "Declination Table",
+      "kicker": "",
+      "thesis": "The home page as an atlas appendix: one ruled table, dates in tabular figures, titles between the rules, marks at the right edge.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["catalogue columns", "tabular figures", "hairline rules"],
+      "viewport": "A scale rail across the top for navigation, the observer's note set as the table's headnote, then a single ruled table of the ten most recent articles with date, title and a magnitude mark.",
+      "risk": "A table-first home reads as an index rather than a welcome, and the rules must be exact or it turns into a spreadsheet.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "scale rail (nav + categories)", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "headnote (ABOUT)", "x": 0, "y": 1, "w": 12, "h": 2 },
+          { "label": "declination table: date / title / mark", "x": 0, "y": 3, "w": 12, "h": 5, "accent": true },
+          { "label": "base rule", "x": 0, "y": 8, "w": 12, "h": 1 },
+          { "label": "colophon", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      }
+    },
+    {
+      "id": "structure-instrument-desk",
+      "label": "Instrument Desk",
+      "kicker": "",
+      "thesis": "An engraved scale rail across the top, a plate on the desk beneath it, and the entries kept in a ruled ledger at the plate's edge.",
+      "palette": ["#05070c", "#9fb6d9", "#5683da", "#ff8964"],
+      "materials": ["engraved instrument scales", "plate photographs", "ledger rule"],
+      "viewport": "A brass scale rail carrying the name and the category links, the observer's note and a plate sharing the upper field, then a ruled ledger column listing the ten latest articles.",
+      "risk": "Instrument chrome flirts with kitsch, and the scale rail has to work as real navigation rather than ornament.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "scale rail (nav + categories)", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+          { "label": "observer note (ABOUT)", "x": 0, "y": 1, "w": 5, "h": 3 },
+          { "label": "plate field", "x": 6, "y": 1, "w": 6, "h": 3 },
+          { "label": "ledger column: latest 10 articles", "x": 0, "y": 4, "w": 12, "h": 5, "accent": true },
+          { "label": "base rule", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      }
+    }
+  ]
+}

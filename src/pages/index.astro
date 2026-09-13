@@ -1,0 +1,69 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import RuleBand from "../components/RuleBand.astro";
+import PlateRow from "../components/PlateRow.astro";
+import { readRegistry, vaultRoot } from "../lib/vault";
+
+const categories = await readRegistry(vaultRoot());
+const notes = await getCollection("notes");
+
+const links = categories.map((category) => ({
+  label: category,
+  href: `/${category.toLowerCase()}/`,
+  count: notes.filter((note) => note.data.category === category).length,
+}));
+
+const latest = notes
+  .filter((note) => note.data.category === "Articles")
+  .sort((a, b) => b.data.created.getTime() - a.data.created.getTime())
+  .slice(0, 10);
+
+const about = await getEntry("meta", "about");
+const AboutBody = about ? (await render(about)).Content : null;
+---
+
+<Base title="deppfellow">
+  <RuleBand name="deppfellow" links={links} />
+
+  <main class="mx-auto w-full max-w-[1100px] px-6 sm:px-10">
+    {
+      AboutBody && (
+        <section class="note measure pt-16 pb-16 text-note text-bone sm:pt-24 sm:pb-20">
+          <AboutBody />
+        </section>
+      )
+    }
+
+    <section class="pb-24 sm:pb-32" aria-labelledby="latest">
+      <div class="mb-6 flex items-baseline justify-between gap-6 border-t border-rule pt-10">
+        <h2 id="latest" class="label text-star">Latest articles</h2>
+        <span class="label flex items-center gap-2 text-star/70">
+          <span aria-hidden="true" class="h-[6px] w-[6px] bg-ember"></span>Most recent
+        </span>
+      </div>
+      <div class="relative">
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-3 left-3 right-3 h-full border-x border-b border-rule bg-plate-edge"
+        ></span>
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-6 left-6 right-6 h-full border-x border-b border-rule bg-plate-edge"
+        ></span>
+        <ol class="relative border border-rule bg-plate">
+          {
+            latest.map((note, index) => (
+              <PlateRow
+                href={`/articles/${note.data.slug}/`}
+                title={note.data.title}
+                created={note.data.created}
+                newest={index === 0}
+              />
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+  </main>
+</Base>

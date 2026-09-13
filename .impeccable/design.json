@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-12T18:10:00Z",
+  "title": "Design System: deppfellow",
+  "extensions": {
+    "colorMeta": {
+      "plate": {
+        "role": "neutral",
+        "displayName": "Plate Black",
+        "canonical": "#05070c",
+        "tonalRamp": ["#171f36", "#28375f", "#394f88", "#4a67b1", "#7289c4", "#9babd5", "#c4cee6", "#edf0f8"]
+      },
+      "plate-edge": {
+        "role": "neutral",
+        "displayName": "Plate Edge",
+        "canonical": "#0a0d15",
+        "tonalRamp": ["#192034", "#2b395b", "#3e5183", "#5169aa", "#778bbe", "#9fadd1", "#c6cee4", "#eef0f7"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#1b2230",
+        "tonalRamp": ["#1c2331", "#313d56", "#46587c", "#5a72a1", "#7f91b7", "#a4b1cc", "#c9d1e1", "#eff1f6"]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#2a3446",
+        "tonalRamp": ["#1d2430", "#333f54", "#485a79", "#5e759d", "#8294b4", "#a6b3ca", "#cbd2e0", "#eff1f5"]
+      },
+      "bone": {
+        "role": "primary",
+        "displayName": "Bone Ink",
+        "canonical": "#e8eef7",
+        "tonalRamp": ["#142339", "#233d64", "#32578f", "#4172ba", "#6a91cb", "#96b1da", "#c1d1e9", "#ecf1f8"]
+      },
+      "star": {
+        "role": "secondary",
+        "displayName": "Star Blue",
+        "canonical": "#9fb6d9",
+        "tonalRamp": ["#162337", "#263d61", "#37588a", "#4772b4", "#6f92c6", "#99b2d7", "#c3d1e7", "#edf1f8"]
+      },
+      "iris": {
+        "role": "tertiary",
+        "displayName": "Electric Iris",
+        "canonical": "#5683da",
+        "tonalRamp": ["#0e1e3f", "#18366f", "#234d9e", "#2d64ce", "#5b86db", "#8aa9e5", "#bacdf0", "#eaf0fa"]
+      },
+      "ember": {
+        "role": "tertiary",
+        "displayName": "Ember Pulse",
+        "canonical": "#ff8964",
+        "tonalRamp": ["#471506", "#7d250a", "#b3360e", "#e94613", "#f06e46", "#f4987c", "#f9c2b1", "#fdede7"]
+      }
+    },
+    "typographyMeta": {
+      "note": { "displayName": "Observer's Note", "purpose": "The home note from ABOUT.md; the largest reading voice in the system." },
+      "title": { "displayName": "Plate Title", "purpose": "List row titles in the reading serif." },
+      "label": { "displayName": "Scale Label", "purpose": "Dates, counts, legends, navigation and section names, always in caps." }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "one-step",
+        "value": "120ms steps(2, end)",
+        "purpose": "The only transition in the system: a single mechanical step with a 3px overshoot that settles at 2px, used when a ruled row is hovered."
+      }
+    ],
+    "breakpoints": [{ "name": "sm", "value": "640px" }]
+  },
+  "components": [
+    {
+      "name": "Rule Band",
+      "kind": "nav",
+      "refersTo": "rule-band",
+      "description": "The header: site name left, category links with tabular counts right, bounded by hairlines.",
+      "html": "<header class=\"ds-rule-band\"><a class=\"ds-rule-band__name\" href=\"/\">deppfellow</a><nav class=\"ds-rule-band__nav\"><a class=\"ds-category-link\" href=\"/articles/\">Articles <span class=\"ds-category-link__count\">12</span></a><a class=\"ds-category-link\" href=\"/projects/\">Projects <span class=\"ds-category-link__count\">03</span></a></nav></header>",
+      "css": ".ds-rule-band { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 40px; padding: 20px 40px; background: var(--color-plate, #05070c); border-bottom: 1px solid var(--color-rule, #1b2230); font-family: var(--font-label, sans-serif); } .ds-rule-band__name { color: var(--color-bone, #e8eef7); font-size: 15px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; } .ds-rule-band__nav { display: flex; gap: 24px; } .ds-category-link { color: var(--color-star, #9fb6d9); font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; text-decoration: none; font-variant-numeric: tabular-nums; transition: color 120ms steps(2, end); } .ds-category-link:hover, .ds-category-link:focus-visible { color: var(--color-iris, #5683da); } .ds-category-link__count { color: color-mix(in oklab, var(--color-star, #9fb6d9) 70%, var(--color-plate, #05070c)); }"
+    },
+    {
+      "name": "Stack",
+      "kind": "custom",
+      "refersTo": "plate-row",
+      "description": "A bordered list container with two hairline edge layers stepping below it: a stack of sheets.",
+      "html": "<div class=\"ds-stack\"><span class=\"ds-stack__edge ds-stack__edge--far\"></span><span class=\"ds-stack__edge ds-stack__edge--near\"></span><ol class=\"ds-stack__list\"><li>rows</li></ol></div>",
+      "css": ".ds-stack { position: relative; } .ds-stack__edge { position: absolute; bottom: -6px; left: 24px; right: 24px; height: 100%; background: var(--color-plate-edge, #0a0d15); border: 1px solid var(--color-rule, #1b2230); border-top: 0; pointer-events: none; } .ds-stack__edge--near { bottom: -3px; left: 12px; right: 12px; } .ds-stack__list { position: relative; margin: 0; padding: 0; list-style: none; background: var(--color-plate, #05070c); border: 1px solid var(--color-rule, #1b2230); }"
+    },
+    {
+      "name": "Plate Row",
+      "kind": "custom",
+      "refersTo": "plate-row",
+      "description": "One dated entry as a ruled row: tabular date column, serif title, hairline above, no card.",
+      "html": "<li class=\"ds-plate-row\"><a class=\"ds-plate-row__link\" href=\"/articles/reading-the-signals-in-a-transcript/\"><span class=\"ds-plate-row__date\"><span class=\"ds-recency-mark\"></span><time datetime=\"2026-09-08\">2026-09-08</time></span><span class=\"ds-plate-row__title\">Reading the Signals in a Transcript</span></a></li>",
+      "css": ".ds-plate-row { border-top: 1px solid var(--color-rule, #1b2230); } .ds-plate-row:first-child { border-top: 0; } .ds-plate-row__link { display: grid; grid-template-columns: 144px 1fr; gap: 0 32px; align-items: baseline; padding: 20px 12px; text-decoration: none; } .ds-plate-row__date { display: flex; align-items: baseline; gap: 8px; color: var(--color-star, #9fb6d9); font-family: var(--font-label, sans-serif); font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; font-variant-numeric: tabular-nums; } .ds-plate-row__title { color: var(--color-bone, #e8eef7); font-family: var(--font-serif, Georgia, serif); font-size: 20px; line-height: 1.35; } .ds-plate-row:hover .ds-plate-row__title { color: var(--color-iris, #5683da); animation: ds-plate-step 120ms steps(2, end) forwards; } .ds-plate-row__link:focus-visible { outline: 1px solid var(--color-iris, #5683da); outline-offset: 3px; } @keyframes ds-plate-step { 0% { transform: translateY(0); } 60% { transform: translateY(-3px); } 100% { transform: translateY(-2px); } } @media (max-width: 640px) { .ds-plate-row__link { grid-template-columns: 1fr; gap: 8px 0; } }"
+    },
+    {
+      "name": "Recency Mark",
+      "kind": "chip",
+      "refersTo": "recency-mark",
+      "description": "A 6px ember square marking the newest entry, taught once by a legend in the section heading row.",
+      "html": "<span class=\"ds-recency-mark\" aria-hidden=\"true\"></span>",
+      "css": ".ds-recency-mark { display: inline-block; width: 6px; height: 6px; background: var(--color-ember, #ff8964); flex: none; }"
+    },
+    {
+      "name": "Section Heading Row",
+      "kind": "custom",
+      "refersTo": "rule-band",
+      "description": "A hairline, the section name in label caps, and a legend on the right naming what the mark means.",
+      "html": "<div class=\"ds-section-head\"><h2 class=\"ds-section-head__title\">Latest articles</h2><span class=\"ds-section-head__legend\"><span class=\"ds-recency-mark\"></span>Most recent</span></div>",
+      "css": ".ds-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-top: 40px; border-top: 1px solid var(--color-rule, #1b2230); font-family: var(--font-label, sans-serif); font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; } .ds-section-head__title { margin: 0 0 24px; color: var(--color-star, #9fb6d9); font: inherit; } .ds-section-head__legend { display: flex; align-items: center; gap: 8px; color: color-mix(in oklab, var(--color-star, #9fb6d9) 70%, var(--color-plate, #05070c)); }"
+    },
+    {
+      "name": "Observer's Note",
+      "kind": "custom",
+      "refersTo": "plate-row",
+      "description": "The markdown note from ABOUT.md at a 65ch measure.",
+      "html": "<section class=\"ds-note\"><p>deppfellow is a personal wiki about agents, memory, and the systems that hold them together.</p></section>",
+      "css": ".ds-note { max-width: 65ch; color: var(--color-bone, #e8eef7); font-family: var(--font-serif, Georgia, serif); font-size: 24px; line-height: 1.55; } .ds-note p { margin: 0 0 1.1em; } .ds-note p:last-child { margin-bottom: 0; } .ds-note a { color: var(--color-iris, #5683da); text-decoration-thickness: 1px; text-underline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Plates and Declinations",
+    "overview": "The site is an observatory plate atlas: a working catalogue of dated observations, printed on a near-black plate, ruled like a table and measured like an instrument. Structure is carried by hairlines and by stacked paper edges rather than by fills, cards or shadows.\n\nTwo voices carry the type: a reading serif for sentences, and a condensed grotesque in caps with tabular figures for every label, date and count. Colour is monochrome plus one lived accent, and the only warm colour in the system marks recency.",
+    "keyCharacteristics": [
+      "A near-black plate with no surface fills, no cards, and no shadows.",
+      "Two voices only: a reading serif and a condensed grotesque for labels, dates and counts.",
+      "One accent per view: ember marks recency, iris belongs to interaction.",
+      "Numbers are set in tabular figures so a column of dates reads as a column.",
+      "Motion is a single mechanical step, never a glide."
+    ],
+    "rules": [
+      { "name": "The Two-Ink Rule", "body": "Prose is bone, metadata is star, and nothing else receives colour.", "section": "colors" },
+      { "name": "The One Ember Rule", "body": "Ember appears once per view and only as a mark of recency.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Serif for sentences, condensed caps for identifiers.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Every number that can be compared with another number is set in tabular figures.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "Prose never exceeds 65ch, at any viewport; lists are exempt because their job is alignment.", "section": "typography" },
+      { "name": "The Rule-Band Rule", "body": "Navigation is always a band bounded by hairlines, never a floating or shadowed header.", "section": "elevation" },
+      { "name": "The Flat-Plate Rule", "body": "No element casts a shadow; if something must lift, it steps or it changes ink.", "section": "elevation" },
+      { "name": "The Square Rule", "body": "Nothing is rounded, at any size, for any state.", "section": "elevation" },
+      { "name": "The Ruled Row Rule", "body": "Lists are ruled rows, never cards and never nested containers.", "section": "elevation" },
+      { "name": "The One-Step Rule", "body": "Motion is one mechanical step of 120ms with steps(2, end) and a 3px overshoot that settles at 2px.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do carry structure with 1px hairlines and 20px row rhythm instead of fills, cards or shadows.",
+      "Do set dates, counts and legends in Archivo Narrow caps with tabular figures (0.09em tracking).",
+      "Do hold prose to 65ch and let lists hold the full container so their columns align.",
+      "Do keep ember to a single recency mark per view and iris to interaction and focus.",
+      "Do stack two hairline plate edges below a list when a list needs to feel like a stack of sheets."
+    ],
+    "donts": [
+      "Don't introduce a third typeface, a display size, or a second accent colour.",
+      "Don't round a corner, add a shadow, or use a gradient anywhere in the system.",
+      "Don't turn a list row into a card, a chip, or a nested surface.",
+      "Don't put colour on body copy or use ember as decoration; it means \"new\" or it does not appear.",
+      "Don't add a kicker, eyebrow, or decorative label above a heading; the heading speaks for itself."
+    ]
+  }
+}
