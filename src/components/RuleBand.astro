@@ -19,7 +19,7 @@ const { name, links } = Astro.props;
     <nav aria-label="Categories" class="flex items-baseline gap-6">
       {
         links.map((link) => (
-          <a href={link.href} class="label text-star transition-colors hover:text-iris">
+          <a href={link.href} class="label inline-flex items-baseline text-star transition-colors hover:text-iris">
             {link.label}
             <span class="ml-1.5 text-star/70">{String(link.count).padStart(2, "0")}</span>
           </a>

@@ -140,6 +140,14 @@ Square corners everywhere (`0` radius). Rectangles are the plate's own shape; th
 
 **The One-Step Rule.** Motion is one mechanical step: `120ms` with `steps(2, end)` and a `3px` overshoot that settles at `2px`. Nothing glides, nothing fades in, and `prefers-reduced-motion` removes it entirely.
 
+## Build Baseline
+
+**Toolchain.** Astro `7.3.2`, Tailwind CSS `4.3.3` (via `@tailwindcss/vite`), static output. The Markdown processor is pinned to `unified()` (`@astrojs/markdown-remark`) because the reading-page resolution pass is a remark/rehype pipeline; Astro 7's default is Sätteri. See ADR-0014.
+
+**Markup spacing.** Astro 7 compresses HTML by JSX rules, so whitespace between inline elements is not reliable. Inter-element spacing is declared in classes (`gap-*`, `ml-*`, or an explicit `inline-flex`), never inherited from source whitespace.
+
+**Tokens.** The single source is `src/styles/global.css` (`@theme`). The front matter above and `.impeccable/design.json` mirror it; if they diverge, `global.css` is correct.
+
 ## Do's and Don'ts
 
 ### Do

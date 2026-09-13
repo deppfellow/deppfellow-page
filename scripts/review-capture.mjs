@@ -103,10 +103,13 @@ for (const vp of VIEWPORTS) {
     sessionId,
   );
   await cdp.send("Emulation.setEmulatedMedia", { media: "screen", features: [{ name: "prefers-color-scheme", value: "dark" }] }, sessionId);
+  // Park the pointer off-canvas so residual hover state never differs between captures.
+  await cdp.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: -1, y: -1 }, sessionId);
   const loaded = cdp.once("Page.loadEventFired", sessionId);
   await cdp.send("Page.navigate", { url }, sessionId);
   await loaded;
   await new Promise((r) => setTimeout(r, 600));
+  await cdp.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: -1, y: -1 }, sessionId);
   const shot = await cdp.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true }, sessionId);
   const file = path.join(outDir, `${vp.name}.png`);
   await writeFile(file, Buffer.from(shot.data, "base64"));

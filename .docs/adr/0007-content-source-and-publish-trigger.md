@@ -12,7 +12,7 @@ date: 2026-09-10
 - Git submodule pinning the wiki commit - rejected: every wiki push needs a second site-repo commit, and forgetting it stalls publishing silently.
 - npm/Git dependency - rejected: same staleness problem with more machinery.
 
-**Publish trigger.** The wiki repo carries a small workflow that fires a `repository_dispatch` at the site repo on every push; the site workflow clones, builds, and deploys to GitHub Pages. Pushes to the site repo trigger the workflow directly. Broken builds never blank the live site - Pages keeps serving the last good deploy. No secrets: the wiki is public, so the clone takes no token.
+**Publish trigger.** The wiki repo carries a small workflow that fires a `repository_dispatch` at the site repo on every push; the site workflow clones, builds, and deploys to GitHub Pages. Pushes to the site repo trigger the workflow directly. Broken builds never blank the live site - Pages keeps serving the last good deploy. The clone needs no token (the wiki is public), but the cross-repo dispatch does: a fine-grained PAT or GitHub App token stored as a secret in the wiki repo (narrowed by spec deppfellow-shipping D-28). A tokenless clone is not a secretless pipeline.
 
 ## Considered Options
 
