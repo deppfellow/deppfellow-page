@@ -7,10 +7,7 @@ const posts: Loader = {
   name: "deppfellow-vault",
   load: async ({ store, parseData, generateDigest, renderMarkdown, logger }) => {
     const root = vaultRoot();
-    const { notes, skipped } = await readNotes(root);
-    if (skipped.length > 0) {
-      logger.warn(`Ignored ${skipped.length} language-suffixed note(s); languages are deferred (ADR-0004).`);
-    }
+    const { notes, skipped } = await readNotes(root, (message) => logger.warn(message));
     for (const note of notes) {
       const data = await parseData({
         id: note.id,
@@ -20,7 +17,7 @@ const posts: Loader = {
           slug: note.slug,
           created: note.created,
           tags: note.tags,
-          origin: note.origin,
+          description: note.description,
           summary: note.summary,
         },
       });
@@ -61,7 +58,7 @@ const notes = defineCollection({
     slug: z.string(),
     created: z.coerce.date(),
     tags: z.array(z.string()).default([]),
-    origin: z.string().default("human"),
+    description: z.string().optional(),
     summary: z.string().optional(),
   }),
 });
