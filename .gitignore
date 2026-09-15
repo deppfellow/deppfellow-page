@@ -9,4 +9,7 @@ dist/
 
 # Local working notes and captures
 .impeccable/review/
-.pi/
+# Shared agent instrumentation is tracked; everything else in .pi stays local
+.pi/*
+!.pi/agents/
+!.pi/skills/
