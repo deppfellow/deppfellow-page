@@ -24,6 +24,15 @@ anything it does not cover is out of scope, not a finding. Verdict vocabulary:
 - Fresh-install reproducibility is part of every verdict: start from
   `npm ci` (the committed lock is the user-facing environment). A gate that
   only passes with uncommitted or prompt-installed packages is a finding.
+- Bound every command with `timeout N` (default 120s; installs and builds
+  get an explicit cap). Search only your worktree and `/tmp` - never
+  `find /`, never parent directories. A missing artifact is a reported gap,
+  not a search job. The same command failing twice means stop and report.
+- Fresh-install checks run in a DETACHED clean room: copy the worktree to
+  `/tmp/<ticket>-clean` and `npm ci` there. Worktrees nested under the main
+  checkout leak the parent's `node_modules` into TS module resolution -
+  proven 2026-09-15 when a worktree tsc "passed" by resolving the main
+  checkout's uncommitted `@types/node` (see /tmp/t1-r1-contamination.log).
 
 ## Command map
 
@@ -69,6 +78,13 @@ approval reason. Evidence or it did not happen.
   covers plus preserved invariants.
 
 ## Recording
+
+Precondition: the orchestrator runs `td review` BEFORE you are dispatched -
+you arrive with the ticket `in_review` and only record. If the status is
+wrong, report back; never self-transition: running `td review` yourself
+marks your session involved, and td's governance guard then blocks your own
+attestation ("cannot approve: you were involved" - hit for real on
+2026-09-15, /tmp/t1-r1-approve.log).
 
 ```sh
 TD_CONTEXT_ID=ver-<ticket>-<round> td -w <main-repo-root> session --new
