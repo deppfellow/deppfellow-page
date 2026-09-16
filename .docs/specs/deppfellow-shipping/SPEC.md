@@ -3,7 +3,7 @@ document_type: specification
 initiative_slug: deppfellow-shipping
 contract_status: approved
 created_at: 2026-09-12
-updated_at: 2026-09-14
+updated_at: 2026-09-16
 ---
 
 # deppfellow-shipping — end-to-end site build and shipping
@@ -26,7 +26,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 ### Content model
 
 - REQ-01 — Article and Project front matter provides `description`, `created`, `tags`; the retired `origin` field is not rendered. ({C-01})
-- REQ-02 — Summary precedence for Projects index rows, reading-page ledes, and RSS summaries: front-matter `description` > `## Goal` section > omit. A note with neither renders without a summary. ({D-20, D-33})
+- REQ-02 — Summary precedence for Projects index rows, reading-page ledes, and RSS summaries: front-matter `description` > `## Objective` section > omit. A note with neither renders without a summary. ({D-20, D-33, D-43})
 - REQ-03 — Malformed front matter is a per-note skip with a logged warning; a single bad note never fails the whole build. ({D-20, D-33})
 
 ### Rendering pipeline
@@ -103,7 +103,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 ## Implementation Decisions
 
-- Content migration: `origin` → `description` in `src/lib/vault.ts`, `src/content.config.ts`, and `fixtures/vault`; `description` > `## Goal` > omit; per-note skip with a warning.
+- Content migration: `origin` → `description` in `src/lib/vault.ts`, `src/content.config.ts`, and `fixtures/vault`; `description` > `## Objective` > omit (fallback heading renamed from `## Goal`, D-43); per-note skip with a warning.
 - Resolution pass: one build-time pass in the markdown pipeline producing wikilink URLs plus the graph neighbors consumed by both the reading page and the JSON catalog.
 - Math: KaTeX at build via Astro's markdown pipeline.
 - Reading page: reuses `RuleBand`/`PlateRow` vocabulary; FAB is an Astro component with a small scoped script (disclosure semantics, focus return, Escape).
@@ -139,7 +139,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | Slice | Delivered behavior | Ownership | Blocked-by |
 | --- | --- | --- | --- |
 | T0 (td-a53be3) | Toolchain: Astro 7.3.2 + Tailwind 4.3.3 on `unified()`; deterministic capture. | human-owned | None |
-| T1 (td-bffd30) | Content model: `description` > `## Goal` > omit; per-note skip with logged warning; fixtures migrated. | human-owned | T0 |
+| T1 (td-bffd30) | Content model: `description` > `## Objective` > omit; per-note skip with logged warning; fixtures migrated. | human-owned | T0 |
 | T2 (td-9206eb) | `/articles/` ruled rows, date + title only. | human-owned | T1 |
 | T3 (td-d84081) | `/projects/` rows: date, title, description. | human-owned | T1 |
 | T4 (td-a0a097) | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering. | human-owned | T1 |

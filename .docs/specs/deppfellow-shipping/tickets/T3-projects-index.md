@@ -20,7 +20,7 @@ Projects need the one-line "what this is" that Articles deliberately omit (Armin
 Route `/projects/` (`src/pages/projects/index.astro`, new).
 
 - Rows: one per published Project, ordered by `created` descending.
-- Each row exposes: ISO date, title linked to `/projects/<slug>/`, and the resolved summary (`description` > Goal > omit).
+- Each row exposes: ISO date, title linked to `/projects/<slug>/`, and the resolved summary (`description` > Objective > omit, D-43).
 - A Project with no resolvable summary renders date + title only (no empty element).
 - Empty category renders an explanatory line.
 
@@ -29,7 +29,7 @@ Route `/projects/` (`src/pages/projects/index.astro`, new).
 | Project state | Row renders |
 | --- | --- |
 | description present | date, title, description |
-| only `## Goal` | date, title, Goal-derived summary |
+| only `## Objective` | date, title, Objective-derived summary |
 | neither | date, title |
 | 0 Projects | explanatory line |
 

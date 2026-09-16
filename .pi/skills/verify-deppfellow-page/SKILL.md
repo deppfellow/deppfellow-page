@@ -54,9 +54,9 @@ approval reason. Evidence or it did not happen.
 
 | Feature | Proven by | Expected |
 | --- | --- | --- |
-| Content loader `parseNote`/`readNotes` (`src/lib/vault.ts`) | unit suite + `fixtures/vault/**` + Gate log | `description` > `## Goal` (flattened to one line) > `undefined`; `origin` never read |
+| Content loader `parseNote`/`readNotes` (`src/lib/vault.ts`) | unit suite + `fixtures/vault/**` + Gate log | `description` > `## Objective` (flattened to one line) > `undefined`; `origin` never read |
 | Malformed front matter rejection | unit suite (wrong-typed tags/description/created, numeric created) + `broken-note` fixture | excluded from collection, `skipped` list carries `{path, reason}`, repo-relative warning in Gate log, build continues |
-| Summary precedence fixtures | `a-smart-camera-*` (both fields), `goal-only`, `bare-note` | description wins; Goal body flattened incl. text after first blank line; neither loads with `description: undefined` |
+| Summary precedence fixtures | `wikilink-resolution` (both fields), `objective-only`, `bare-note` | description wins; Objective body flattened incl. text after first blank line; neither loads with `description: undefined` |
 | Category registry boundary | `_schema/categories.md` + build output | only registered folders render; language-suffixed files skipped with reason `language-suffixed (deferred, ADR-0004)` |
 | Home page (`src/pages/index.astro`) | Gate: `dist/index.html` exists | ABOUT.md + 10 latest Articles build. `<meta name="description">` from Base layout proves NOTHING about note summaries |
 | Toolchain (T0) | `npm run check` + build | Astro 7.3.x, Tailwind 4.3.x, unified processor, versions resolvable from the committed lock |
@@ -72,9 +72,9 @@ approval reason. Evidence or it did not happen.
 - No repo style linter exists, by design (briefing: lint config is a
   next-spec ticket). Style findings are out of scope; the lint gate activates
   "when one exists".
-- Known Deferred, documented on T1 and OUT OF SCOPE everywhere: empty `## Goal`
-  over-consumption (`## Goal` / `## Notes` / text yields `## Notes ...`) and
-  `##` inside a fenced code block inside a Goal body treated as a boundary.
+- Known Deferred, documented on T1 and OUT OF SCOPE everywhere: empty `## Objective`
+  over-consumption (`## Objective` / `## Notes` / text yields `## Notes ...`) and
+  `##` inside a fenced code block inside an Objective body treated as a boundary.
   Both ride with the T2/T3 summary-surface tickets.
 - Rendering surfaces (index rows, reading page, tags, RSS, search) are owned
   by their own tickets (T2-T14). Verify only what your ticket's contract

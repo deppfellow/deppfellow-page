@@ -9,7 +9,7 @@ tags: [wiki, build]
 ## Status
 active
 
-## Goal
+## Objective
 Render Obsidian wikilinks into working URLs without ever leaking a private title.
 
 ## Notes

@@ -9,7 +9,7 @@ tags: [agents, tooling]
 ## Status
 paused
 
-## Goal
+## Objective
 One ledger of record for agent work, so a run can be resumed by a different agent.
 
 ## Notes

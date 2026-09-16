@@ -36,7 +36,7 @@ The site has no content store, no authoring surface, and no request-time computa
 - **Publishing** is a push to the public wiki repo, which fires a `repository_dispatch` at the site repo; the site build clones the wiki at HEAD, builds, and deploys (ADR-0007).
 - **The category registry** (`_schema/categories.md`) is the publication boundary: a top-level folder renders only if registered; `Private/`, `_schema/`, `_templates/`, `_assets/` never render (ADR-0003).
 - **Local development** reads the actual vault through the `WIKI_PATH` environment variable, with the same boundary enforcement as CI (ADR-0007).
-- **Note templates** in `_templates/` define front-matter: `origin`, `created`, `tags`; Logs are `YYYY-MM-DD.md` and chain via a `previous` link; Projects carry `Status`, `Goal`, `Notes`.
+- **Note templates** in `_templates/` define front-matter: `origin`, `created`, `tags`; Logs are `YYYY-MM-DD.md` and chain via a `previous` link; Projects carry `Status`, `Objective`, `Notes`.
 - **`ABOUT.md`** at the wiki root supplies the homepage paragraph; editing that one file changes it (ADR-0009).
 - The canonical glossary is the wiki's `.docs/CONTEXT.md` (Vault, Layer, Category, Log, Promote, Publish, Public Projection, Agent Interface, Catalog, Neighbor). This document references it rather than restating it.
 

@@ -5,7 +5,7 @@ tags: [notes]
 
 # Bare Note
 
-A note with neither a description nor a Goal section. It still loads; its summary is omitted.
+A note with neither a description nor an Objective section. It still loads; its summary is omitted.
 
 ## Notes
 Fixture only; proves a note survives without any summary source.

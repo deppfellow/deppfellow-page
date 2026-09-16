@@ -9,7 +9,7 @@ tags: [hardware, measurement]
 ## Status
 done
 
-## Goal
+## Objective
 Small instruments for measuring a workstation: thermals, power, and the noise floor.
 
 ## Notes
