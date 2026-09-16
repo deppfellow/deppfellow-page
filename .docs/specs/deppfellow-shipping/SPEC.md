@@ -3,7 +3,7 @@ document_type: specification
 initiative_slug: deppfellow-shipping
 contract_status: approved
 created_at: 2026-09-12
-updated_at: 2026-09-13
+updated_at: 2026-09-14
 ---
 
 # deppfellow-shipping — end-to-end site build and shipping
@@ -138,22 +138,22 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 | Slice | Delivered behavior | Ownership | Blocked-by |
 | --- | --- | --- | --- |
-| T0 (td-a53be3) | Toolchain: Astro 7.3.2 + Tailwind 4.3.3 on `unified()`; deterministic capture. | agent-owned | None |
-| T1 (td-bffd30) | Content model: `description` > `## Goal` > omit; per-note skip with logged warning; fixtures migrated. | agent-owned | T0 |
-| T2 (td-9206eb) | `/articles/` ruled rows, date + title only. | agent-owned | T1 |
-| T3 (td-d84081) | `/projects/` rows: date, title, description. | agent-owned | T1 |
-| T4 (td-a0a097) | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering. | agent-owned | T1 |
-| T5 (td-7e73c8) | Resolution pass: wikilinks (registry-bound, degrade-to-plain-text), `_assets/` images, footnotes, task lists, inline tags; emits graph neighbors. | agent-owned | T1 | | T6 (td-9a444b) | Reading page: metadata header, 65ch markdown (core + callouts + math + tables/code/blockquote), back + prev/next. | agent-owned | T5 |
-| T7 (td-99e20f) | FAB: collapsed bottom-right, h2/h3 index, disclosure semantics, empty-index and keyboard behavior. | agent-owned | T6 |
-| T8 (td-2a7cd5) | Detail pages for Projects and Logs (`/projects/<slug>`, `/logs/<date>`). | agent-owned | T5, T6 |
-| T9 (td-725cf5) | `/tags/<tag>` pages; reachable from chip-links. | agent-owned | T1, T4 |
-| T10 (td-a0f467) | Minimal 404: rule band, not-found line, home link. | agent-owned | None |
-| T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`. | agent-owned | T1 |
-| T12 (td-3ba9ec) | `/search` Pagefind surface + rule-band entry; home and lists stay script-free. | agent-owned | T2, T3, T4 |
-| T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback. | agent-owned | None |
-| T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass. | agent-owned | T5 |
-| T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy. | agent-owned | T1, T10, T11, T12 |
-| T16 (td-51defc) | Wiki-side dispatch workflow file + setup/rotation docs (same `event_type` as T15). | agent-owned | T15 |
+| T0 (td-a53be3) | Toolchain: Astro 7.3.2 + Tailwind 4.3.3 on `unified()`; deterministic capture. | human-owned | None |
+| T1 (td-bffd30) | Content model: `description` > `## Goal` > omit; per-note skip with logged warning; fixtures migrated. | human-owned | T0 |
+| T2 (td-9206eb) | `/articles/` ruled rows, date + title only. | human-owned | T1 |
+| T3 (td-d84081) | `/projects/` rows: date, title, description. | human-owned | T1 |
+| T4 (td-a0a097) | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering. | human-owned | T1 |
+| T5 (td-7e73c8) | Resolution pass: wikilinks (registry-bound, degrade-to-plain-text), `_assets/` images, footnotes, task lists, inline tags; emits graph neighbors. | human-owned | T1 | | T6 (td-9a444b) | Reading page: metadata header, 65ch markdown (core + callouts + math + tables/code/blockquote), back + prev/next. | human-owned | T5 |
+| T7 (td-99e20f) | FAB: collapsed bottom-right, h2/h3 index, disclosure semantics, empty-index and keyboard behavior. | human-owned | T6 |
+| T8 (td-2a7cd5) | Detail pages for Projects and Logs (`/projects/<slug>`, `/logs/<date>`). | human-owned | T5, T6 |
+| T9 (td-725cf5) | `/tags/<tag>` pages; reachable from chip-links. | human-owned | T1, T4 |
+| T10 (td-a0f467) | Minimal 404: rule band, not-found line, home link. | human-owned | None |
+| T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`. | human-owned | T1 |
+| T12 (td-3ba9ec) | `/search` Pagefind surface + rule-band entry; home and lists stay script-free. | human-owned | T2, T3, T4 |
+| T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback. | human-owned | None |
+| T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass. | human-owned | T5 |
+| T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy. | human-owned | T1, T10, T11, T12 |
+| T16 (td-51defc) | Wiki-side dispatch workflow file + setup/rotation docs (same `event_type` as T15). | human-owned | T15 |
 | T17 (td-ad2df5) | GitHub settings (human): repo rename, Pages-from-Actions, dispatch token creation/secret/test dispatch. | human-owned | None |
 
 REQ coverage: T0 → ADR-0014; T1 → REQ-01/02/03; T5 → REQ-04/05/06/09; T6 → REQ-07/08/10/11/14; T7 → REQ-12/13; T2 → REQ-15; T3 → REQ-16; T4 → REQ-17; T8 → REQ-18; T9 → REQ-19; T10 → REQ-20; T12 → REQ-21; T11 → REQ-22/23; T13 → REQ-24/25; T15 → REQ-26/28; T16 → REQ-27; T17 → REQ-29; T14 → REQ-30.

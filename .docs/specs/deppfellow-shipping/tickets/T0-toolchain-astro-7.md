@@ -2,7 +2,7 @@
 td: td-a53be3
 type: chore
 priority: P0
-ownership: agent-owned
+ownership: human-owned
 blocked-by: None
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T0
 ---

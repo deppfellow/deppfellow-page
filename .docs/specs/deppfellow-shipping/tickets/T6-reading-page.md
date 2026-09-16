@@ -2,7 +2,7 @@
 td: td-9a444b
 type: feature
 priority: P0
-ownership: agent-owned
+ownership: human-owned
 blocked-by: T5
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T6
 ---
