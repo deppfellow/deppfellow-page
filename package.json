@@ -1,0 +1,46 @@
+{
+  "name": "deppfellow-page",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deppfellow/deppfellow-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/deppfellow/deppfellow-page/issues"
+  },
+  "homepage": "https://github.com/deppfellow/deppfellow-page#readme",
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
+    "astro": "^7.3.2",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.20.3",
+    "eslint": "^10.10.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.0"
+  }
+}
