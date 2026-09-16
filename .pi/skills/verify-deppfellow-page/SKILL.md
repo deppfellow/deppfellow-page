@@ -1,10 +1,13 @@
+---
+description: Project verification skill for deppfellow-page.
+---
+
 # verify-deppfellow-page
 
-Project verification skill for deppfellow-page. Generated once per project
-(2026-09-14, on demand after T1's legacy-process closure). Every verifier for
-every ticket in this repo drives this skill; the skill maps features to the
-checks that prove them. Map drift is `maintain-verification-skill`'s job,
-never a ticket's.
+Generated once per project (2026-09-14, on demand after T1's legacy-process closure).
+Every verifier for every ticket in this repo drives this skill; the skill maps
+features to the checks that prove them. Map drift is `maintain-verification-skill`'s
+job, never a ticket's.
 
 ## Verifier role (read first)
 
