@@ -23,25 +23,25 @@ export type Skipped = { path: string; reason: string };
 
 export function vaultRoot(): string {
   if (process.env.WIKI_PATH) return resolve(process.env.WIKI_PATH);
-  throw new Error(
-    "No vault found. Set WIKI_PATH to the vault checkout."
-  );
+  throw new Error("No vault found. Set WIKI_PATH to the vault checkout.");
 }
 
 export async function readRegistry(root: string): Promise<string[]> {
   const file = join(root, "_schema", "categories.md");
   if (!existsSync(file)) {
     throw new Error(
-      `Category registry missing at ${file}. The registry is the publication boundary.`
-    )
-  };
-  
+      `Category registry missing at ${file}. The registry is the publication boundary.`,
+    );
+  }
+
   const { data } = matter(await readFile(file, "utf8"));
-  const categories = Array.isArray(data.categories) ? data.categories.map(String) : [];
+  const categories = Array.isArray(data.categories)
+    ? data.categories.map(String)
+    : [];
   if (categories.length === 0) {
-    throw new Error(`Category registry at ${file} lists no categories.`)
-  };
-  
+    throw new Error(`Category registry at ${file} lists no categories.`);
+  }
+
   return categories;
 }
 
@@ -53,12 +53,13 @@ async function noteFiles(root: string, category: string): Promise<string[]> {
   const files: string[] = [];
   for (const entry of entries) {
     if (entry.name.startsWith(".") || entry.name.startsWith("_")) continue;
-    
+
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
       const inner = await readdir(full, { withFileTypes: true });
       for (const child of inner) {
-        if (child.isFile() && MARKDOWN.test(child.name)) files.push(join(full, child.name));
+        if (child.isFile() && MARKDOWN.test(child.name))
+          files.push(join(full, child.name));
       }
       continue;
     }
@@ -73,36 +74,40 @@ export function parseNote(
   file: string,
   category: string,
   body: string,
-  data: Record<string, unknown>)
-  : Note {
-    const slug = file.split("/").slice(-1)[0].replace(MARKDOWN, "");
-    const created = data.created instanceof Date 
-      ? data.created 
+  data: Record<string, unknown>,
+): Note {
+  const slug = file.split("/").slice(-1)[0].replace(MARKDOWN, "");
+  const created =
+    data.created instanceof Date
+      ? data.created
       : new Date(typeof data.created === "string" ? data.created : "");
-    
-    if (Number.isNaN(created.getTime())) throw new Error("invalid created");
-    
-    const rawTags = data.tags;
-    if (rawTags !== undefined 
-      && (!Array.isArray(rawTags) || !rawTags.every((t) => typeof t === "string"))) {
-        throw new Error("invalid tags");
-    }
 
-    const description = typeof data.description === "string" && data.description.trim()
+  if (Number.isNaN(created.getTime())) throw new Error("invalid created");
+
+  const rawTags = data.tags;
+  if (
+    rawTags !== undefined &&
+    (!Array.isArray(rawTags) || !rawTags.every((t) => typeof t === "string"))
+  ) {
+    throw new Error("invalid tags");
+  }
+
+  const description =
+    typeof data.description === "string" && data.description.trim()
       ? data.description
       : undefined;
-    const titleMatch = body.match(TITLE);
-    return {
-      id: `${category.toLowerCase()}/${slug}`,
-      slug,
-      category,
-      title: titleMatch ? titleMatch[1].trim() : slug,
-      created,
-      tags: Array.isArray(rawTags) ? rawTags : [],
-      description,
-      body,
-      filePath: file,
-    };
+  const titleMatch = body.match(TITLE);
+  return {
+    id: `${category.toLowerCase()}/${slug}`,
+    slug,
+    category,
+    title: titleMatch ? titleMatch[1].trim() : slug,
+    created,
+    tags: Array.isArray(rawTags) ? rawTags : [],
+    description,
+    body,
+    filePath: file,
+  };
 }
 
 export async function readNotes(
@@ -143,14 +148,16 @@ export async function readNotes(
   return { notes, skipped };
 }
 
-export async function readAbout(root: string): Promise<{ title: string; body: string } | null> {
+export async function readAbout(
+  root: string,
+): Promise<{ title: string; body: string } | null> {
   const file = join(root, "ABOUT.md");
   if (!existsSync(file)) return null;
   const { data, content } = matter(await readFile(file, "utf8"));
   const match = content.match(TITLE);
-  
-  return { title: match
-    ? match[1].trim()
-    : String(data.title ?? "About"), body: content.trim()
+
+  return {
+    title: match ? match[1].trim() : String(data.title ?? "About"),
+    body: content.trim(),
   };
 }
