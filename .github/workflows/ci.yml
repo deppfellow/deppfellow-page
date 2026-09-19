@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses:
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
@@ -20,7 +20,7 @@ jobs:
       - run: npm run check
       - run: npx tsc --noEmit -p tsconfig.json
       - name: Gate build
-        run |
+        run: |
           WIKI_PATH=fixtures/vault npm run build 2>&1 | tee /tmp/gate.log
           test -f dist/index.html
           grep -q 'Loaded 21 notes from' /tmp/gate.log
