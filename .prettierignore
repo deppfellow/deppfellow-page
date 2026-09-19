@@ -1,3 +1,7 @@
-dist/
 .astro/
+.agents/
+.impeccable/
+.pi/
+fixtures/
+dist/
 package-lock.json

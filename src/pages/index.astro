@@ -27,19 +27,20 @@ const AboutBody = about ? (await render(about)).Content : null;
   <RuleBand name="deppfellow" links={links} />
 
   <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
-    {
-      AboutBody && (
-        <section class="note measure pt-16 pb-16 text-note text-bone sm:pt-24 sm:pb-20">
-          <AboutBody />
-        </section>
-      )
-    }
+    {AboutBody && (
+      <section class="note measure pt-16 pb-16 text-note text-bone sm:pt-24 sm:pb-20">
+        <AboutBody />
+      </section>
+    )}
 
     <section class="pb-24 sm:pb-32" aria-labelledby="latest">
       <div class="mb-6 flex items-baseline justify-between gap-6 border-t border-rule pt-10">
-        <h2 id="latest" class="label text-star">Latest articles</h2>
+        <h2 id="latest" class="label text-star">
+          Latest articles
+        </h2>
         <span class="label flex items-center gap-2 text-star/70">
-          <span aria-hidden="true" class="h-1.5 w-1.5 bg-ember"></span>Most recent
+          <span aria-hidden="true" class="h-1.5 w-1.5 bg-ember"></span>Most
+          recent
         </span>
       </div>
       <div class="relative">
@@ -52,16 +53,14 @@ const AboutBody = about ? (await render(about)).Content : null;
           class="pointer-events-none absolute -bottom-6 left-6 right-6 h-full border-x border-b border-rule bg-plate-edge"
         ></span>
         <ol class="relative border border-rule bg-plate">
-          {
-            latest.map((note, index) => (
-              <PlateRow
-                href={`/articles/${note.data.slug}/`}
-                title={note.data.title}
-                created={note.data.created}
-                newest={index === 0}
-              />
-            ))
-          }
+          {latest.map((note, index) => (
+            <PlateRow
+              href={`/articles/${note.data.slug}/`}
+              title={note.data.title}
+              created={note.data.created}
+              newest={index === 0}
+            />
+          ))}
         </ol>
       </div>
     </section>

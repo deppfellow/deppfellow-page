@@ -27,12 +27,12 @@ Route: `src/pages/search.astro` (new) plus a build post-step running the Pagefin
 
 ## Examples
 
-| Action | Result |
-| --- | --- |
-| build | Pagefind bundle present in output; `/search` mounts it |
-| open `/search`, type a phrase from a fixture note | result with a working link |
-| open `/articles/` | no Pagefind script tag |
-| rule band on any page | Search anchor present |
+| Action                                            | Result                                                 |
+| ------------------------------------------------- | ------------------------------------------------------ |
+| build                                             | Pagefind bundle present in output; `/search` mounts it |
+| open `/search`, type a phrase from a fixture note | result with a working link                             |
+| open `/articles/`                                 | no Pagefind script tag                                 |
+| rule band on any page                             | Search anchor present                                  |
 
 ## Setup
 

@@ -29,12 +29,12 @@ File: `.github/workflows/build.yml` (new), committed to the default branch.
 
 ## Examples
 
-| State | Behavior |
-| --- | --- |
-| all routes present, 5 Articles | gate passes, deploy runs |
-| `sitemap.xml` missing | gate fails, no deploy, job exits non-zero |
-| empty vault, shell routes present | warning annotation, deploy runs |
-| wiki unreachable | job fails before build |
+| State                             | Behavior                                  |
+| --------------------------------- | ----------------------------------------- |
+| all routes present, 5 Articles    | gate passes, deploy runs                  |
+| `sitemap.xml` missing             | gate fails, no deploy, job exits non-zero |
+| empty vault, shell routes present | warning annotation, deploy runs           |
+| wiki unreachable                  | job fails before build                    |
 
 ## Setup
 

@@ -11,7 +11,9 @@ const {
   description = "A public wiki of notes on agents, memory, and the systems that hold them together.",
 } = Astro.props;
 
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
 ---
 
 <!doctype html>

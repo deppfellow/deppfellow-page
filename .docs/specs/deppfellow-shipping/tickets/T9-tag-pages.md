@@ -28,11 +28,11 @@ Route: `src/pages/tags/[tag].astro` (new), generated per distinct tag across all
 
 ## Examples
 
-| Tag | Page |
-| --- | --- |
+| Tag                                          | Page                                               |
+| -------------------------------------------- | -------------------------------------------------- |
 | `agents` on 3 notes across Articles and Logs | `/tags/agents/` with 3 rows, category labels shown |
-| `synthesis` on 1 note | `/tags/synthesis/` with 1 row |
-| tag `Agent Memory` | route `/tags/agent-memory/`; chip href matches |
+| `synthesis` on 1 note                        | `/tags/synthesis/` with 1 row                      |
+| tag `Agent Memory`                           | route `/tags/agent-memory/`; chip href matches     |
 
 ## Setup
 

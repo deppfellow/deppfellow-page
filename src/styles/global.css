@@ -44,7 +44,11 @@
   }
 
   ::selection {
-    background-color: color-mix(in oklab, var(--color-iris) 55%, var(--color-plate));
+    background-color: color-mix(
+      in oklab,
+      var(--color-iris) 55%,
+      var(--color-plate)
+    );
     color: #ffffff;
   }
 

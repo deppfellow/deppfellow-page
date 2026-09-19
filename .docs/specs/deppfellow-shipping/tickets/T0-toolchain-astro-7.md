@@ -28,13 +28,13 @@ Files: `package.json` (versions), `astro.config.mjs` (`markdown.processor`).
 
 ## Examples
 
-| Check | Expected |
-| --- | --- |
-| build | succeeds; 2 pages; loader loads 19 fixture notes |
-| ABOUT body | present in `dist/index.html` (proves `renderMarkdown` under a custom loader) |
-| page scripts | `0` on `/` |
-| nav geometry | link width 81.52px, count span offset 1021.84px at 1440px |
-| pixels | 0 differing pixels vs the frozen Astro 5 build at 1440x900 and 390x844 |
+| Check        | Expected                                                                     |
+| ------------ | ---------------------------------------------------------------------------- |
+| build        | succeeds; 2 pages; loader loads 19 fixture notes                             |
+| ABOUT body   | present in `dist/index.html` (proves `renderMarkdown` under a custom loader) |
+| page scripts | `0` on `/`                                                                   |
+| nav geometry | link width 81.52px, count span offset 1021.84px at 1440px                    |
+| pixels       | 0 differing pixels vs the frozen Astro 5 build at 1440x900 and 390x844       |
 
 ## Setup
 

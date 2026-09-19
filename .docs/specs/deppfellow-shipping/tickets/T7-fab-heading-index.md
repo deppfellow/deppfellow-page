@@ -30,12 +30,12 @@ Component: `src/components/HeadingIndex.astro` (new), used by the T6 reading pag
 
 ## Examples
 
-| Note | FAB |
-| --- | --- |
-| three h2, two h3 | renders; expanding lists 5 entries, h3 nested |
-| one h2 | renders; expanding lists 1 entry |
-| only body paragraphs | no FAB element present |
-| Escape pressed while open | closes, focus on trigger |
+| Note                      | FAB                                           |
+| ------------------------- | --------------------------------------------- |
+| three h2, two h3          | renders; expanding lists 5 entries, h3 nested |
+| one h2                    | renders; expanding lists 1 entry              |
+| only body paragraphs      | no FAB element present                        |
+| Escape pressed while open | closes, focus on trigger                      |
 
 ## Setup
 

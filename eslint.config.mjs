@@ -4,14 +4,19 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { 
-    ignores: ["dist/", ".astro/", "fixtures/"]
+  {
+    ignores: ["dist/", ".astro/", "fixtures/", ".agents/"],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
   {
     files: ["scripts/**"],
-    languageOptions: { globals: globals.node },
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
   },
 );

@@ -28,12 +28,12 @@ Route `/logs/` (`src/pages/logs/index.astro`, new).
 
 ## Examples
 
-| Log state | Row renders |
-| --- | --- |
-| body paragraph 500 chars | date, title link, 240-char excerpt with ellipsis, tags |
-| body only a heading | date, title link, no excerpt, tags |
-| `created: 2026-09-02`, filename `2026-09-01.md` | grouped under 2026-09-02 |
-| 0 logs | explanatory line |
+| Log state                                       | Row renders                                            |
+| ----------------------------------------------- | ------------------------------------------------------ |
+| body paragraph 500 chars                        | date, title link, 240-char excerpt with ellipsis, tags |
+| body only a heading                             | date, title link, no excerpt, tags                     |
+| `created: 2026-09-02`, filename `2026-09-01.md` | grouped under 2026-09-02                               |
+| 0 logs                                          | explanatory line                                       |
 
 ## Setup
 

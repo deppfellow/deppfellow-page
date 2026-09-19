@@ -30,11 +30,11 @@ Artifacts: a workflow file in the `deppfellow-wiki` repo (`.github/workflows/not
 
 ## Examples
 
-| Action | Result |
-| --- | --- |
-| push to wiki default branch | site workflow run appears |
-| missing/expired secret | workflow fails loudly at the dispatch step (not silent) |
-| manual test dispatch | site workflow run appears, evidenced in the ticket log |
+| Action                      | Result                                                  |
+| --------------------------- | ------------------------------------------------------- |
+| push to wiki default branch | site workflow run appears                               |
+| missing/expired secret      | workflow fails loudly at the dispatch step (not silent) |
+| manual test dispatch        | site workflow run appears, evidenced in the ticket log  |
 
 ## Setup
 

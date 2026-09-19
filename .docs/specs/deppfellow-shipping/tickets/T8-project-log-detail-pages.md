@@ -27,12 +27,12 @@ Routes: `src/pages/projects/[...slug].astro` and `src/pages/logs/[...date].astro
 
 ## Examples
 
-| URL | Renders |
-| --- | --- |
+| URL                               | Renders                          |
+| --------------------------------- | -------------------------------- |
 | `/projects/smart-camera-monitor/` | h1, lede, date, tags, body, back |
-| `/logs/2026-09-02/` | h1, date, tags, body, prev/next |
-| oldest log | next only |
-| unknown slug | 404 (T10) |
+| `/logs/2026-09-02/`               | h1, date, tags, body, prev/next  |
+| oldest log                        | next only                        |
+| unknown slug                      | 404 (T10)                        |
 
 ## Setup
 
