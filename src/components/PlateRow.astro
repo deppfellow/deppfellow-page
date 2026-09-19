@@ -16,7 +16,12 @@ const iso = created.toISOString().slice(0, 10);
     class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:items-baseline sm:gap-x-8 sm:gap-y-0"
   >
     <span class="label flex items-baseline gap-2 text-star">
-      {newest && <span aria-hidden="true" class="mt-[0.35em] h-1.5 w-1.5 shrink-0 bg-ember"></span>}
+      {newest && (
+        <span
+          aria-hidden="true"
+          class="mt-[0.35em] h-1.5 w-1.5 shrink-0 bg-ember"
+        ></span>
+      )}
       <time datetime={iso}>{iso}</time>
     </span>
     <span class="plate-title font-serif text-title text-bone">{title}</span>

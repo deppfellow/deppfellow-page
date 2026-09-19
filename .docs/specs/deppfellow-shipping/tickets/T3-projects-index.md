@@ -26,12 +26,12 @@ Route `/projects/` (`src/pages/projects/index.astro`, new).
 
 ## Examples
 
-| Project state | Row renders |
-| --- | --- |
-| description present | date, title, description |
+| Project state       | Row renders                            |
+| ------------------- | -------------------------------------- |
+| description present | date, title, description               |
 | only `## Objective` | date, title, Objective-derived summary |
-| neither | date, title |
-| 0 Projects | explanatory line |
+| neither             | date, title                            |
+| 0 Projects          | explanatory line                       |
 
 ## Setup
 

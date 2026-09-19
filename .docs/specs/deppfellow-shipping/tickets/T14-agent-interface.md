@@ -27,11 +27,11 @@ Artifacts: `dist/llms.txt` and `dist/catalog.json` (or equivalent static paths d
 
 ## Examples
 
-| Input | Output |
-| --- | --- |
+| Input                           | Output                                       |
+| ------------------------------- | -------------------------------------------- |
 | 12 Articles, 3 Projects, 4 Logs | catalog with 19 entries, each with neighbors |
-| a note linking another | both notes list each other in `neighbors` |
-| an unlisted note | absent from catalog and raw endpoints |
+| a note linking another          | both notes list each other in `neighbors`    |
+| an unlisted note                | absent from catalog and raw endpoints        |
 
 ## Setup
 

@@ -1,5 +1,5 @@
 # Planhat — Style Reference
->
+
 > Cinematic monochrome editorial — a darkroom print on cold-pressed paper.
 
 **Theme:** mixed
@@ -8,14 +8,14 @@ Planhat speaks in a near-monochrome editorial voice: a cinematic dark hero — p
 
 ## Tokens — Colors
 
-| Name | Value | Token | Role |
-| ------ | ------- | ------- | ------ |
-| Obsidian | `#000000` | `--color-obsidian` | Neutral form states, badge text, and quiet UI feedback where color should stay understated. Do not promote it to the primary CTA color |
-| Paper White | `#ffffff` | `--color-paper-white` | Page canvas, card surfaces, filled-button text — the bright stage everything sits on |
-| Deep Ink | `#121211` | `--color-deep-ink` | Secondary text and input field treatment — a near-black that softens long-form body copy without losing contrast |
-| Graphite | `#575551` | `--color-graphite` | Muted helper text and secondary descriptions — a mid-gray that recedes behind Obsidian labels |
-| Warm Stone | `#958d7e` | `--color-warm-stone` | Tertiary text, subdued link and border accents — a desaturated taupe that warms the otherwise cold grayscale |
-| Ember Tag | `#e8552b` | `--color-ember-tag` | Product-UI accent visible in feature mockups (agent tags, handoff markers) — the only chromatic punctuation, kept small and functional |
+| Name        | Value     | Token                 | Role                                                                                                                                   |
+| ----------- | --------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Obsidian    | `#000000` | `--color-obsidian`    | Neutral form states, badge text, and quiet UI feedback where color should stay understated. Do not promote it to the primary CTA color |
+| Paper White | `#ffffff` | `--color-paper-white` | Page canvas, card surfaces, filled-button text — the bright stage everything sits on                                                   |
+| Deep Ink    | `#121211` | `--color-deep-ink`    | Secondary text and input field treatment — a near-black that softens long-form body copy without losing contrast                       |
+| Graphite    | `#575551` | `--color-graphite`    | Muted helper text and secondary descriptions — a mid-gray that recedes behind Obsidian labels                                          |
+| Warm Stone  | `#958d7e` | `--color-warm-stone`  | Tertiary text, subdued link and border accents — a desaturated taupe that warms the otherwise cold grayscale                           |
+| Ember Tag   | `#e8552b` | `--color-ember-tag`   | Product-UI accent visible in feature mockups (agent tags, handoff markers) — the only chromatic punctuation, kept small and functional |
 
 ## Tokens — Typography
 
@@ -47,18 +47,18 @@ Planhat speaks in a near-monochrome editorial voice: a cinematic dark hero — p
 
 ### Type Scale
 
-| Role | Size | Line Height | Letter Spacing | Token |
-| ------ | ------ | ------------- | ---------------- | ------- |
-| eyebrow | 10px | 1 | 1px | `--text-eyebrow` |
-| caption | 12px | 1.2 | -0.12px | `--text-caption` |
-| body-sm | 14px | 1.43 | -0.21px | `--text-body-sm` |
-| body | 16px | 1.5 | -0.32px | `--text-body` |
-| body-lg | 18px | 1.4 | -0.36px | `--text-body-lg` |
-| subheading | 24px | 1.2 | -0.48px | `--text-subheading` |
-| heading-sm | 32px | 1.25 | -0.96px | `--text-heading-sm` |
-| heading | 48px | 1.1 | -1.68px | `--text-heading` |
-| heading-lg | 60px | 1.1 | -2.7px | `--text-heading-lg` |
-| display | 113px | 1 | -6.78px | `--text-display` |
+| Role       | Size  | Line Height | Letter Spacing | Token               |
+| ---------- | ----- | ----------- | -------------- | ------------------- |
+| eyebrow    | 10px  | 1           | 1px            | `--text-eyebrow`    |
+| caption    | 12px  | 1.2         | -0.12px        | `--text-caption`    |
+| body-sm    | 14px  | 1.43        | -0.21px        | `--text-body-sm`    |
+| body       | 16px  | 1.5         | -0.32px        | `--text-body`       |
+| body-lg    | 18px  | 1.4         | -0.36px        | `--text-body-lg`    |
+| subheading | 24px  | 1.2         | -0.48px        | `--text-subheading` |
+| heading-sm | 32px  | 1.25        | -0.96px        | `--text-heading-sm` |
+| heading    | 48px  | 1.1         | -1.68px        | `--text-heading`    |
+| heading-lg | 60px  | 1.1         | -2.7px         | `--text-heading-lg` |
+| display    | 113px | 1           | -6.78px        | `--text-display`    |
 
 ## Tokens — Spacing & Shapes
 
@@ -68,32 +68,32 @@ Planhat speaks in a near-monochrome editorial voice: a cinematic dark hero — p
 
 ### Spacing Scale
 
-| Name | Value | Token |
-| ------ | ------- | ------- |
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
-| 12 | 12px | `--spacing-12` |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 24 | 24px | `--spacing-24` |
-| 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
-| 40 | 40px | `--spacing-40` |
-| 48 | 48px | `--spacing-48` |
-| 64 | 64px | `--spacing-64` |
-| 72 | 72px | `--spacing-72` |
-| 96 | 96px | `--spacing-96` |
-| 120 | 120px | `--spacing-120` |
+| Name | Value | Token           |
+| ---- | ----- | --------------- |
+| 4    | 4px   | `--spacing-4`   |
+| 8    | 8px   | `--spacing-8`   |
+| 12   | 12px  | `--spacing-12`  |
+| 16   | 16px  | `--spacing-16`  |
+| 20   | 20px  | `--spacing-20`  |
+| 24   | 24px  | `--spacing-24`  |
+| 32   | 32px  | `--spacing-32`  |
+| 36   | 36px  | `--spacing-36`  |
+| 40   | 40px  | `--spacing-40`  |
+| 48   | 48px  | `--spacing-48`  |
+| 64   | 64px  | `--spacing-64`  |
+| 72   | 72px  | `--spacing-72`  |
+| 96   | 96px  | `--spacing-96`  |
+| 120  | 120px | `--spacing-120` |
 
 ### Border Radius
 
 | Element | Value |
-| --------- | ------- |
-| tags | 999px |
-| cards | 8px |
-| images | 4px |
-| inputs | 4px |
-| buttons | 4px |
+| ------- | ----- |
+| tags    | 999px |
+| cards   | 8px   |
+| images  | 4px   |
+| inputs  | 4px   |
+| buttons | 4px   |
 
 ### Layout
 
@@ -188,12 +188,12 @@ Vertical stack at 14px Inter 400, 8px row gap, Obsidian text. Section title in 1
 
 ## Surfaces
 
-| Level | Name | Value | Purpose |
-| ------- | ------ | ------- | --------- |
-| 0 | Page Canvas | `#ffffff` | Default light page background |
-| 1 | Card Surface | `#f5f5f3` | Lightly tinted card and feature-block backgrounds (derived from white + warm undertone) |
-| 2 | Product Mockup Surface | `#f0eeea` | Neutral-warm panel behind embedded product UI illustrations |
-| 3 | Hero Overlay | `#000000` | Dark photographic hero with semi-transparent black wash, text in white |
+| Level | Name                   | Value     | Purpose                                                                                 |
+| ----- | ---------------------- | --------- | --------------------------------------------------------------------------------------- |
+| 0     | Page Canvas            | `#ffffff` | Default light page background                                                           |
+| 1     | Card Surface           | `#f5f5f3` | Lightly tinted card and feature-block backgrounds (derived from white + warm undertone) |
+| 2     | Product Mockup Surface | `#f0eeea` | Neutral-warm panel behind embedded product UI illustrations                             |
+| 3     | Hero Overlay           | `#000000` | Dark photographic hero with semi-transparent black wash, text in white                  |
 
 ## Elevation
 
@@ -220,15 +220,15 @@ Max-width 1280px centered content with a persistent full-width top nav. The hero
 
 **Example Component Prompts**
 
-1. *Hero section*: Full-viewport dark photographic background (forest/nature with warm golden tones) overlaid with ~60% black gradient wash. Eyebrow at 10px Inter 500 uppercase white, 0.1em tracking. Headline at 60px Geigy Var 400 white, letter-spacing -2.7px, line-height 1.1. Subtext at 18px Inter 400 white. Ghost button: transparent background, 1px white border, white text 12px uppercase 0.1em, 4px radius, 12px 20px padding, trailing chevron.
+1. _Hero section_: Full-viewport dark photographic background (forest/nature with warm golden tones) overlaid with ~60% black gradient wash. Eyebrow at 10px Inter 500 uppercase white, 0.1em tracking. Headline at 60px Geigy Var 400 white, letter-spacing -2.7px, line-height 1.1. Subtext at 18px Inter 400 white. Ghost button: transparent background, 1px white border, white text 12px uppercase 0.1em, 4px radius, 12px 20px padding, trailing chevron.
 
-2. *Section intro pair*: Left column headline at 48px Geigy Var 400 Obsidian, letter-spacing -1.68px, line-height 1.1, 2–3 lines. Right column description at 18px Inter 400 Graphite (#575551), line-height 1.4. 64–80px vertical gap above, on #ffffff canvas.
+2. _Section intro pair_: Left column headline at 48px Geigy Var 400 Obsidian, letter-spacing -1.68px, line-height 1.1, 2–3 lines. Right column description at 18px Inter 400 Graphite (#575551), line-height 1.4. 64–80px vertical gap above, on #ffffff canvas.
 
-3. *Feature card with product mockup*: 8px radius panel with #f0eeea background, 24–32px internal padding. Top: stylized product UI illustration on neutral-warm surface — floating card elements with 4px radius, hairline borders, small tag pills. Bottom: 18px Inter 400 Obsidian title, 14px Inter 400 Graphite description. No shadow.
+3. _Feature card with product mockup_: 8px radius panel with #f0eeea background, 24–32px internal padding. Top: stylized product UI illustration on neutral-warm surface — floating card elements with 4px radius, hairline borders, small tag pills. Bottom: 18px Inter 400 Obsidian title, 14px Inter 400 Graphite description. No shadow.
 
-4. *Top navigation bar*: Full-width white bar, 64–72px height, 1px Obsidian bottom border. Left: Planhat wordmark in Obsidian. Center: menu items at 14px Inter 400 with dropdown carets. Right: filled dark button (#000000 bg, #ffffff text, 12px Inter 500 uppercase 0.1em, 4px radius, 12px 20px padding) labeled LOG IN, followed by outlined ghost button (1px Obsidian border, transparent bg, Obsidian text, same text style) labeled REQUEST A DEMO with chevron.
+4. _Top navigation bar_: Full-width white bar, 64–72px height, 1px Obsidian bottom border. Left: Planhat wordmark in Obsidian. Center: menu items at 14px Inter 400 with dropdown carets. Right: filled dark button (#000000 bg, #ffffff text, 12px Inter 500 uppercase 0.1em, 4px radius, 12px 20px padding) labeled LOG IN, followed by outlined ghost button (1px Obsidian border, transparent bg, Obsidian text, same text style) labeled REQUEST A DEMO with chevron.
 
-5. *Logo grid*: 6-column × 2-row table on #ffffff, 1px Obsidian hairline borders between cells, no internal cell padding, each cell ~140px tall with a centered monochrome logo at 60% black.
+5. _Logo grid_: 6-column × 2-row table on #ffffff, 1px Obsidian hairline borders between cells, no internal cell padding, each cell ~140px tall with a centered monochrome logo at 60% black.
 
 ## Typographic Signature
 
@@ -256,9 +256,15 @@ The headline face — Geigy LL Duplex Var — carries five active stylistic alte
   --color-ember-tag: #e8552b;
 
   /* Typography — Font Families */
-  --font-geigy-ll-duplex-var: 'Geigy LL Duplex Var', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-system-sans-serif: 'system sans-serif', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-geigy-ll-duplex-var:
+    "Geigy LL Duplex Var", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter:
+    "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-system-sans-serif:
+    "system sans-serif", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-eyebrow: 10px;
@@ -353,9 +359,15 @@ The headline face — Geigy LL Duplex Var — carries five active stylistic alte
   --color-ember-tag: #e8552b;
 
   /* Typography */
-  --font-geigy-ll-duplex-var: 'Geigy LL Duplex Var', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-system-sans-serif: 'system sans-serif', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-geigy-ll-duplex-var:
+    "Geigy LL Duplex Var", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter:
+    "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-system-sans-serif:
+    "system sans-serif", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-eyebrow: 10px;

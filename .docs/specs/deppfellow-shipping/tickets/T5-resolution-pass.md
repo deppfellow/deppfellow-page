@@ -29,14 +29,14 @@ Module: `src/lib/resolve.ts` (new), wired into the markdown pipeline used by `sr
 
 ## Examples
 
-| Input | Output |
-| --- | --- |
-| `[[Memory Layers]]` where the note is published | `<a href="/articles/memory-layers/">Memory Layers</a>` |
-| `[[Private Draft Notes]]` where target is unlisted | `Private Draft Notes` as text; target string absent from HTML |
-| `[[Memory Layers\|how memory is layered]]` | `<a href="/articles/memory-layers/">how memory is layered</a>` |
-| `![[plate.png]]` with `_assets/plate.png` | `<img>` with a hashed build asset |
-| `![[missing.png]]` | alt text only |
-| `- [x] done` | checked checkbox input |
+| Input                                              | Output                                                         |
+| -------------------------------------------------- | -------------------------------------------------------------- |
+| `[[Memory Layers]]` where the note is published    | `<a href="/articles/memory-layers/">Memory Layers</a>`         |
+| `[[Private Draft Notes]]` where target is unlisted | `Private Draft Notes` as text; target string absent from HTML  |
+| `[[Memory Layers\|how memory is layered]]`         | `<a href="/articles/memory-layers/">how memory is layered</a>` |
+| `![[plate.png]]` with `_assets/plate.png`          | `<img>` with a hashed build asset                              |
+| `![[missing.png]]`                                 | alt text only                                                  |
+| `- [x] done`                                       | checked checkbox input                                         |
 
 ## Setup
 

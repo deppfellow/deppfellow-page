@@ -31,13 +31,13 @@ Module: `src/lib/vault.ts` (existing), `src/content.config.ts` (existing), `fixt
 
 ## Examples
 
-| Input front matter | Result |
-| --- | --- |
-| `description: "Short summary"` + `## Objective` section | summary = `"Short summary"` |
-| no `description`, `## Objective` body present | summary = Objective body, trimmed |
-| neither | `description: undefined`, note still loads |
-| `created: not-a-date` | note skipped, warning `skipped .../<note>.md: invalid created`, build continues |
-| `origin: agent` only | ignored; `origin` is never read |
+| Input front matter                                      | Result                                                                          |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `description: "Short summary"` + `## Objective` section | summary = `"Short summary"`                                                     |
+| no `description`, `## Objective` body present           | summary = Objective body, trimmed                                               |
+| neither                                                 | `description: undefined`, note still loads                                      |
+| `created: not-a-date`                                   | note skipped, warning `skipped .../<note>.md: invalid created`, build continues |
+| `origin: agent` only                                    | ignored; `origin` is never read                                                 |
 
 ## Setup
 

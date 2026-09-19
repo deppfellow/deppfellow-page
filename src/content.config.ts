@@ -6,7 +6,13 @@ import { readAbout, readNotes, vaultRoot } from "./lib/vault";
 
 const posts: Loader = {
   name: "deppfellow-vault",
-  load: async ({ store, parseData, generateDigest, renderMarkdown, logger }) => {
+  load: async ({
+    store,
+    parseData,
+    generateDigest,
+    renderMarkdown,
+    logger,
+  }) => {
     const root = vaultRoot();
     const { notes } = await readNotes(root, (message) => logger.warn(message));
     for (const note of notes) {

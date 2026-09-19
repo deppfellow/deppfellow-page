@@ -27,12 +27,12 @@ Route `/articles/<slug>/` (`src/pages/articles/[...slug].astro`, new).
 
 ## Examples
 
-| URL | Renders |
-| --- | --- |
+| URL                                         | Renders                                      |
+| ------------------------------------------- | -------------------------------------------- |
 | `/articles/memory-layers/` with description | h1, lede, date, tags, body, back + prev/next |
-| a note with no description | h1, date, tags (no lede) |
-| oldest note | back link + next only |
-| a `$x^2$` body | rendered math markup, no literal `$` |
+| a note with no description                  | h1, date, tags (no lede)                     |
+| oldest note                                 | back link + next only                        |
+| a `$x^2$` body                              | rendered math markup, no literal `$`         |
 
 ## Setup
 

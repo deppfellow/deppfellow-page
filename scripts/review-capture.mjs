@@ -17,8 +17,20 @@ if (!url) {
 }
 
 const VIEWPORTS = [
-  { name: "desktop", width: 1440, height: 900, deviceScaleFactor: 1, mobile: false },
-  { name: "mobile", width: 390, height: 844, deviceScaleFactor: 2, mobile: true },
+  {
+    name: "desktop",
+    width: 1440,
+    height: 900,
+    deviceScaleFactor: 1,
+    mobile: false,
+  },
+  {
+    name: "mobile",
+    width: 390,
+    height: 844,
+    deviceScaleFactor: 2,
+    mobile: true,
+  },
 ];
 
 async function rpc(ws) {
@@ -30,7 +42,11 @@ async function rpc(ws) {
     if (msg.id && pending.has(msg.id)) {
       const { resolve, reject } = pending.get(msg.id);
       pending.delete(msg.id);
-      msg.error ? reject(new Error(msg.error.message)) : resolve(msg.result);
+      if (msg.error) {
+        reject(new Error(msg.error.message));
+      } else {
+        resolve(msg.result);
+      }
     } else if (msg.method) {
       for (const fn of listeners) fn(msg);
     }
@@ -44,7 +60,9 @@ async function rpc(ws) {
       const message = { id: ++id, method, params };
       if (sessionId) message.sessionId = sessionId;
       ws.send(JSON.stringify(message));
-      return new Promise((resolve, reject) => pending.set(message.id, { resolve, reject }));
+      return new Promise((resolve, reject) =>
+        pending.set(message.id, { resolve, reject }),
+      );
     },
     once(method, sessionId, timeoutMs = 20000) {
       return new Promise((resolve, reject) => {
@@ -69,29 +87,50 @@ async function rpc(ws) {
 }
 
 try {
-  const probe = await fetch(`${CDP_HTTP}/json/version`, { signal: AbortSignal.timeout(1500) });
+  const probe = await fetch(`${CDP_HTTP}/json/version`, {
+    signal: AbortSignal.timeout(1500),
+  });
   if (!probe.ok) throw new Error("not ok");
 } catch {
-  if (!existsSync(CHROME)) throw new Error(`no browser on ${CDP_HTTP} and none at ${CHROME}`);
+  if (!existsSync(CHROME))
+    throw new Error(`no browser on ${CDP_HTTP} and none at ${CHROME}`);
   spawn(
     CHROME,
-    ["--headless=new", `--remote-debugging-port=${new URL(CDP_HTTP).port}`, "--user-data-dir=/tmp/pi-cdp-profile", "--no-first-run", "--no-default-browser-check", "about:blank"],
+    [
+      "--headless=new",
+      `--remote-debugging-port=${new URL(CDP_HTTP).port}`,
+      "--user-data-dir=/tmp/pi-cdp-profile",
+      "--no-first-run",
+      "--no-default-browser-check",
+      "about:blank",
+    ],
     { detached: true, stdio: "ignore" },
   ).unref();
   for (let i = 0; i < 30; i++) {
     await new Promise((r) => setTimeout(r, 500));
     try {
-      const res = await fetch(`${CDP_HTTP}/json/version`, { signal: AbortSignal.timeout(1000) });
+      const res = await fetch(`${CDP_HTTP}/json/version`, {
+        signal: AbortSignal.timeout(1000),
+      });
       if (res.ok) break;
-    } catch {}
+    } catch {
+      // Chrome not accepting connections yet; keep polling
+    }
   }
 }
 
-const { webSocketDebuggerUrl } = await (await fetch(`${CDP_HTTP}/json/version`)).json();
+const { webSocketDebuggerUrl } = await (
+  await fetch(`${CDP_HTTP}/json/version`)
+).json();
 const ws = new WebSocket(webSocketDebuggerUrl);
 const cdp = await rpc(ws);
-const { targetId } = await cdp.send("Target.createTarget", { url: "about:blank" });
-const { sessionId } = await cdp.send("Target.attachToTarget", { targetId, flatten: true });
+const { targetId } = await cdp.send("Target.createTarget", {
+  url: "about:blank",
+});
+const { sessionId } = await cdp.send("Target.attachToTarget", {
+  targetId,
+  flatten: true,
+});
 await cdp.send("Page.enable", {}, sessionId);
 await cdp.send("Runtime.enable", {}, sessionId);
 await mkdir(outDir, { recursive: true });
@@ -99,18 +138,42 @@ await mkdir(outDir, { recursive: true });
 for (const vp of VIEWPORTS) {
   await cdp.send(
     "Emulation.setDeviceMetricsOverride",
-    { width: vp.width, height: vp.height, deviceScaleFactor: vp.deviceScaleFactor, mobile: vp.mobile },
+    {
+      width: vp.width,
+      height: vp.height,
+      deviceScaleFactor: vp.deviceScaleFactor,
+      mobile: vp.mobile,
+    },
     sessionId,
   );
-  await cdp.send("Emulation.setEmulatedMedia", { media: "screen", features: [{ name: "prefers-color-scheme", value: "dark" }] }, sessionId);
+  await cdp.send(
+    "Emulation.setEmulatedMedia",
+    {
+      media: "screen",
+      features: [{ name: "prefers-color-scheme", value: "dark" }],
+    },
+    sessionId,
+  );
   // Park the pointer off-canvas so residual hover state never differs between captures.
-  await cdp.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: -1, y: -1 }, sessionId);
+  await cdp.send(
+    "Input.dispatchMouseEvent",
+    { type: "mouseMoved", x: -1, y: -1 },
+    sessionId,
+  );
   const loaded = cdp.once("Page.loadEventFired", sessionId);
   await cdp.send("Page.navigate", { url }, sessionId);
   await loaded;
   await new Promise((r) => setTimeout(r, 600));
-  await cdp.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: -1, y: -1 }, sessionId);
-  const shot = await cdp.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true }, sessionId);
+  await cdp.send(
+    "Input.dispatchMouseEvent",
+    { type: "mouseMoved", x: -1, y: -1 },
+    sessionId,
+  );
+  const shot = await cdp.send(
+    "Page.captureScreenshot",
+    { format: "png", captureBeyondViewport: true },
+    sessionId,
+  );
   const file = path.join(outDir, `${vp.name}.png`);
   await writeFile(file, Buffer.from(shot.data, "base64"));
   const metrics = await cdp.send(

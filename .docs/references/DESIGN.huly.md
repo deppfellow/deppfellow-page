@@ -1,5 +1,5 @@
 # Huly — Style Reference
->
+
 > Aurora through a midnight observatory — the hero is a vertical beam of violet melting into coral, and every quiet section below it borrows that same two-color story told at lower volume.
 
 **Theme:** mixed
@@ -8,21 +8,21 @@ Huly projects a cosmic-workspace atmosphere: near-black canvas with a single vio
 
 ## Tokens — Colors
 
-| Name | Value | Token | Role |
-| ------ | ------- | ------- | ------ |
-| Obsidian Canvas | `#303236` | `--color-obsidian-canvas` | Page background, dominant surface — near-black with a whisper of warmth, the default stage for all content |
-| Void | `#090a0c` | `--color-void` | Deepest surface layer for hero gradients, modal backdrops, and borders that need to disappear into the canvas |
-| Charcoal Card | `#111111` | `--color-charcoal-card` | Elevated card and panel surfaces sitting one step above the canvas |
-| Slate Edge | `#4a4b50` | `--color-slate-edge` | Hairline borders and dividers on dark surfaces |
-| Iron Veil | `#6b6c6d` | `--color-iron-veil` | Muted backgrounds for tags, list-item fills, and disabled state washes |
-| Smoke | `#95979e` | `--color-smoke` | Icon strokes, secondary text, and inactive controls — the workhorse mid-gray |
-| Ash | `#a9a9aa` | `--color-ash` | Tertiary text and subtle body borders in content-heavy lists |
-| Frost | `#d1d1d1` | `--color-frost` | Light-mode borders, input fields, and secondary CTA borders |
-| Linen | `#e5e5e7` | `--color-linen` | Light-mode surface tint and subtle section dividers in white backgrounds |
-| Snow | `#ffffff` | `--color-snow` | Hairline borders, dividers, input outlines, and card edges on light surfaces. Do not promote it to the primary CTA color |
-| Electric Iris | `#5683da` | `--color-electric-iris` | Primary action background, active nav indicator, hero aurora cool stop — vivid violet-blue against charcoal reads as switched-on, not corporate |
-| Ember Pulse | `#ff8964` | `--color-ember-pulse` | Secondary accent, hero aurora warm stop, notification dot, illustration highlight — the amber that breaks the blue's composure and gives the beam its heat |
-| Molasses | `#5a250a` | `--color-molasses` | Deep ember tone for dark-context borders, icon strokes, and tag fills when coral would be too bright |
+| Name            | Value     | Token                     | Role                                                                                                                                                       |
+| --------------- | --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Obsidian Canvas | `#303236` | `--color-obsidian-canvas` | Page background, dominant surface — near-black with a whisper of warmth, the default stage for all content                                                 |
+| Void            | `#090a0c` | `--color-void`            | Deepest surface layer for hero gradients, modal backdrops, and borders that need to disappear into the canvas                                              |
+| Charcoal Card   | `#111111` | `--color-charcoal-card`   | Elevated card and panel surfaces sitting one step above the canvas                                                                                         |
+| Slate Edge      | `#4a4b50` | `--color-slate-edge`      | Hairline borders and dividers on dark surfaces                                                                                                             |
+| Iron Veil       | `#6b6c6d` | `--color-iron-veil`       | Muted backgrounds for tags, list-item fills, and disabled state washes                                                                                     |
+| Smoke           | `#95979e` | `--color-smoke`           | Icon strokes, secondary text, and inactive controls — the workhorse mid-gray                                                                               |
+| Ash             | `#a9a9aa` | `--color-ash`             | Tertiary text and subtle body borders in content-heavy lists                                                                                               |
+| Frost           | `#d1d1d1` | `--color-frost`           | Light-mode borders, input fields, and secondary CTA borders                                                                                                |
+| Linen           | `#e5e5e7` | `--color-linen`           | Light-mode surface tint and subtle section dividers in white backgrounds                                                                                   |
+| Snow            | `#ffffff` | `--color-snow`            | Hairline borders, dividers, input outlines, and card edges on light surfaces. Do not promote it to the primary CTA color                                   |
+| Electric Iris   | `#5683da` | `--color-electric-iris`   | Primary action background, active nav indicator, hero aurora cool stop — vivid violet-blue against charcoal reads as switched-on, not corporate            |
+| Ember Pulse     | `#ff8964` | `--color-ember-pulse`     | Secondary accent, hero aurora warm stop, notification dot, illustration highlight — the amber that breaks the blue's composure and gives the beam its heat |
+| Molasses        | `#5a250a` | `--color-molasses`        | Deep ember tone for dark-context borders, icon strokes, and tag fills when coral would be too bright                                                       |
 
 ## Tokens — Typography
 
@@ -46,16 +46,16 @@ Huly projects a cosmic-workspace atmosphere: near-black canvas with a single vio
 
 ### Type Scale
 
-| Role | Size | Line Height | Letter Spacing | Token |
-| ------ | ------ | ------------- | ---------------- | ------- |
-| caption | 11px | 1.38 | -0.1px | `--text-caption` |
-| body | 14px | 1.5 | -0.14px | `--text-body` |
-| body-lg | 16px | 1.5 | -0.16px | `--text-body-lg` |
-| subheading | 18px | 1.5 | -0.36px | `--text-subheading` |
-| heading-sm | 22px | 1.25 | — | `--text-heading-sm` |
-| heading | 24px | 1.25 | -0.48px | `--text-heading` |
-| display-sm | 32px | 1 | -1.6px | `--text-display-sm` |
-| display | 80px | 0.9 | -4px | `--text-display` |
+| Role       | Size | Line Height | Letter Spacing | Token               |
+| ---------- | ---- | ----------- | -------------- | ------------------- |
+| caption    | 11px | 1.38        | -0.1px         | `--text-caption`    |
+| body       | 14px | 1.5         | -0.14px        | `--text-body`       |
+| body-lg    | 16px | 1.5         | -0.16px        | `--text-body-lg`    |
+| subheading | 18px | 1.5         | -0.36px        | `--text-subheading` |
+| heading-sm | 22px | 1.25        | —              | `--text-heading-sm` |
+| heading    | 24px | 1.25        | -0.48px        | `--text-heading`    |
+| display-sm | 32px | 1           | -1.6px         | `--text-display-sm` |
+| display    | 80px | 0.9         | -4px           | `--text-display`    |
 
 ## Tokens — Spacing & Shapes
 
@@ -65,41 +65,41 @@ Huly projects a cosmic-workspace atmosphere: near-black canvas with a single vio
 
 ### Spacing Scale
 
-| Name | Value | Token |
-| ------ | ------- | ------- |
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
-| 12 | 12px | `--spacing-12` |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 24 | 24px | `--spacing-24` |
-| 28 | 28px | `--spacing-28` |
-| 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
-| 40 | 40px | `--spacing-40` |
-| 64 | 64px | `--spacing-64` |
-| 160 | 160px | `--spacing-160` |
-| 180 | 180px | `--spacing-180` |
-| 240 | 240px | `--spacing-240` |
+| Name | Value | Token           |
+| ---- | ----- | --------------- |
+| 4    | 4px   | `--spacing-4`   |
+| 8    | 8px   | `--spacing-8`   |
+| 12   | 12px  | `--spacing-12`  |
+| 16   | 16px  | `--spacing-16`  |
+| 20   | 20px  | `--spacing-20`  |
+| 24   | 24px  | `--spacing-24`  |
+| 28   | 28px  | `--spacing-28`  |
+| 32   | 32px  | `--spacing-32`  |
+| 36   | 36px  | `--spacing-36`  |
+| 40   | 40px  | `--spacing-40`  |
+| 64   | 64px  | `--spacing-64`  |
+| 160  | 160px | `--spacing-160` |
+| 180  | 180px | `--spacing-180` |
+| 240  | 240px | `--spacing-240` |
 
 ### Border Radius
 
-| Element | Value |
-| --------- | ------- |
-| tags | 9999px |
-| cards | 12px |
-| inputs | 4px |
-| panels | 30px |
+| Element | Value  |
+| ------- | ------ |
+| tags    | 9999px |
+| cards   | 12px   |
+| inputs  | 4px    |
+| panels  | 30px   |
 | buttons | 9999px |
 
 ### Shadows
 
-| Name | Value | Token |
-| ------ | ------- | ------- |
-| md | `rgba(0, 0, 0, 0.35) 0px 4px 16px 0px` | `--shadow-md` |
+| Name   | Value                                      | Token             |
+| ------ | ------------------------------------------ | ----------------- |
+| md     | `rgba(0, 0, 0, 0.35) 0px 4px 16px 0px`     | `--shadow-md`     |
 | subtle | `rgba(255, 255, 255, 0.4) 0px 0px 0px 6px` | `--shadow-subtle` |
-| sm | `rgba(0, 0, 0, 0.15) 0px 4px 6px 0px` | `--shadow-sm` |
-| xl | `rgba(0, 0, 0, 0.5) 0px 6px 25px 0px` | `--shadow-xl` |
+| sm     | `rgba(0, 0, 0, 0.15) 0px 4px 6px 0px`      | `--shadow-sm`     |
+| xl     | `rgba(0, 0, 0, 0.5) 0px 6px 25px 0px`      | `--shadow-xl`     |
 
 ### Layout
 
@@ -212,13 +212,13 @@ Dark panel with avatar circles, 12px radius, user names in Inter 14px weight 500
 
 ## Surfaces
 
-| Level | Name | Value | Purpose |
-| ------- | ------ | ------- | --------- |
-| 0 | Obsidian Canvas | `#303236` | Page background, dominant surface for dark sections |
-| 1 | Void | `#090a0c` | Deepest dark surface, hero gradient base, modal backdrops |
-| 2 | Charcoal Card | `#111111` | Elevated card panels one step above canvas |
-| 3 | Light Canvas | `#ffffff` | Alternating light sections, editorial content bands |
-| 4 | Linen | `#f6f6f6` | Soft warm tint for secondary light sections |
+| Level | Name            | Value     | Purpose                                                   |
+| ----- | --------------- | --------- | --------------------------------------------------------- |
+| 0     | Obsidian Canvas | `#303236` | Page background, dominant surface for dark sections       |
+| 1     | Void            | `#090a0c` | Deepest dark surface, hero gradient base, modal backdrops |
+| 2     | Charcoal Card   | `#111111` | Elevated card panels one step above canvas                |
+| 3     | Light Canvas    | `#ffffff` | Alternating light sections, editorial content bands       |
+| 4     | Linen           | `#f6f6f6` | Soft warm tint for secondary light sections               |
 
 ## Elevation
 
@@ -303,8 +303,12 @@ Never stack two full-opacity gradients in the same viewport.
   --color-molasses: #5a250a;
 
   /* Typography — Font Families */
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-esbuild: 'Esbuild', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter:
+    "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-esbuild:
+    "Esbuild", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-caption: 11px;
@@ -409,8 +413,12 @@ Never stack two full-opacity gradients in the same viewport.
   --color-molasses: #5a250a;
 
   /* Typography */
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-esbuild: 'Esbuild', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter:
+    "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-esbuild:
+    "Esbuild", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-caption: 11px;

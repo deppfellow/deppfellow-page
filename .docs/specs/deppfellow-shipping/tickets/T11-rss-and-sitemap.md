@@ -27,12 +27,12 @@ Endpoints: `src/pages/rss.xml.ts` and `src/pages/sitemap.xml.ts` (new) → `dist
 
 ## Examples
 
-| State | Output |
-| --- | --- |
-| 12 Articles + 3 Projects + 4 Logs | 15 RSS items, newest first; no Logs |
-| a note without description | item omits `<description>` |
-| 60 eligible notes | exactly 50 items |
-| any build | sitemap contains every detail route, no `/404` |
+| State                             | Output                                         |
+| --------------------------------- | ---------------------------------------------- |
+| 12 Articles + 3 Projects + 4 Logs | 15 RSS items, newest first; no Logs            |
+| a note without description        | item omits `<description>`                     |
+| 60 eligible notes                 | exactly 50 items                               |
+| any build                         | sitemap contains every detail route, no `/404` |
 
 ## Setup
 

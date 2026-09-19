@@ -1,5 +1,5 @@
 # Vivid+Co — Style Reference
->
+
 > prismatic light through obsidian
 
 **Theme:** dark
@@ -8,17 +8,17 @@ Vivid+Co operates in a cinematic dark void: near-black canvas at #101010–#4957
 
 ## Tokens — Colors
 
-| Name | Value | Token | Role |
-| ------ | ------- | ------- | ------ |
-| Bone White | `#fffdf9` | `--color-bone-white` | Primary text, nav labels, link color, heading fill — the near-white that occupies every typographic surface across the dark canvas |
-| Obsidian | `#101010` | `--color-obsidian` | Page canvas, background fill for hero and section bands — the deep black the prism artifact sits inside |
-| Graphite Veil | `#495764` | `--color-graphite-veil` | Dominant surface behind headings and content blocks — a cool dark slate that gives the canvas depth without flat black |
-| Ash Border | `#403f3f` | `--color-ash-border` | Hairline divider and card outline — barely visible, used at 1px to separate rows without competing with type |
-| Fog Blue | `#6f879c` | `--color-fog-blue` | Muted secondary text and ghost-button labels (3.7:1 contrast) — service-category labels like Strategy, Creative, Communications + marketing read as de-emphasized metadata |
-| Pure Black | `#000000` | `--color-pure-black` | Decorative SVG icon and illustration fill — used in the prism artwork and icon glyphs; not a background |
-| Prism Red | `#ff2a2a` | `--color-prism-red` | Chromatic dispersion accent — one channel of the RGB-split prism hero artifact; appears only inside the brand illustration, not as a UI token |
-| Prism Cyan | `#2a7fff` | `--color-prism-cyan` | Chromatic dispersion accent — blue channel of the RGB-split prism, paired with red and green to create the signature caustics effect |
-| Prism Lime | `#2aff2a` | `--color-prism-lime` | Chromatic dispersion accent — green channel of the RGB-split prism artifact |
+| Name          | Value     | Token                   | Role                                                                                                                                                                       |
+| ------------- | --------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bone White    | `#fffdf9` | `--color-bone-white`    | Primary text, nav labels, link color, heading fill — the near-white that occupies every typographic surface across the dark canvas                                         |
+| Obsidian      | `#101010` | `--color-obsidian`      | Page canvas, background fill for hero and section bands — the deep black the prism artifact sits inside                                                                    |
+| Graphite Veil | `#495764` | `--color-graphite-veil` | Dominant surface behind headings and content blocks — a cool dark slate that gives the canvas depth without flat black                                                     |
+| Ash Border    | `#403f3f` | `--color-ash-border`    | Hairline divider and card outline — barely visible, used at 1px to separate rows without competing with type                                                               |
+| Fog Blue      | `#6f879c` | `--color-fog-blue`      | Muted secondary text and ghost-button labels (3.7:1 contrast) — service-category labels like Strategy, Creative, Communications + marketing read as de-emphasized metadata |
+| Pure Black    | `#000000` | `--color-pure-black`    | Decorative SVG icon and illustration fill — used in the prism artwork and icon glyphs; not a background                                                                    |
+| Prism Red     | `#ff2a2a` | `--color-prism-red`     | Chromatic dispersion accent — one channel of the RGB-split prism hero artifact; appears only inside the brand illustration, not as a UI token                              |
+| Prism Cyan    | `#2a7fff` | `--color-prism-cyan`    | Chromatic dispersion accent — blue channel of the RGB-split prism, paired with red and green to create the signature caustics effect                                       |
+| Prism Lime    | `#2aff2a` | `--color-prism-lime`    | Chromatic dispersion accent — green channel of the RGB-split prism artifact                                                                                                |
 
 ## Tokens — Typography
 
@@ -34,17 +34,17 @@ Vivid+Co operates in a cinematic dark void: near-black canvas at #101010–#4957
 
 ### Type Scale
 
-| Role | Size | Line Height | Letter Spacing | Token |
-| ------ | ------ | ------------- | ---------------- | ------- |
-| caption | 15px | 1.2 | 0.15px | `--text-caption` |
-| body-sm | 18px | 1.5 | — | `--text-body-sm` |
-| body | 20px | 1.2 | -0.2px | `--text-body` |
-| body-lg | 22px | 1.2 | -0.22px | `--text-body-lg` |
-| heading-sm | 33px | 1.2 | -0.33px | `--text-heading-sm` |
-| heading | 36px | 1.5 | — | `--text-heading` |
-| heading-lg | 56px | 1.13 | -0.56px | `--text-heading-lg` |
-| display-sm | 105px | 1.01 | -2.1px | `--text-display-sm` |
-| display | 136px | 1 | -2.72px | `--text-display` |
+| Role       | Size  | Line Height | Letter Spacing | Token               |
+| ---------- | ----- | ----------- | -------------- | ------------------- |
+| caption    | 15px  | 1.2         | 0.15px         | `--text-caption`    |
+| body-sm    | 18px  | 1.5         | —              | `--text-body-sm`    |
+| body       | 20px  | 1.2         | -0.2px         | `--text-body`       |
+| body-lg    | 22px  | 1.2         | -0.22px        | `--text-body-lg`    |
+| heading-sm | 33px  | 1.2         | -0.33px        | `--text-heading-sm` |
+| heading    | 36px  | 1.5         | —              | `--text-heading`    |
+| heading-lg | 56px  | 1.13        | -0.56px        | `--text-heading-lg` |
+| display-sm | 105px | 1.01        | -2.1px         | `--text-display-sm` |
+| display    | 136px | 1           | -2.72px        | `--text-display`    |
 
 ## Tokens — Spacing & Shapes
 
@@ -54,25 +54,25 @@ Vivid+Co operates in a cinematic dark void: near-black canvas at #101010–#4957
 
 ### Spacing Scale
 
-| Name | Value | Token |
-| ------ | ------- | ------- |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 40 | 40px | `--spacing-40` |
-| 56 | 56px | `--spacing-56` |
-| 60 | 60px | `--spacing-60` |
-| 64 | 64px | `--spacing-64` |
-| 72 | 72px | `--spacing-72` |
-| 108 | 108px | `--spacing-108` |
+| Name | Value | Token           |
+| ---- | ----- | --------------- |
+| 16   | 16px  | `--spacing-16`  |
+| 20   | 20px  | `--spacing-20`  |
+| 40   | 40px  | `--spacing-40`  |
+| 56   | 56px  | `--spacing-56`  |
+| 60   | 60px  | `--spacing-60`  |
+| 64   | 64px  | `--spacing-64`  |
+| 72   | 72px  | `--spacing-72`  |
+| 108  | 108px | `--spacing-108` |
 
 ### Border Radius
 
-| Element | Value |
-| --------- | ------- |
-| nav | 5px |
-| tags | 9999px |
-| cards | 15px |
-| buttons | 0px |
+| Element | Value  |
+| ------- | ------ |
+| nav     | 5px    |
+| tags    | 9999px |
+| cards   | 15px   |
+| buttons | 0px    |
 
 ### Layout
 
@@ -173,11 +173,11 @@ Neue Montreal 400 at 32px or 17px, uppercase, line-height 1.01–1.5, letter-spa
 
 ## Surfaces
 
-| Level | Name | Value | Purpose |
-| ------- | ------ | ------- | --------- |
-| 0 | Obsidian Canvas | `#101010` | Deepest page background — hero void, full-bleed sections |
-| 1 | Graphite Veil | `#495764` | Primary content surface — content bands sit on this slightly lighter slate |
-| 2 | Bone Card | `#fffdf9` | Rare inverted cards (when used) — near-white surface that flips the type to dark |
+| Level | Name            | Value     | Purpose                                                                          |
+| ----- | --------------- | --------- | -------------------------------------------------------------------------------- |
+| 0     | Obsidian Canvas | `#101010` | Deepest page background — hero void, full-bleed sections                         |
+| 1     | Graphite Veil   | `#495764` | Primary content surface — content bands sit on this slightly lighter slate       |
+| 2     | Bone Card       | `#fffdf9` | Rare inverted cards (when used) — near-white surface that flips the type to dark |
 
 ## Elevation
 
@@ -240,7 +240,9 @@ Expressive but restrained. Default duration 0.5s with ease for most transitions,
   --color-prism-lime: #2aff2a;
 
   /* Typography — Font Families */
-  --font-neue-montreal: 'Neue Montreal', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-neue-montreal:
+    "Neue Montreal", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-caption: 15px;
@@ -324,7 +326,9 @@ Expressive but restrained. Default duration 0.5s with ease for most transitions,
   --color-prism-lime: #2aff2a;
 
   /* Typography */
-  --font-neue-montreal: 'Neue Montreal', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-neue-montreal:
+    "Neue Montreal", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-caption: 15px;

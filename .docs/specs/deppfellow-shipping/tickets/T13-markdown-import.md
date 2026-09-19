@@ -28,12 +28,12 @@ Route: `src/pages/import.astro` (new), script-scoped to this page only.
 
 ## Examples
 
-| Input | Result |
-| --- | --- |
-| 2KB file, category `Articles` | navigates to `obsidian://new?...file=Articles/<name>` |
-| 200KB file | clipboard holds the markdown; fallback notice shown; no navigation |
-| category not in registry | not selectable |
-| no file chosen | submit disabled |
+| Input                         | Result                                                             |
+| ----------------------------- | ------------------------------------------------------------------ |
+| 2KB file, category `Articles` | navigates to `obsidian://new?...file=Articles/<name>`              |
+| 200KB file                    | clipboard holds the markdown; fallback notice shown; no navigation |
+| category not in registry      | not selectable                                                     |
+| no file chosen                | submit disabled                                                    |
 
 ## Setup
 

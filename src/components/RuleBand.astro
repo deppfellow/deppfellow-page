@@ -15,16 +15,21 @@ const { name, links } = Astro.props;
 
 <header class="border-b border-rule">
   <div class="mx-auto flex max-w-275 flex-wrap items-baseline justify-between gap-x-10 gap-y-3 px-6 py-5 sm:px-10">
-    <a href="/" class="label text-name tracking-[0.22em] text-bone">{name}</a>
+    <a href="/" class="label text-name tracking-[0.22em] text-bone">
+      {name}
+    </a>
     <nav aria-label="Categories" class="flex items-baseline gap-6">
-      {
-        links.map((link) => (
-          <a href={link.href} class="label inline-flex items-baseline text-star transition-colors hover:text-iris">
-            {link.label}
-            <span class="ml-1.5 text-star/70">{String(link.count).padStart(2, "0")}</span>
-          </a>
-        ))
-      }
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="label inline-flex items-baseline text-star transition-colors hover:text-iris"
+        >
+          {link.label}
+          <span class="ml-1.5 text-star/70">
+            {String(link.count).padStart(2, "0")}
+          </span>
+        </a>
+      ))}
     </nav>
   </div>
 </header>

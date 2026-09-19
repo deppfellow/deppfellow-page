@@ -27,11 +27,11 @@ Route `/articles/` (`src/pages/articles/index.astro`, new).
 
 ## Examples
 
-| Built state | `/articles/` contains |
-| --- | --- |
+| Built state | `/articles/` contains                                       |
+| ----------- | ----------------------------------------------------------- |
 | 12 Articles | 12 rows, dates descending, each linking `/articles/<slug>/` |
-| 1 Article | 1 row |
-| 0 Articles | explanatory line, HTTP 200, no `<table>`/broken markup |
+| 1 Article   | 1 row                                                       |
+| 0 Articles  | explanatory line, HTTP 200, no `<table>`/broken markup      |
 
 ## Setup
 

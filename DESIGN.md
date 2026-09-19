@@ -66,6 +66,7 @@ components:
 The site is an observatory plate atlas: a working catalogue of dated observations, printed on a near-black plate, ruled like a table and measured like an instrument. The world was chosen in a direction round and locked in ADR-0013; the home composition is the Plate Stack, locked in the surface brief.
 
 **Key Characteristics:**
+
 - A near-black plate (`#05070c`) with no surface fills, no cards, and no shadows. Structure is carried by hairlines and by stacked paper edges.
 - Two voices only: a reading serif and a condensed grotesque for labels, dates and counts.
 - One accent per view. Ember (`#ff8964`) marks recency and nothing else; iris (`#5683da`) belongs to interaction.
@@ -151,6 +152,7 @@ Square corners everywhere (`0` radius). Rectangles are the plate's own shape; th
 ## Do's and Don'ts
 
 ### Do
+
 - **Do** carry structure with `1px` hairlines and `20px` row rhythm instead of fills, cards or shadows.
 - **Do** set dates, counts and legends in Archivo Narrow caps with tabular figures (`0.09em` tracking).
 - **Do** hold prose to `65ch` and let lists hold the full container so their columns align.
@@ -158,6 +160,7 @@ Square corners everywhere (`0` radius). Rectangles are the plate's own shape; th
 - **Do** stack two hairline plate edges below a list when a list needs to feel like a stack of sheets.
 
 ### Don't
+
 - **Don't** introduce a third typeface, a display size, or a second accent colour.
 - **Don't** round a corner, add a shadow, or use a gradient anywhere in the system.
 - **Don't** turn a list row into a card, a chip, or a nested surface.

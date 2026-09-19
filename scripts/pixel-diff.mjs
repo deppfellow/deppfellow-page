@@ -9,17 +9,23 @@ if (!aPath || !bPath) {
   process.exit(1);
 }
 
-const [a, b] = await Promise.all([readFile(aPath), readFile(bPath)]).then((buffers) =>
-  buffers.map((buf) => PNG.sync.read(buf)),
+const [a, b] = await Promise.all([readFile(aPath), readFile(bPath)]).then(
+  (buffers) => buffers.map((buf) => PNG.sync.read(buf)),
 );
 if (a.width !== b.width || a.height !== b.height) {
-  console.error(`size mismatch: ${a.width}x${a.height} vs ${b.width}x${b.height}`);
+  console.error(
+    `size mismatch: ${a.width}x${a.height} vs ${b.width}x${b.height}`,
+  );
   process.exit(1);
 }
 
 const diff = new PNG({ width: a.width, height: a.height });
-const count = pixelmatch(a.data, b.data, diff.data, a.width, a.height, { threshold: 0.1 });
-console.log(`${count} differing pixels of ${a.width * a.height} (${a.width}x${a.height})`);
+const count = pixelmatch(a.data, b.data, diff.data, a.width, a.height, {
+  threshold: 0.1,
+});
+console.log(
+  `${count} differing pixels of ${a.width * a.height} (${a.width}x${a.height})`,
+);
 
 if (count > 0 && diffOut) {
   await writeFile(diffOut, PNG.sync.write(diff));
