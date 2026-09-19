@@ -139,7 +139,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | Slice           | Delivered behavior                                                                                                                                | Ownership   | Blocked-by        |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | T0 (td-a53be3)  | Toolchain: Astro 7.3.2 + Tailwind 4.3.3 on `unified()`; deterministic capture.                                                                    | human-owned | None              |
-| T1 (td-bffd30)  | Content model: `description` > `## Objective` > omit; per-note skip with logged warning; fixtures migrated.                                       | human-owned | T0                |
+| T1 (td-bffd30)  | Content model: `description` > `## Objective` > omit; per-note skip with logged warning; fixtures migrated.                                       | agent-owned | T0                |
 | T2 (td-9206eb)  | `/articles/` ruled rows, date + title only.                                                                                                       | human-owned | T1                |
 | T3 (td-d84081)  | `/projects/` rows: date, title, description.                                                                                                      | human-owned | T1                |
 | T4 (td-a0a097)  | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering.                                                                       | human-owned | T1                |
