@@ -25,6 +25,7 @@ const posts: Loader = {
           created: note.created,
           tags: note.tags,
           description: note.description,
+          summary: note.summary,
         },
       });
       store.set({
@@ -65,6 +66,7 @@ const notes = defineCollection({
     created: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     description: z.string().optional(),
+    summary: z.string().optional(),
   }),
 });
 
