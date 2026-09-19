@@ -8,6 +8,8 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    env:
+      WIKI_PATH: fixtures/vault
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,7 +23,7 @@ jobs:
       - run: npx tsc --noEmit -p tsconfig.json
       - name: Gate build
         run: |
-          WIKI_PATH=fixtures/vault npm run build 2>&1 | tee /tmp/gate.log
+          npm run build 2>&1 | tee /tmp/gate.log
           test -f dist/index.html
           grep -q 'Loaded 21 notes from' /tmp/gate.log
           grep -q 'skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created' /tmp/gate.log
