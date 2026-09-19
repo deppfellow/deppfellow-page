@@ -1,7 +1,14 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import type { Loader } from "astro/loaders";
-import { relative } from "node:path";
+import { join, relative } from "node:path";
+import { pathToFileURL } from "node:url";
+import {
+  buildNoteIndex,
+  graphNeighbors,
+  registerResolveContexts,
+  type Neighbor,
+} from "./lib/resolve";
 import { readAbout, readNotes, vaultRoot } from "./lib/vault";
 
 const posts: Loader = {
@@ -15,7 +22,35 @@ const posts: Loader = {
   }) => {
     const root = vaultRoot();
     const { notes } = await readNotes(root, (message) => logger.warn(message));
-    for (const note of notes) {
+    const index = buildNoteIndex(notes);
+    const contexts = notes.map((note) => ({
+      note,
+      index,
+      assetsDir: join(root, "_assets"),
+      outgoing: [] as Neighbor[],
+    }));
+    registerResolveContexts(contexts);
+
+    // Render every note first so the resolution pass records each outgoing
+    // edge before incoming edges are inverted.
+    const rendered = new Map<
+      string,
+      Awaited<ReturnType<typeof renderMarkdown>>
+    >();
+    for (const context of contexts) {
+      rendered.set(
+        context.note.id,
+        await renderMarkdown(context.note.body, {
+          fileURL: pathToFileURL(context.note.filePath),
+        }),
+      );
+    }
+
+    const neighbors = graphNeighbors(contexts);
+    for (const context of contexts) {
+      const note = context.note;
+      const html = rendered.get(note.id);
+      if (!html) continue;
       const data = await parseData({
         id: note.id,
         data: {
@@ -26,13 +61,15 @@ const posts: Loader = {
           tags: note.tags,
           description: note.description,
           summary: note.summary,
+          neighbors: neighbors.get(note.id) ?? [],
         },
       });
       store.set({
         id: note.id,
         data,
         body: note.body,
-        rendered: await renderMarkdown(note.body),
+        rendered: html,
+        assetImports: html.metadata?.imagePaths ?? [],
         filePath: relative(process.cwd(), note.filePath),
         digest: generateDigest(note.body),
       });
@@ -67,6 +104,15 @@ const notes = defineCollection({
     tags: z.array(z.string()).default([]),
     description: z.string().optional(),
     summary: z.string().optional(),
+    neighbors: z
+      .array(
+        z.object({
+          title: z.string(),
+          route: z.string(),
+          direction: z.enum(["outgoing", "incoming"]),
+        }),
+      )
+      .default([]),
   }),
 });
 
