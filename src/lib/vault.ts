@@ -6,6 +6,7 @@ import matter from "gray-matter";
 const MARKDOWN = /\.md$/i;
 const LANGUAGE_SUFFIX = /\.(en|id|ja)\.md$/i;
 const TITLE = /^#\s+(.+)$/m;
+const OBJECTIVE = /(?<=^|\n)##\s+Objective\s*\n+([\s\S]*?)(?=\n##\s|$)/;
 
 export type Note = {
   id: string;
@@ -15,6 +16,7 @@ export type Note = {
   created: Date;
   tags: string[];
   description?: string;
+  summary?: string;
   body: string;
   filePath: string;
 };
@@ -70,6 +72,17 @@ async function noteFiles(root: string, category: string): Promise<string[]> {
   return files;
 }
 
+function resolveSummary(
+  description: string | undefined,
+  body: string,
+): string | undefined {
+  if (description) return description;
+  const match = body.match(OBJECTIVE);
+  if (!match) return undefined;
+  const flattened = match[1].replace(/\s+/g, " ").trim();
+  return flattened || undefined;
+}
+
 export function parseNote(
   file: string,
   category: string,
@@ -92,6 +105,8 @@ export function parseNote(
     throw new Error("invalid tags");
   }
 
+  if (data.description !== undefined && typeof data.description !== "string")
+    throw new Error("invalid description");
   const description =
     typeof data.description === "string" && data.description.trim()
       ? data.description
@@ -105,6 +120,7 @@ export function parseNote(
     created,
     tags: Array.isArray(rawTags) ? rawTags : [],
     description,
+    summary: resolveSummary(description, body),
     body,
     filePath: file,
   };
