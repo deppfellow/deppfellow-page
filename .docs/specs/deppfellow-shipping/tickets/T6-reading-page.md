@@ -2,7 +2,7 @@
 td: td-9a444b
 type: feature
 priority: P0
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T5
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T6
 ---
@@ -21,18 +21,19 @@ Route `/articles/<slug>/` (`src/pages/articles/[...slug].astro`, new).
 
 - Header order: `h1` title; description-lede paragraph (only when a summary resolves); a metadata line with ISO `created` date and chip-linked tags.
 - Body: the T5-resolved markdown at a 65ch measure, including core Markdown, callouts, math, tables, fenced code (hairline frame), blockquotes.
+- Fixture scope: the `memory-layers-for-long-horizon-agents` fixture body gains the elements this page must render (core Markdown structure, a callout, math) plus a table, fenced code, and a blockquote, so L-AC-04 and L-AC-05 are executable. The fixture stays one note; the build loads the same 21 notes (22 found, 1 skipped).
 - Footer: a Back link to `/articles/` and prev/next links chained by `created` within Articles; first/last articles omit the absent neighbour rather than rendering a dead link.
 - The `h1` is the title and is not repeated in the body or elsewhere.
 - No page script is required for this ticket (the FAB arrives in T7).
 
 ## Examples
 
-| URL                                         | Renders                                      |
-| ------------------------------------------- | -------------------------------------------- |
-| `/articles/memory-layers/` with description | h1, lede, date, tags, body, back + prev/next |
-| a note with no description                  | h1, date, tags (no lede)                     |
-| oldest note                                 | back link + next only                        |
-| a `$x^2$` body                              | rendered math markup, no literal `$`         |
+| URL                                                                 | Renders                                      |
+| ------------------------------------------------------------------- | -------------------------------------------- |
+| `/articles/memory-layers-for-long-horizon-agents/` with description | h1, lede, date, tags, body, back + prev/next |
+| a note with no description                                          | h1, date, tags (no lede)                     |
+| oldest note                                                         | back link + next only                        |
+| a `$x^2$` body                                                      | rendered math markup, no literal `$`         |
 
 ## Setup
 
@@ -41,7 +42,7 @@ Route `/articles/<slug>/` (`src/pages/articles/[...slug].astro`, new).
 ## Gate
 
 ```sh
-WIKI_PATH=fixtures/vault npm run build && test -f dist/articles/memory-layers/index.html
+WIKI_PATH=fixtures/vault npm run build && test -f dist/articles/memory-layers-for-long-horizon-agents/index.html
 ```
 
 ## Acceptance Criteria
