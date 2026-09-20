@@ -11,6 +11,14 @@ import {
 } from "./lib/resolve";
 import { readAbout, readNotes, vaultRoot } from "./lib/vault";
 
+const TITLE = /^#\s+.+$/m;
+
+// parseNote lifts the first `# ` heading into note.title; rendering drops the
+// same line so the reading page's h1 stays the only one (REQ-10).
+function stripTitleHeading(body: string): string {
+  return body.replace(TITLE, "");
+}
+
 const posts: Loader = {
   name: "deppfellow-vault",
   load: async ({
@@ -40,7 +48,7 @@ const posts: Loader = {
     for (const context of contexts) {
       rendered.set(
         context.note.id,
-        await renderMarkdown(context.note.body, {
+        await renderMarkdown(stripTitleHeading(context.note.body), {
           fileURL: pathToFileURL(context.note.filePath),
         }),
       );
