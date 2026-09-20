@@ -15,6 +15,8 @@
 
   --font-serif: "Spectral", ui-serif, Georgia, serif;
   --font-label: "Archivo Narrow Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   --text-note: 1.5rem;
   --text-note--line-height: 1.55;
@@ -96,6 +98,138 @@
 
   .note :is(strong) {
     font-weight: 600;
+  }
+
+  .note > :first-child {
+    margin-top: 0;
+  }
+
+  .note :is(h2, h3, h4) {
+    margin: 2em 0 0.6em;
+    font-size: var(--text-title);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .note :is(h3, h4) {
+    font-weight: 400;
+  }
+
+  .note :is(ul, ol) {
+    margin: 0 0 1.1em;
+    padding-left: 1.4em;
+  }
+
+  .note li {
+    margin: 0.3em 0;
+  }
+
+  .note li::marker {
+    color: var(--color-star);
+  }
+
+  .note li.task-list-item {
+    list-style: none;
+  }
+
+  .note li.task-list-item input {
+    margin-right: 0.5em;
+    accent-color: var(--color-iris);
+  }
+
+  .note blockquote {
+    margin: 1.1em 0;
+    padding-left: 1.25em;
+    border-left: 1px solid var(--color-rule-strong);
+  }
+
+  .note blockquote :is(p) {
+    margin-bottom: 0.5em;
+  }
+
+  .note blockquote :is(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .note .callout {
+    margin: 1.1em 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-rule);
+  }
+
+  .note .callout-title {
+    margin: 0 0 0.5em;
+    font-family: var(--font-label);
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-star);
+  }
+
+  .note pre {
+    margin: 1.1em 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-rule);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .note :not(pre) > code {
+    padding: 0.1em 0.35em;
+    border: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: 0.8125em;
+  }
+
+  .note table {
+    width: 100%;
+    margin: 1.1em 0;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+
+  .note th {
+    font-family: var(--font-label);
+    font-size: var(--text-label);
+    font-weight: 400;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-star);
+  }
+
+  .note :is(th, td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-rule);
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .note img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .note hr {
+    margin: 2em 0;
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .note [data-footnotes] {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--color-rule);
+    font-size: 1rem;
+  }
+
+  .katex-display {
+    margin: 1.1em 0;
+    padding: 0.25rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .plate-row:hover .plate-title {
