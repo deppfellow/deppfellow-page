@@ -1,0 +1,115 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import "katex/dist/katex.min.css";
+import Base from "../../layouts/Base.astro";
+import RuleBand from "../../components/RuleBand.astro";
+import TagChip from "../../components/TagChip.astro";
+import { readRegistry, vaultRoot } from "../../lib/vault";
+
+type Note = CollectionEntry<"notes">;
+
+interface Props {
+  note: Note;
+  links: { label: string; href: string; count: number }[];
+  prev: Note | null;
+  next: Note | null;
+}
+
+export async function getStaticPaths() {
+  const [categories, notes] = await Promise.all([
+    readRegistry(vaultRoot()),
+    getCollection("notes"),
+  ]);
+  const articles = notes
+    .filter((note) => note.data.category === "Articles")
+    .sort(
+      (a, b) =>
+        a.data.created.getTime() - b.data.created.getTime() ||
+        a.data.slug.localeCompare(b.data.slug),
+    );
+  const links = categories.map((category) => ({
+    label: category,
+    href: `/${category.toLowerCase()}/`,
+    count: notes.filter((note) => note.data.category === category).length,
+  }));
+
+  return articles.map((note, index) => ({
+    params: { slug: note.data.slug },
+    props: {
+      note,
+      links,
+      prev: index > 0 ? articles[index - 1] : null,
+      next: index < articles.length - 1 ? articles[index + 1] : null,
+    },
+  }));
+}
+
+const { note, links, prev, next } = Astro.props;
+const { Content } = await render(note);
+const iso = note.data.created.toISOString().slice(0, 10);
+---
+
+<Base title={note.data.title} description={note.data.summary}>
+  <RuleBand name="deppfellow" links={links} />
+
+  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+    <article class="pt-16 pb-20 sm:pt-24">
+      <header class="measure">
+        <h1 class="font-serif text-note leading-tight font-semibold text-bone">
+          {note.data.title}
+        </h1>
+        {note.data.summary && (
+          <p class="mt-6 text-note text-bone">{note.data.summary}</p>
+        )}
+        <div class="label mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-star">
+          <time datetime={iso}>{iso}</time>
+          {note.data.tags.map((tag) => (
+            <TagChip tag={tag} />
+          ))}
+        </div>
+      </header>
+
+      <div class="note measure mt-10 text-bone">
+        <Content />
+      </div>
+
+      <footer class="measure mt-16 border-t border-rule pt-6">
+        <a
+          href="/articles/"
+          class="label text-star transition-colors hover:text-iris"
+        >
+          Back
+        </a>
+        <nav
+          aria-label="Article neighbours"
+          class="mt-5 grid gap-x-10 gap-y-4 sm:grid-cols-2"
+        >
+          {prev ? (
+            <a
+              href={`/articles/${prev.data.slug}/`}
+              class="group block text-bone"
+            >
+              <span class="label block text-star/70">← Previous</span>
+              <span class="mt-1 block text-title transition-colors group-hover:text-iris">
+                {prev.data.title}
+              </span>
+            </a>
+          ) : (
+            <span />
+          )}
+          {next && (
+            <a
+              href={`/articles/${next.data.slug}/`}
+              class="group block text-bone sm:text-right"
+            >
+              <span class="label block text-star/70">Next →</span>
+              <span class="mt-1 block text-title transition-colors group-hover:text-iris">
+                {next.data.title}
+              </span>
+            </a>
+          )}
+        </nav>
+      </footer>
+    </article>
+  </main>
+</Base>
