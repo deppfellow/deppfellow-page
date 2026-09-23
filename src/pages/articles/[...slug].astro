@@ -54,7 +54,7 @@ const iso = note.data.created.toISOString().slice(0, 10);
 
   <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
     <article class="pt-16 pb-20 sm:pt-24">
-      <header class="measure">
+      <header class="measure mx-auto">
         <h1 class="font-serif text-note leading-tight font-semibold text-bone">
           {note.data.title}
         </h1>
@@ -69,11 +69,11 @@ const iso = note.data.created.toISOString().slice(0, 10);
         </div>
       </header>
 
-      <div class="note measure mt-10 text-bone">
+      <div class="note measure mx-auto mt-10 text-bone">
         <Content />
       </div>
 
-      <footer class="measure mt-16 border-t border-rule pt-6">
+      <footer class="measure mx-auto mt-16 border-t border-rule pt-6">
         <a
           href="/articles/"
           class="label text-star transition-colors hover:text-iris"
@@ -100,7 +100,7 @@ const iso = note.data.created.toISOString().slice(0, 10);
           {next && (
             <a
               href={`/articles/${next.data.slug}/`}
-              class="group block text-bone sm:text-right"
+              class="group block text-right text-bone"
             >
               <span class="label block text-star/70">Next →</span>
               <span class="mt-1 block text-title transition-colors group-hover:text-iris">

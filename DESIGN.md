@@ -13,7 +13,7 @@ colors:
 typography:
   note:
     fontFamily: "Spectral, ui-serif, Georgia, serif"
-    fontSize: "1.5rem"
+    fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.55
   title:
@@ -93,7 +93,7 @@ The palette is monochrome plus one lived accent. It refuses both the warm-paper 
 
 Two faces, no third. Spectral (`400`, `600`) carries everything read in sentences; Archivo Narrow carries every label, date, count and legend, always in caps with `0.09em` tracking. Spectral was chosen over Source Serif 4, Newsreader, Literata and EB Garamond in a specimen pass at real sizes on the plate ground: it is the only one of the five whose wedge serifs and low contrast read as measured and cold rather than editorial or bookish, and the only one that holds its weight on near-black without turning soft.
 
-The ramp as used: note `1.5rem / 1.55`, title `1.25rem / 1.35`, label `0.8125rem / 1.2`. Scale steps are small and deliberate; the serif at reading size is the page's largest voice, and the world supplies no display size on purpose.
+The ramp as used: note `1.125rem / 1.55`, title `1.25rem / 1.35`, label `0.8125rem / 1.2`. Scale steps are small and deliberate; the serif at reading size is the page's largest voice, and the world supplies no display size on purpose.
 
 **The Two-Voice Rule.** Serif for sentences, condensed caps for identifiers. A label in the serif face or a sentence in the label face is a defect in either direction.
 
