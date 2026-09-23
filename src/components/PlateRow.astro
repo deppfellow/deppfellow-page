@@ -3,10 +3,11 @@ interface Props {
   href: string;
   title: string;
   created: Date;
+  description?: string;
   newest?: boolean;
 }
 
-const { href, title, created, newest = false } = Astro.props;
+const { href, title, created, description, newest = false } = Astro.props;
 const iso = created.toISOString().slice(0, 10);
 ---
 
@@ -24,6 +25,15 @@ const iso = created.toISOString().slice(0, 10);
       )}
       <time datetime={iso}>{iso}</time>
     </span>
-    <span class="plate-title font-serif text-title text-bone">{title}</span>
+    {description ? (
+      <span class="flex flex-col items-start gap-y-1">
+        <span class="plate-title font-serif text-title text-bone">{title}</span>
+        <span class="max-w-prose font-serif text-note text-star">
+          {description}
+        </span>
+      </span>
+    ) : (
+      <span class="plate-title font-serif text-title text-bone">{title}</span>
+    )}
   </a>
 </li>
