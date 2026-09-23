@@ -1,5 +1,4 @@
 ---
-description: Instruments helper for personal workstation
 created: 2026-06-02
 tags: [hardware, measurement]
 ---
