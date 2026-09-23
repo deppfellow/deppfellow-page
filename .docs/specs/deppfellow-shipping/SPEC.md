@@ -3,7 +3,7 @@ document_type: specification
 initiative_slug: deppfellow-shipping
 contract_status: approved
 created_at: 2026-09-12
-updated_at: 2026-09-16
+updated_at: 2026-09-23
 ---
 
 # deppfellow-shipping — end-to-end site build and shipping
@@ -141,7 +141,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T0 (td-a53be3)  | Toolchain: Astro 7.3.2 + Tailwind 4.3.3 on `unified()`; deterministic capture.                                                                    | human-owned | None              |
 | T1 (td-bffd30)  | Content model: `description` > `## Objective` > omit; per-note skip with logged warning; fixtures migrated.                                       | agent-owned | T0                |
 | T2 (td-9206eb)  | `/articles/` ruled rows, date + title only.                                                                                                       | agent-owned | T1                |
-| T3 (td-d84081)  | `/projects/` rows: date, title, description.                                                                                                      | human-owned | T1                |
+| T3 (td-d84081)  | `/projects/` rows: date, title, description.                                                                                                      | agent-owned | T1                |
 | T4 (td-a0a097)  | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering.                                                                       | human-owned | T1                |
 | T5 (td-7e73c8)  | Resolution pass: wikilinks (registry-bound, degrade-to-plain-text), `_assets/` images, footnotes, task lists, inline tags; emits graph neighbors. | agent-owned | T1                |     | T6 (td-9a444b) | Reading page: metadata header, 65ch markdown (core + callouts + math + tables/code/blockquote), back + prev/next. | agent-owned | T5  |
 | T7 (td-99e20f)  | FAB: collapsed bottom-right, h2/h3 index, disclosure semantics, empty-index and keyboard behavior.                                                | human-owned | T6                |

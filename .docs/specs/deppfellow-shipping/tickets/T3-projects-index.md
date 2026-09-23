@@ -2,7 +2,7 @@
 td: td-d84081
 type: feature
 priority: P1
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T1
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T3
 ---
@@ -23,6 +23,7 @@ Route `/projects/` (`src/pages/projects/index.astro`, new).
 - Each row exposes: ISO date, title linked to `/projects/<slug>/`, and the resolved summary (`description` > Objective > omit, D-43).
 - A Project with no resolvable summary renders date + title only (no empty element).
 - Empty category renders an explanatory line.
+- Fixture scope: `wikilink-resolution` keeps `description` + `## Objective`; `bench-tools` drops `description` (Objective-only); `td-orchestration` drops both (neither summary source). Build count stays 21 loaded / 22 found / 1 skipped.
 
 ## Examples
 
