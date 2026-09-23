@@ -2,7 +2,7 @@
 td: td-a0a097
 type: feature
 priority: P1
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T1
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T4
 ---
@@ -25,6 +25,7 @@ Route `/logs/` (`src/pages/logs/index.astro`, new).
 - Tags render as square label-caps anchors to `/tags/<tag>/` (chip-linking, D-30).
 - Ordering uses `created`, not the filename date (they can diverge for after-midnight notes).
 - Empty category renders an explanatory line.
+- Fixture scope: 2026-09-10 keeps a short body paragraph; 2026-09-07 gains a body paragraph over 240 characters (ellipsis path); 2026-09-09 body is the `# ` heading only (no excerpt element); 2026-09-08 sets `created: 2026-09-11` so its row groups under 2026-09-11, not its filename date. Build count stays 21 loaded / 22 found / 1 skipped.
 
 ## Examples
 
