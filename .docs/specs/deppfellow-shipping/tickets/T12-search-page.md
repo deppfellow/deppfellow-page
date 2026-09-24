@@ -67,7 +67,7 @@ REQ-21 (as recast), REQ-28 route-set amendment (drops `/search/`).
 
 - Note detail pages remain script-free (article FAB excepted).
 - Home layout unchanged apart from the band Search control.
-- Fixture build contract numbers hold: Loaded 21 notes, exact skip warning "skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created"; page count 25 (the `/search` route is gone, no page added).
+- Fixture build contract numbers hold: Loaded 21 notes, exact skip warning "skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created". Page set unchanged by this ticket: nothing added, nothing removed (the `/search` route never existed on dev). Base c6a211f emits 26 pages: 21 note details (14 articles, 3 projects, 4 logs), home, 3 category indexes, 404. (Erratum D-55: an earlier draft said 25 - a stale pre-T10 count that omitted the 404 page.)
 
 ## Out of Scope
 
