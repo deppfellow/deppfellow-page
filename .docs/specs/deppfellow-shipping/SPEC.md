@@ -149,7 +149,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T9 (td-725cf5)  | `/tags/<tag>` pages; reachable from chip-links.                                                                                                   | human-owned | T1, T4            |
 | T10 (td-a0f467) | Minimal 404: rule band, not-found line, home link.                                                                                                | human-owned | None              |
 | T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`.                                                                       | human-owned | T1                |
-| T12 (td-3ba9ec) | `/search` Pagefind surface + rule-band entry; home and lists stay script-free.                                                                    | human-owned | T2, T3, T4        |
+| T12 (td-3ba9ec) | `/search` Pagefind surface + rule-band entry; home and lists stay script-free.                                                                    | agent-owned | T2, T3, T4        |
 | T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback.                                                             | human-owned | None              |
 | T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass.                                                                 | human-owned | T5                |
 | T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy.                                                     | human-owned | T1, T10, T11, T12 |
