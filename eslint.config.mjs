@@ -5,7 +5,14 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: ["dist/", ".astro/", "fixtures/", ".agents/", ".pi/"],
+    ignores: [
+      "dist/",
+      ".astro/",
+      "fixtures/",
+      ".agents/",
+      ".pi/",
+      ".impeccable/",
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
