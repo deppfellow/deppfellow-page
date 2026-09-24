@@ -2,7 +2,7 @@
 td: td-074b0f
 type: feature
 priority: P2
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T5
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T14
 ---
@@ -29,7 +29,7 @@ Artifacts: `dist/llms.txt` and `dist/catalog.json` (or equivalent static paths d
 
 | Input                           | Output                                       |
 | ------------------------------- | -------------------------------------------- |
-| 12 Articles, 3 Projects, 4 Logs | catalog with 19 entries, each with neighbors |
+| 14 Articles, 3 Projects, 4 Logs | catalog with 21 entries (14+3+4), each with neighbors |
 | a note linking another          | both notes list each other in `neighbors`    |
 | an unlisted note                | absent from catalog and raw endpoints        |
 

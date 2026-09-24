@@ -148,10 +148,10 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T8 (td-2a7cd5)  | Detail pages for Projects and Logs (`/projects/<slug>`, `/logs/<date>`).                                                                          | agent-owned | T5, T6            |
 | T9 (td-725cf5)  | `/tags/<tag>` pages; reachable from chip-links.                                                                                                   | human-owned | T1, T4            |
 | T10 (td-a0f467) | Minimal 404: rule band, not-found line, home link.                                                                                                | human-owned | None              |
-| T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`.                                                                       | human-owned | T1                |
+| T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`.                                                                       | agent-owned | T1                |
 | T12 (td-3ba9ec) | Band Search modal (articles + projects) + scoped logs searchbox; note detail pages stay script-free.                                              | agent-owned | T2, T3, T4        |
 | T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback.                                                             | human-owned | None              |
-| T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass.                                                                 | human-owned | T5                |
+| T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass.                                                                 | agent-owned | T5                |
 | T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy.                                                     | human-owned | T1, T10, T11, T12 |
 | T16 (td-51defc) | Wiki-side dispatch workflow file + setup/rotation docs (same `event_type` as T15).                                                                | human-owned | T15               |
 | T17 (td-ad2df5) | GitHub settings (human): repo rename, Pages-from-Actions, dispatch token creation/secret/test dispatch.                                           | human-owned | None              |
