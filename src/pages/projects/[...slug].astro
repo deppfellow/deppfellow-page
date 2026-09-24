@@ -1,0 +1,79 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import "katex/dist/katex.min.css";
+import Base from "../../layouts/Base.astro";
+import RuleBand from "../../components/RuleBand.astro";
+import TagChip from "../../components/TagChip.astro";
+import { readRegistry, vaultRoot } from "../../lib/vault";
+
+type Note = CollectionEntry<"notes">;
+
+interface Props {
+  note: Note;
+  links: { label: string; href: string; count: number }[];
+}
+
+export async function getStaticPaths() {
+  const [categories, notes] = await Promise.all([
+    readRegistry(vaultRoot()),
+    getCollection("notes"),
+  ]);
+  const projects = notes
+    .filter((note) => note.data.category === "Projects")
+    .sort(
+      (a, b) =>
+        a.data.created.getTime() - b.data.created.getTime() ||
+        a.data.slug.localeCompare(b.data.slug),
+    );
+  const links = categories.map((category) => ({
+    label: category,
+    href: `/${category.toLowerCase()}/`,
+    count: notes.filter((note) => note.data.category === category).length,
+  }));
+
+  return projects.map((note) => ({
+    params: { slug: note.data.slug },
+    props: { note, links },
+  }));
+}
+
+const { note, links } = Astro.props;
+const { Content } = await render(note);
+const iso = note.data.created.toISOString().slice(0, 10);
+---
+
+<Base title={note.data.title} description={note.data.summary}>
+  <RuleBand name="deppfellow" links={links} />
+
+  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+    <article class="pt-16 pb-20 sm:pt-24">
+      <header class="measure mx-auto">
+        <h1 class="font-serif text-title leading-tight font-semibold text-bone">
+          {note.data.title}
+        </h1>
+        {note.data.summary && (
+          <p class="mt-6 text-note text-bone">{note.data.summary}</p>
+        )}
+        <div class="label mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-star">
+          <time datetime={iso}>{iso}</time>
+          {note.data.tags.map((tag) => (
+            <TagChip tag={tag} />
+          ))}
+        </div>
+      </header>
+
+      <div class="note measure mx-auto mt-10 text-bone">
+        <Content />
+      </div>
+
+      <footer class="measure mx-auto mt-16 border-t border-rule pt-6">
+        <a
+          href="/projects/"
+          class="label text-star transition-colors hover:text-iris"
+        >
+          Back
+        </a>
+      </footer>
+    </article>
+  </main>
+</Base>
