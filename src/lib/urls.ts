@@ -1,16 +1,31 @@
-// URL shapes for the machine-facing surfaces (rss.xml, sitemap.xml). The
-// detail-route keys mirror the getStaticPaths of the page routes: slugs for
-// Articles/Projects, the created date for Logs ([...date].astro).
+// URL shapes for the machine-facing surfaces (rss.xml, sitemap.xml, the agent
+// catalog, raw Markdown). The detail-route keys mirror the getStaticPaths of
+// the page routes: slugs for Articles/Projects, the created date for Logs
+// ([...date].astro).
+function noteKey(note: {
+  category: string;
+  slug: string;
+  created: Date;
+}): string {
+  return note.category === "Logs"
+    ? note.created.toISOString().slice(0, 10)
+    : note.slug;
+}
+
 export function notePath(note: {
   category: string;
   slug: string;
   created: Date;
 }): string {
-  const key =
-    note.category === "Logs"
-      ? note.created.toISOString().slice(0, 10)
-      : note.slug;
-  return `/${note.category.toLowerCase()}/${key}/`;
+  return `/${note.category.toLowerCase()}/${noteKey(note)}/`;
+}
+
+export function rawPath(note: {
+  category: string;
+  slug: string;
+  created: Date;
+}): string {
+  return `/raw/${note.category.toLowerCase()}/${noteKey(note)}.md`;
 }
 
 export function tagPath(tag: string): string {
