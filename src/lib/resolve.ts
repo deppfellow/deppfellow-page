@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { tagPath } from "./urls";
 
 export type NeighborDirection = "outgoing" | "incoming";
 
@@ -137,6 +138,19 @@ export function resolveVaultMarkup() {
   };
 }
 
+// Inline #tags in a note body, in order of appearance. Uses the same TOKEN
+// grammar as the rewrite pass, so the route generator sees a superset of the
+// /tags/ hrefs rendering can emit (code and headings only ever add
+// candidates, never drop one).
+export function inlineTags(body: string): string[] {
+  const tags: string[] = [];
+  for (const match of body.matchAll(TOKEN)) {
+    const tag = match[4];
+    if (tag !== undefined) tags.push(tag);
+  }
+  return tags;
+}
+
 function contextFor(file: MdFile): NoteContext | null {
   if (file.path == null) return null;
   const key =
@@ -191,7 +205,7 @@ function splitMarkup(
     } else if (tag !== undefined && !inHeading) {
       parts.push({
         type: "link",
-        url: `/tags/${tag.toLowerCase()}/`,
+        url: tagPath(tag),
         children: [textNode(`#${tag}`)],
       });
     } else {
