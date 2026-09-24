@@ -4,6 +4,7 @@ import "katex/dist/katex.min.css";
 import Base from "../../layouts/Base.astro";
 import RuleBand from "../../components/RuleBand.astro";
 import TagChip from "../../components/TagChip.astro";
+import HeadingIndex from "../../components/HeadingIndex.astro";
 import { readRegistry, vaultRoot } from "../../lib/vault";
 
 type Note = CollectionEntry<"notes">;
@@ -45,7 +46,7 @@ export async function getStaticPaths() {
 }
 
 const { note, links, prev, next } = Astro.props;
-const { Content } = await render(note);
+const { Content, headings } = await render(note);
 const iso = note.data.created.toISOString().slice(0, 10);
 ---
 
@@ -121,4 +122,6 @@ const iso = note.data.created.toISOString().slice(0, 10);
       </footer>
     </article>
   </main>
+
+  <HeadingIndex headings={headings} />
 </Base>

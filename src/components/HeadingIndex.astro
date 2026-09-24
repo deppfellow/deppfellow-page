@@ -1,0 +1,188 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+// Heading ids come from the pipeline's default slugger: Astro's unified()
+// processor runs @astrojs/markdown-remark rehypeHeadingIds (github-slugger,
+// default config), and render() returns those same slugs.
+const entries = Astro.props.headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3,
+);
+---
+
+{entries.length > 0 && (
+  <>
+    <div class="fab" data-heading-index>
+      <button
+        type="button"
+        class="trigger label"
+        data-trigger
+        aria-expanded="false"
+        aria-controls="heading-index-panel"
+      >
+        Index
+      </button>
+      <div class="stack" id="heading-index-panel" data-panel hidden>
+        <nav aria-label="On this page">
+          <ol class="entries">
+            {entries.map((heading) => (
+              <li class={heading.depth === 3 ? "sub" : undefined}>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        const fab = document.querySelector("[data-heading-index]");
+        if (!fab) return;
+        const trigger = fab.querySelector("[data-trigger]");
+        const panel = fab.querySelector("[data-panel]");
+        if (!trigger || !panel) return;
+
+        const setOpen = (open) => {
+          trigger.setAttribute("aria-expanded", String(open));
+          panel.hidden = !open;
+        };
+
+        trigger.addEventListener("click", () => setOpen(panel.hidden));
+
+        fab.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && !panel.hidden) {
+            setOpen(false);
+            trigger.focus();
+          }
+        });
+
+        // Event listener that close FAB after clicking element
+        // Remove to keep FAB open even after clicking
+        panel.addEventListener("click", function (event) {
+          if (event.target instanceof Element && event.target.closest("a")) {
+            setOpen(false);
+          }
+        });
+
+        const band = document.querySelector("body > header");
+        const setBandHeight = () => {
+          if (band) {
+            document.documentElement.style.setProperty(
+              "--band-height",
+              band.offsetHeight + "px",
+            );
+          }
+        };
+        setBandHeight();
+        addEventListener("resize", setBandHeight, { passive: true });
+      })();
+    </script>
+  </>
+)}
+
+<style>
+  .fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 20;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 0.75rem;
+    max-width: calc(100vw - 3rem);
+  }
+
+  .trigger {
+    padding: 0.625rem 1.25rem;
+    background-color: var(--color-plate);
+    border: 1px solid var(--color-rule-strong);
+    color: var(--color-star);
+    cursor: pointer;
+    transition:
+      color 120ms steps(2, end),
+      border-color 120ms steps(2, end);
+  }
+
+  .trigger:hover {
+    color: var(--color-iris);
+  }
+
+  .trigger[aria-expanded="true"] {
+    border-color: var(--color-iris);
+    color: var(--color-bone);
+  }
+
+  .stack {
+    position: relative;
+    width: min(20rem, 100%);
+  }
+
+  .stack::before,
+  .stack::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: -3px;
+    left: 3px;
+    right: 3px;
+    border: 1px solid var(--color-rule);
+    background-color: var(--color-plate-edge);
+  }
+
+  .stack::after {
+    bottom: -6px;
+    left: 6px;
+    right: 6px;
+  }
+
+  .stack nav {
+    max-height: min(60vh, 24rem);
+    overflow-y: auto;
+    background-color: var(--color-plate);
+    border: 1px solid var(--color-rule);
+  }
+
+  .entries {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .entries li + li {
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .entries a {
+    display: block;
+    padding: 0.625rem 1rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-bone);
+    text-decoration: none;
+    transition: color 120ms steps(2, end);
+  }
+
+  .entries a:hover,
+  .entries a:focus-visible {
+    color: var(--color-iris);
+  }
+
+  .entries li.sub a {
+    padding-left: 2rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  /* Anchored headings clear the rule band; the script measures the band so a
+     wrapped band on small viewports is covered too. */
+  :global(.note :is(h2, h3)) {
+    scroll-margin-top: calc(var(--band-height, 3.75rem) + 0.5rem);
+  }
+</style>
