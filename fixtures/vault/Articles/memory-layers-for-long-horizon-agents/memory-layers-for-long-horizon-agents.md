@@ -48,4 +48,12 @@ State memory is garbage-collected on demand, not on schedule:
 vault gc --layer state --max-age 30d
 ```
 
+## What the rebuild run checks
+
+An event log you cannot replay is a diary, not a memory. The rebuild run replays every event through the meaning pass and diffs the result against live state.
+
+### Drift is the signal
+
+A mismatch is not a bug to patch on the spot; it is a measurement of how far meaning memory has drifted from what happened. Reconciliation happens in the open, one diff at a time.
+
 Long-horizon agents do not need bigger notebooks. They need rooms they can walk back into.
