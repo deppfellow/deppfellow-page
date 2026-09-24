@@ -2,7 +2,7 @@
 td: td-99e20f
 type: feature
 priority: P2
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T6
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T7
 ---
@@ -44,7 +44,7 @@ Component: `src/components/HeadingIndex.astro` (new), used by the T6 reading pag
 ## Gate
 
 ```sh
-WIKI_PATH=fixtures/vault npm run build && grep -q 'aria-expanded' dist/articles/memory-layers/index.html
+WIKI_PATH=fixtures/vault npm run build && grep -q 'aria-expanded' dist/articles/memory-layers-for-long-horizon-agents/index.html
 ```
 
 ## Acceptance Criteria
