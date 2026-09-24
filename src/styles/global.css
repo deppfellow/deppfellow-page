@@ -296,6 +296,7 @@ pagefind-searchbox {
   --pf-border-radius: 0;
   --pf-results-gap: 0;
   --pf-searchbox-max-width: 100%;
+  --pf-searchbox-dropdown-max-height: min(70vh, 640px);
 }
 
 pagefind-modal {

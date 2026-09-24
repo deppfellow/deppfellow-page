@@ -57,7 +57,6 @@ const searchboxTemplate = `
         instance="pf-logs"
         placeholder="Search logs"
         hide-shortcut
-        excerpt-length="60"
         class="mb-10 w-full"
       >
         <script
@@ -66,6 +65,7 @@ const searchboxTemplate = `
           set:html={searchboxTemplate}
         ></script>
       </pagefind-searchbox>
+      <pagefind-config instance="pf-logs" excerpt-length="60" hidden></pagefind-config>
 
       {logs.length > 0 ? (
         <ol>
