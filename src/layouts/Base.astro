@@ -24,6 +24,7 @@ const canonical = Astro.site
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <slot name="head" />
   </head>
   <body>
     <slot />
