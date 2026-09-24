@@ -21,10 +21,28 @@ const logs = notes
       b.data.created.getTime() - a.data.created.getTime() ||
       a.data.slug.localeCompare(b.data.slug),
   );
+
+// Mustache template consumed by Pagefind's <pagefind-searchbox>; mustaches are
+// template syntax, never Astro expressions, so it travels as a raw string.
+// Dropdown rows follow the searchbox's ARIA combobox contract (role, ids).
+const searchboxTemplate = `
+<a
+  class="rule-row"
+  id="{{ aria.result_id }}"
+  href="{{ meta.url | default(url) | safeUrl }}"
+  role="option"
+  aria-selected="false"
+  aria-labelledby="{{ aria.title_id }}"
+>
+  <span class="rule-row-date">{{ meta.date }}</span>
+  <span class="rule-row-title" id="{{ aria.title_id }}">{{ meta.title | default("Untitled") }}</span>
+  <span class="rule-row-excerpt">{{+ excerpt +}}</span>
+</a>
+`;
 ---
 
-<Base title="Logs">
-  <RuleBand name="deppfellow" links={links} />
+<Base title="Logs" search>
+  <RuleBand name="deppfellow" links={links} search />
 
   <main class="measure mx-auto w-full px-6">
     <section class="pb-24 sm:pb-32" aria-labelledby="logs-index">
@@ -34,6 +52,24 @@ const logs = notes
         </h1>
         <span class="label text-star/70">Newest first</span>
       </div>
+
+      <pagefind-searchbox
+        instance="pf-logs"
+        placeholder="Search logs"
+        hide-shortcut
+        class="mb-10 w-full"
+      >
+        <script
+          is:inline
+          type="text/pagefind-template"
+          set:html={searchboxTemplate}
+        ></script>
+      </pagefind-searchbox>
+      <pagefind-config
+        instance="pf-logs"
+        excerpt-length="60"
+        hidden
+      ></pagefind-config>
 
       {logs.length > 0 ? (
         <ol>

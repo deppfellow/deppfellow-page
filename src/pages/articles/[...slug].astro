@@ -55,21 +55,30 @@ const iso = note.data.created.toISOString().slice(0, 10);
   <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
     <article class="pt-16 pb-20 sm:pt-24">
       <header class="measure mx-auto">
-        <h1 class="font-serif text-title leading-tight font-semibold text-bone">
+        <h1
+          class="font-serif text-title leading-tight font-semibold text-bone"
+          data-pagefind-meta="title"
+        >
           {note.data.title}
         </h1>
         {note.data.summary && (
           <p class="mt-6 text-note text-bone">{note.data.summary}</p>
         )}
         <div class="label mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-star">
-          <time datetime={iso}>{iso}</time>
+          <time datetime={iso} data-pagefind-meta="date">
+            {iso}
+          </time>
           {note.data.tags.map((tag) => (
             <TagChip tag={tag} />
           ))}
         </div>
       </header>
 
-      <div class="note measure mx-auto mt-10 text-bone">
+      <div
+        class="note measure mx-auto mt-10 text-bone"
+        data-pagefind-body
+        data-pagefind-filter="type:article"
+      >
         <Content />
       </div>
 
