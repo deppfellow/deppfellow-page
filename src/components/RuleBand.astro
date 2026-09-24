@@ -32,7 +32,7 @@ const resultTemplate = `
       {name}
     </a>
     <nav aria-label="Categories" class="flex items-baseline gap-6">
-      {links.map((link) => (
+    {links.map((link) => (
         <a
           href={link.href}
           class="label inline-flex items-baseline text-star transition-colors hover:text-iris"
@@ -47,6 +47,7 @@ const resultTemplate = `
         <pagefind-modal-trigger
           instance="pf-modal"
           placeholder="Search"
+          compact="true"
           hide-shortcut
         />
       )}
@@ -57,7 +58,7 @@ const resultTemplate = `
       <pagefind-modal-header>
         <pagefind-input
           instance="pf-modal"
-          placeholder="Search articles and projects"
+          placeholder="Search articles or projects"
         />
       </pagefind-modal-header>
       <pagefind-modal-body>
