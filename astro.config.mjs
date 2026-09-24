@@ -4,11 +4,13 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { resolveVaultMarkup } from "./src/lib/resolve.ts";
 import { rehypeCallouts } from "./src/lib/callouts.ts";
+import { routeManifest } from "./src/lib/manifest.ts";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://deppfellow.github.io",
   output: "static",
+  integrations: [routeManifest()],
   build: { format: "directory" },
   markdown: {
     // Astro 7 defaults to the Sätteri processor; T5's resolution pass is a

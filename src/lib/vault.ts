@@ -129,15 +129,19 @@ export function parseNote(
 export async function readNotes(
   root: string,
   warn: (message: string) => void = (message) => console.warn(message),
-): Promise<{ notes: Note[]; skipped: Skipped[] }> {
+): Promise<{
+  notes: Note[];
+  skipped: Skipped[];
+  foundByCategory: Record<string, number>;
+}> {
   const categories = await readRegistry(root);
   const notes: Note[] = [];
   const skipped: Skipped[] = [];
+  const foundByCategory: Record<string, number> = {};
 
-  let found = 0;
   for (const category of categories) {
     for (const file of await noteFiles(root, category)) {
-      found++;
+      foundByCategory[category] = (foundByCategory[category] ?? 0) + 1;
       const path = relative(process.cwd(), file);
       if (LANGUAGE_SUFFIX.test(file)) {
         const reason = "language-suffixed (deferred, ADR-0004)";
@@ -158,10 +162,11 @@ export async function readNotes(
     }
   }
 
+  const found = Object.values(foundByCategory).reduce((a, b) => a + b, 0);
   if (found > 0 && notes.length === 0) {
     throw new Error(`No parseable notes in ${root} (all ${found} skipped).`);
   }
-  return { notes, skipped };
+  return { notes, skipped, foundByCategory };
 }
 
 export async function readAbout(
