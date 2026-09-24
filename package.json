@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "gate": "node scripts/gate.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
