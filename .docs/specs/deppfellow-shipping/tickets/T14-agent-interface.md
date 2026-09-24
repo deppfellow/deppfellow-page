@@ -27,11 +27,18 @@ Artifacts: `dist/llms.txt` and `dist/catalog.json` (or equivalent static paths d
 
 ## Examples
 
-| Input                           | Output                                       |
-| ------------------------------- | -------------------------------------------- |
+| Input                           | Output                                                |
+| ------------------------------- | ----------------------------------------------------- |
 | 14 Articles, 3 Projects, 4 Logs | catalog with 21 entries (14+3+4), each with neighbors |
-| a note linking another          | both notes list each other in `neighbors`    |
-| an unlisted note                | absent from catalog and raw endpoints        |
+| a note linking another          | both notes list each other in `neighbors`             |
+| an unlisted note                | absent from catalog and raw endpoints                 |
+
+## Implementation
+
+- Endpoints: `src/pages/catalog.json.ts` (catalog), `src/pages/llms.txt.ts` (entry point), `src/pages/raw/[...path].ts` (raw Markdown).
+- Raw path scheme: `/raw/<category>/<key>.md`, where `<key>` is the note's page-route key (slug for Articles/Projects, `created` date for Logs); the served body is the loader's front-matter-stripped vault file body. Mirrored by `rawPath()` in `src/lib/urls.ts`.
+- Neighbors come from the content store (`data.neighbors`), populated by the single T5 resolution pass in `content.config.ts`; the endpoints are pure consumers (REQ-09).
+- Worker: zai/glm-5.3-flash, commit 2810720, branch `subagents/run_mufmzkw8_aenhqe/task_1`.
 
 ## Setup
 
