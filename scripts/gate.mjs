@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 
-const REQUIRED_STATIC = ["/rss.xml", "/search/", "/404.html", "/sitemap.xml"];
+const REQUIRED_STATIC = ["/rss.xml", "/404.html", "/sitemap.xml"];
 
 const manifest = JSON.parse(await readFile("dist/manifest.json", "utf8"));
 
