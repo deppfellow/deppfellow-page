@@ -2,8 +2,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import RuleBand from "../../components/RuleBand.astro";
-import { inlineTags } from "../../lib/resolve";
-import { normalizeTag, notePath } from "../../lib/urls";
+import { tagPages } from "../../lib/resolve";
+import { notePath } from "../../lib/urls";
 import { readRegistry, vaultRoot } from "../../lib/vault";
 
 type Note = CollectionEntry<"notes">;
@@ -26,26 +26,16 @@ export async function getStaticPaths() {
   }));
 
   // A note carries a tag through its front matter (chips, sitemap) or an
-  // inline #tag (reading-page link), so the route set is the union: every
-  // /tags/ href the build emits must land on one of these pages.
+  // inline #tag (reading-page link); tagPages is the one union helper both
+  // this route set and the sitemap enumerate. Newest first, so page rows
+  // inherit that order.
   const ordered = [...notes].sort(
     (a, b) =>
       b.data.created.getTime() - a.data.created.getTime() ||
       a.data.slug.localeCompare(b.data.slug),
   );
-  const byTag = new Map<string, { name: string; notes: Note[] }>();
-  for (const note of ordered) {
-    for (const tag of [...note.data.tags, ...inlineTags(note.body ?? "")]) {
-      const slug = normalizeTag(tag);
-      const page = byTag.get(slug) ?? { name: tag, notes: [] };
-      if (!page.notes.some((tagged) => tagged.id === note.id)) {
-        page.notes.push(note);
-      }
-      byTag.set(slug, page);
-    }
-  }
 
-  return [...byTag].map(([tag, { name, notes: tagged }]) => ({
+  return [...tagPages(ordered)].map(([tag, { name, notes: tagged }]) => ({
     params: { tag },
     props: { name, notes: tagged, links },
   }));

@@ -38,12 +38,6 @@ export function tagPath(tag: string): string {
   return `/tags/${normalizeTag(tag)}/`;
 }
 
-export function uniqueTags(notes: { tags: string[] }[]): string[] {
-  return [
-    ...new Set(notes.flatMap((note) => note.tags.map(normalizeTag))),
-  ].sort((a, b) => a.localeCompare(b));
-}
-
 export function absolute(path: string, site: URL): string {
   return new URL(path, site).href;
 }

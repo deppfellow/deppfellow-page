@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { tagPath } from "./urls";
+import { normalizeTag, tagPath } from "./urls.ts";
 
 export type NeighborDirection = "outgoing" | "incoming";
 
@@ -149,6 +149,28 @@ export function inlineTags(body: string): string[] {
     if (tag !== undefined) tags.push(tag);
   }
   return tags;
+}
+
+// The generated /tags/ route set: every note's front-matter tags union its
+// inline #tags, keyed by normalized slug, keeping the first-seen original
+// casing for the page h1. tags/[tag].astro and sitemap.xml.ts both consume
+// this one helper, so sitemap tag locs equal the generated routes by
+// construction. Callers pass notes pre-ordered; page rows inherit that order.
+export function tagPages<
+  N extends { id: string; data: { tags: string[] }; body?: string },
+>(notes: readonly N[]): Map<string, { name: string; notes: N[] }> {
+  const byTag = new Map<string, { name: string; notes: N[] }>();
+  for (const note of notes) {
+    for (const tag of [...note.data.tags, ...inlineTags(note.body ?? "")]) {
+      const slug = normalizeTag(tag);
+      const page = byTag.get(slug) ?? { name: tag, notes: [] };
+      if (!page.notes.some((tagged) => tagged.id === note.id)) {
+        page.notes.push(note);
+      }
+      byTag.set(slug, page);
+    }
+  }
+  return byTag;
 }
 
 function contextFor(file: MdFile): NoteContext | null {

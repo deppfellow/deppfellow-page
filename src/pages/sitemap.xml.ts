@@ -1,13 +1,8 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { tagPages } from "../lib/resolve";
 import { readRegistry, vaultRoot } from "../lib/vault";
-import {
-  absolute,
-  notePath,
-  requireSite,
-  tagPath,
-  uniqueTags,
-} from "../lib/urls";
+import { absolute, notePath, requireSite, tagPath } from "../lib/urls";
 
 export const GET: APIRoute = async ({ site }) => {
   const origin = requireSite(site);
@@ -16,17 +11,14 @@ export const GET: APIRoute = async ({ site }) => {
     getCollection("notes"),
   ]);
 
-  // Only routes this build actually generates may enter the sitemap. Tag
-  // pages join as soon as T9 lands src/pages/tags/, never before - a sitemap
-  // entry that 404s is worse than a missing one.
-  const tagPages = import.meta.glob("/src/pages/tags/*.astro");
+  // Tag locs come from the same tagPages helper that generates the
+  // /tags/ routes, so the sitemap can never list a tag page that the
+  // build does not produce.
   const paths = [
     "/",
     ...categories.map((category) => `/${category.toLowerCase()}/`),
     ...notes.map((note) => notePath(note.data)),
-    ...(Object.keys(tagPages).length > 0
-      ? uniqueTags(notes.map(({ data }) => data)).map(tagPath)
-      : []),
+    ...[...tagPages(notes).keys()].map(tagPath),
   ].sort();
 
   const body = [
