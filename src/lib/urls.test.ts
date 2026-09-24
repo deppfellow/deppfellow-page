@@ -1,6 +1,6 @@
 import { strict as assert } from "node:assert";
 import test from "node:test";
-import { absolute, notePath, tagPath, uniqueTags } from "./urls.ts";
+import { absolute, notePath, rawPath, tagPath, uniqueTags } from "./urls.ts";
 
 const date = (iso: string) => new Date(`${iso}T00:00:00Z`);
 
@@ -31,6 +31,25 @@ test("notePath routes Logs by created date, like [...date].astro", () => {
       created: date("2026-09-07"),
     }),
     "/logs/2026-09-07/",
+  );
+});
+
+test("rawPath mirrors notePath under /raw/ with a .md extension", () => {
+  assert.equal(
+    rawPath({
+      category: "Articles",
+      slug: "some-note",
+      created: date("2026-09-07"),
+    }),
+    "/raw/articles/some-note.md",
+  );
+  assert.equal(
+    rawPath({
+      category: "Logs",
+      slug: "whatever",
+      created: date("2026-09-07"),
+    }),
+    "/raw/logs/2026-09-07.md",
   );
 });
 
