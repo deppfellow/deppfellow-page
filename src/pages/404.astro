@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import RuleBand from "../components/RuleBand.astro";
+import { readRegistry, vaultRoot } from "../lib/vault";
+
+const categories = await readRegistry(vaultRoot());
+const notes = await getCollection("notes");
+
+const links = categories.map((category) => ({
+  label: category,
+  href: `/${category.toLowerCase()}/`,
+  count: notes.filter((note) => note.data.category === category).length,
+}));
+---
+
+<Base title="Page not found">
+  <RuleBand name="deppfellow" links={links} />
+
+  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+    <section class="note pt-16 pb-24 text-center text-bone sm:pt-24 sm:pb-32">
+      <p
+        class="mb-8 font-mono text-[clamp(4rem,30vw,10rem)] leading-none tabular-nums sm:mb-10"
+        aria-hidden="true"
+      >
+        404
+      </p>
+      <p class="text-note">
+        That page does not exist. <a href="/">Back to the home page</a>.
+      </p>
+    </section>
+  </main>
+</Base>
