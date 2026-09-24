@@ -1,4 +1,4 @@
 export const SITE_NAME = "deppfellow";
 
 export const SITE_DESCRIPTION =
-  "A public wiki of notes on agents, memory, and the systems that hold them together.";
+  "Deppfellow's public-facing personal wiki, featuring articles, projects, and daily logs";
