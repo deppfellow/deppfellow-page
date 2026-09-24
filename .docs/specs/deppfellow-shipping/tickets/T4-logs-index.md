@@ -9,7 +9,7 @@ spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T4
 
 # T4: Render the Logs index as date groups with excerpts and chip-linked tags
 
-Delivered behavior: `/logs/` shows log groups newest-first, each row with date, excerpt, and tag links.
+Delivered behavior: `/logs/` shows log groups newest-first in the 65ch measure; each row pairs a created-date cell with its excerpt and tags across a vertical hairline.
 
 ## Objective
 
@@ -20,7 +20,10 @@ Logs are the dated working record. The reader scans by group and reads a bite of
 Route `/logs/` (`src/pages/logs/index.astro`, new).
 
 - Groups: keyed by the log's `created` date, newest group first; within a group, newest first.
-- Each row exposes: ISO date, title linked to `/logs/<date>/`, an excerpt, and chip-linked tags.
+- Row anatomy: a two-column grid - the left cell is the log's `created` ISO date, a vertical hairline separates it from the content column, and the content column holds the excerpt and chip-linked tags only. Rows render no title element (the date is the log's title).
+- The date cell is the row's anchor: its label and `href` both use the `created` date (`/logs/<created>/`), never the filename slug.
+- Below the small breakpoint the row stacks date-above-content and the vertical rule disappears (DESIGN.md row rhythm); nothing shrinks and nothing is hidden.
+- The Logs index content column holds the 65ch prose measure (D-49: the list-holds-container exemption does not apply to this page).
 - Excerpt = the first paragraph of the note body, truncated at 240 characters with an ellipsis if longer; a note with no body paragraph shows no excerpt element.
 - Tags render as square label-caps anchors to `/tags/<tag>/` (chip-linking, D-30).
 - Ordering uses `created`, not the filename date (they can diverge for after-midnight notes).
@@ -29,12 +32,12 @@ Route `/logs/` (`src/pages/logs/index.astro`, new).
 
 ## Examples
 
-| Log state                                       | Row renders                                            |
-| ----------------------------------------------- | ------------------------------------------------------ |
-| body paragraph 500 chars                        | date, title link, 240-char excerpt with ellipsis, tags |
-| body only a heading                             | date, title link, no excerpt, tags                     |
-| `created: 2026-09-02`, filename `2026-09-01.md` | grouped under 2026-09-02                               |
-| 0 logs                                          | explanatory line                                       |
+| Log state                                       | Row renders                                                                       |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| body paragraph 500 chars                        | created-date cell, 240-char excerpt with ellipsis, tags; no title                 |
+| body only a heading                             | created-date cell, no excerpt, tags                                               |
+| `created: 2026-09-02`, filename `2026-09-01.md` | grouped under 2026-09-02; its cell shows 2026-09-02 and links `/logs/2026-09-02/` |
+| 0 logs                                          | explanatory line                                                                  |
 
 ## Setup
 
@@ -52,6 +55,8 @@ WIKI_PATH=fixtures/vault npm run build && test -f dist/logs/index.html
 - L-AC-02 — No excerpt exceeds 240 characters. (REQ-17)
 - L-AC-03 — Each tag on a row is an anchor whose `href` is `/tags/<tag>/`. (REQ-17, REQ-19)
 - L-AC-04 — A fixture whose `created` differs from its filename date is grouped by `created`. (REQ-17)
+- L-AC-05 — No row renders a title element; each row's date cell is an anchor whose label and `href` use the `created` date, and the divergent fixture anchors `/logs/2026-09-11/`. (REQ-17)
+- L-AC-06 — The Logs index content column is constrained to the 65ch prose measure. (REQ-17, D-49)
 
 ## Specification Coverage
 
