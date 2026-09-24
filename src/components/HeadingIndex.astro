@@ -59,6 +59,8 @@ const entries = Astro.props.headings.filter(
           }
         });
 
+        // Event listener that close FAB after clicking element
+        // Remove to keep FAB open even after clicking
         panel.addEventListener("click", function (event) {
           if (event.target instanceof Element && event.target.closest("a")) {
             setOpen(false);
