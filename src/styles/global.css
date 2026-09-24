@@ -1,0 +1,422 @@
+@import "tailwindcss";
+@import "@fontsource/spectral/400.css";
+@import "@fontsource/spectral/600.css";
+@import "@fontsource-variable/archivo-narrow";
+
+@theme {
+  --color-plate: #05070c;
+  --color-plate-edge: #0a0d15;
+  --color-rule: #1b2230;
+  --color-rule-strong: #2a3446;
+  --color-bone: #e8eef7;
+  --color-star: #9fb6d9;
+  --color-iris: #5683da;
+  --color-ember: #ff8964;
+
+  --font-serif: "Spectral", ui-serif, Georgia, serif;
+  --font-label: "Archivo Narrow Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --text-note: 1.125rem;
+  --text-note--line-height: 1.55;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.35;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.2;
+  --text-name: 0.9375rem;
+  --text-name--line-height: 1.2;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-plate);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-note);
+    line-height: var(--text-note--line-height);
+    color: var(--color-bone);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(
+      in oklab,
+      var(--color-iris) 55%,
+      var(--color-plate)
+    );
+    color: #ffffff;
+  }
+
+  html {
+    caret-color: var(--color-iris);
+    scrollbar-color: var(--color-rule-strong) var(--color-plate);
+    scrollbar-width: thin;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-iris);
+    outline-offset: 3px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .label {
+    font-family: var(--font-label);
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .measure {
+    max-width: 65ch;
+  }
+
+  .note :is(p) {
+    margin: 0 0 1.1em;
+  }
+
+  .note :is(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .note :is(a) {
+    color: var(--color-iris);
+  }
+
+  .note :is(strong) {
+    font-weight: 600;
+  }
+
+  .note > :first-child {
+    margin-top: 0;
+  }
+
+  .note :is(h2, h3, h4) {
+    margin: 2em 0 0.6em;
+    font-size: var(--text-title);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .note :is(h3, h4) {
+    font-weight: 400;
+  }
+
+  .note :is(ul, ol) {
+    margin: 0 0 1.1em;
+    padding-left: 1.4em;
+  }
+
+  .note li {
+    margin: 0.3em 0;
+  }
+
+  .note li::marker {
+    color: var(--color-star);
+  }
+
+  .note li.task-list-item {
+    list-style: none;
+  }
+
+  .note li.task-list-item input {
+    margin-right: 0.5em;
+    accent-color: var(--color-iris);
+  }
+
+  .note blockquote {
+    margin: 1.1em 0;
+    padding-left: 1.25em;
+    border-left: 1px solid var(--color-rule-strong);
+  }
+
+  .note blockquote :is(p) {
+    margin-bottom: 0.5em;
+  }
+
+  .note blockquote :is(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .note .callout {
+    margin: 1.1em 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-rule);
+  }
+
+  .note .callout-title {
+    margin: 0 0 0.5em;
+    font-family: var(--font-label);
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-star);
+  }
+
+  .note pre {
+    margin: 1.1em 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-rule);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .note :not(pre) > code {
+    padding: 0.1em 0.35em;
+    border: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: 0.8125em;
+  }
+
+  .note table {
+    width: 100%;
+    margin: 1.1em 0;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+
+  .note th {
+    font-family: var(--font-label);
+    font-size: var(--text-label);
+    font-weight: 400;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-star);
+  }
+
+  .note :is(th, td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-rule);
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .note img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .note hr {
+    margin: 2em 0;
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .note [data-footnotes] {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--color-rule);
+    font-size: 1rem;
+  }
+
+  .katex-display {
+    margin: 1.1em 0;
+    padding: 0.25rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .plate-row:hover :is(.plate-title, .row-anchor) {
+    color: var(--color-iris);
+    animation: plate-step 120ms steps(2, end) forwards;
+  }
+
+  .plate-row:focus-within {
+    background-color: var(--color-plate-edge);
+  }
+
+  @keyframes plate-step {
+    0% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+/* Search surfaces (T12). Pagefind's Component UI isolates itself with
+   all:initial, so the plate system reaches it only through --pf-* custom
+   properties and matched-specificity overrides. Its own sheet prefixes every
+   rule with :is(*, #\#):is(*, #\#):is(*, #\#); overrides repeat that prefix
+   to win, and stay unlayered because a @layer rule loses to any unlayered
+   rule no matter the specificity. */
+pagefind-modal,
+pagefind-searchbox {
+  --pf-background: var(--color-plate);
+  --pf-text: var(--color-bone);
+  --pf-text-secondary: var(--color-star);
+  --pf-text-muted: var(--color-star);
+  --pf-border: var(--color-rule);
+  --pf-border-focus: var(--color-iris);
+  --pf-hover: var(--color-plate-edge);
+  --pf-mark: #ffffff;
+  --pf-skeleton: var(--color-plate-edge);
+  --pf-skeleton-shine: var(--color-rule);
+  --pf-scroll-shadow: transparent;
+  --pf-shadow-sm: none;
+  --pf-shadow-md: none;
+  --pf-shadow-lg: none;
+  --pf-error-bg: var(--color-plate);
+  --pf-error-border: var(--color-rule);
+  --pf-error-text: var(--color-bone);
+  --pf-error-text-secondary: var(--color-star);
+  --pf-outline-focus: var(--color-iris);
+  --pf-outline-width: 1px;
+  --pf-outline-offset: 3px;
+  --pf-font: var(--font-serif);
+  --pf-border-radius: 0;
+  --pf-results-gap: 0;
+  --pf-searchbox-max-width: 100%;
+  --pf-searchbox-dropdown-max-height: min(70vh, 640px);
+}
+
+pagefind-modal {
+  --pf-modal-backdrop: color-mix(in oklab, var(--color-plate) 60%, black);
+}
+
+pagefind-modal-trigger {
+  --pf-background: transparent;
+  --pf-border: transparent;
+  --pf-border-focus: transparent;
+  --pf-text-muted: var(--color-star);
+  --pf-font: var(--font-label);
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) pagefind-modal-trigger .pf-trigger-btn {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-star);
+  transition: color 120ms steps(2, end);
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) pagefind-modal-trigger .pf-trigger-btn:hover {
+  color: var(--color-iris);
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) pagefind-modal-trigger .pf-trigger-icon {
+  /* display: none; */
+  background: currentColor;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) pagefind-modal-trigger .pf-trigger-text {
+  flex: none;
+  color: inherit;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ruled result rows: the plate-row vocabulary inside both search
+   surfaces. Named outside the pf- namespace on purpose - Component UI's
+   stylesheet reverts every pf-* class to browser defaults. */
+.result-item + .result-item {
+  border-top: 1px solid var(--color-rule);
+}
+
+.rule-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem 2rem;
+  padding: 1.25rem 0.75rem;
+  color: var(--color-bone);
+  text-decoration: none;
+  transition: color 120ms steps(2, end);
+}
+
+@media (min-width: 640px) {
+  .rule-row {
+    grid-template-columns: 9rem 1fr;
+    align-items: baseline;
+  }
+}
+
+.rule-row-date {
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-star);
+}
+
+.rule-row-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+}
+
+.rule-row-excerpt {
+  grid-column: 1 / -1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-family: var(--font-serif);
+  font-size: var(--text-note);
+  color: color-mix(in srgb, var(--color-star) 70%, transparent);
+}
+
+.rule-row:hover,
+.rule-row[data-pf-selected] {
+  background: var(--pf-hover);
+}
+
+.rule-row[data-pf-selected] {
+  outline: var(--pf-outline-width) solid var(--pf-outline-focus);
+  outline-offset: -2px;
+}
+
+.rule-row:hover .rule-row-title,
+.rule-row:focus-visible .rule-row-title {
+  color: var(--color-iris);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rule-row {
+    transition: none;
+  }
+}

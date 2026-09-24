@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "url": "https://lucumr.pocoo.org/about/",
+    "title": "About Me | Armin Ronacher's Thoughts and Writings",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "docHeight": 3137,
+    "docWidth": 390,
+    "prefersDark": true,
+    "contentRoot": {
+      "tag": "div",
+      "class": "body",
+      "blocks": 11
+    }
+  },
+  "body": {
+    "fontFamily": "Merriweather, serif",
+    "fontSize": "17px",
+    "lineHeight": "25px",
+    "fontWeight": "400",
+    "color": "rgb(220, 231, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "padding": "0px",
+    "margin": "0px"
+  },
+  "containers": [
+    {
+      "sel": "contentRoot",
+      "text": "About Me Hi, my name is Armin Ronacher! I’m deeply passionate about building teams, creating products, and contributing ",
+      "box": {
+        "width": 366,
+        "contentWidth": 366,
+        "height": 2338,
+        "display": "flow-root",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 33.5
+      }
+    },
+    {
+      "sel": "body",
+      "text": "let $THEME = null; function selectTheme(theme) { const node = document.documentElement; if (theme === \"system\") { localS",
+      "box": {
+        "width": 390,
+        "contentWidth": 390,
+        "height": 3137,
+        "display": "flex",
+        "gridTemplateColumns": "none",
+        "flexDirection": "column",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 35.7
+      }
+    },
+    {
+      "sel": "h1",
+      "text": "About Me",
+      "box": {
+        "width": 366,
+        "contentWidth": 366,
+        "height": 44,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "5px",
+        "marginBottom": "25px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 26.28,
+        "ch": 13.9
+      }
+    },
+    {
+      "sel": "p",
+      "text": "Hi, my name is Armin Ronacher! I’m deeply passionate about building teams, creating products, and contributing to the Op",
+      "box": {
+        "width": 366,
+        "contentWidth": 366,
+        "height": 347,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "15px",
+        "marginBottom": "15px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      },
+      "measure": {
+        "chPx": 10.92,
+        "ch": 33.5
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "28.9px",
+      "letterSpacing": "normal",
+      "color": "rgb(220, 231, 243)",
+      "count": 27
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(174, 195, 214)",
+      "count": 24
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(220, 231, 243)",
+      "count": 16
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "28.9px",
+      "letterSpacing": "normal",
+      "color": "rgb(102, 179, 255)",
+      "count": 14
+    },
+    {
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "letterSpacing": "normal",
+      "color": "rgb(102, 179, 255)",
+      "count": 7
+    },
+    {
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "500",
+      "lineHeight": "38px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "count": 3
+    },
+    {
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "rgb(255, 255, 255)",
+      "count": 3
+    },
+    {
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "42px",
+      "fontWeight": "500",
+      "lineHeight": "44px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "count": 1
+    },
+    {
+      "fontFamily": "\"Ubuntu Mono\", Consolas, \"Deja Vu Sans Mono\", \"Bitstream Vera Sans Mono\", Monaco, \"Courier New\", monospace",
+      "fontSize": "15.3px",
+      "fontWeight": "400",
+      "lineHeight": "26.01px",
+      "letterSpacing": "normal",
+      "color": "rgb(220, 231, 243)",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "text": [
+      {
+        "color": "rgb(220, 231, 243)",
+        "count": 35
+      },
+      {
+        "color": "rgb(174, 195, 214)",
+        "count": 24
+      },
+      {
+        "color": "rgb(102, 179, 255)",
+        "count": 21
+      },
+      {
+        "color": "rgb(150, 175, 218)",
+        "count": 4
+      }
+    ],
+    "backgrounds": [
+      {
+        "color": "rgb(42, 63, 100)",
+        "count": 1
+      }
+    ]
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "About Me",
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "42px",
+      "fontWeight": "500",
+      "lineHeight": "44px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "5px",
+      "marginBottom": "25px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "Like my Work?",
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "500",
+      "lineHeight": "38px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "25px",
+      "marginBottom": "10px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "About this Website",
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "500",
+      "lineHeight": "38px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "25px",
+      "marginBottom": "10px",
+      "textTransform": "none"
+    },
+    {
+      "tag": "h2",
+      "text": "Imprint",
+      "fontFamily": "Lora, sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "500",
+      "lineHeight": "38px",
+      "letterSpacing": "normal",
+      "color": "rgb(150, 175, 218)",
+      "fontStyle": "normal",
+      "marginTop": "25px",
+      "marginBottom": "10px",
+      "textTransform": "none"
+    }
+  ],
+  "links": {
+    "color": "rgb(102, 179, 255)",
+    "textDecorationLine": "underline",
+    "textDecorationStyle": "solid",
+    "textDecorationColor": "rgb(102, 179, 255)",
+    "textUnderlineOffset": "auto",
+    "fontWeight": "400",
+    "borderBottom": null,
+    "sampleText": "Armin Ronacher"
+  },
+  "rows": {
+    "listContainer": {
+      "tag": "ul",
+      "class": null,
+      "rows": 6,
+      "box": {
+        "width": 348,
+        "contentWidth": 348,
+        "height": 25,
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "flexDirection": "row",
+        "gap": null,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderLeft": null,
+        "borderTop": null,
+        "backgroundColor": null
+      }
+    },
+    "secondRow": "archive",
+    "sampleText": "blog",
+    "rowDisplay": "inline",
+    "rowGridTemplateColumns": "none",
+    "rowGap": null,
+    "rowPaddingY": "0px / 0px",
+    "listDisplay": "block",
+    "listGap": null,
+    "listPaddingLeft": "0px",
+    "listStyle": "none",
+    "gapBetweenRowsPx": -22,
+    "rowStridePx": 0,
+    "dateElement": {
+      "tag": "a",
+      "text": "blog",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontStyle": "normal",
+      "color": "rgb(102, 179, 255)",
+      "textTransform": "none",
+      "width": 37
+    },
+    "titleElement": {
+      "text": "blog",
+      "fontFamily": "Merriweather, serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "lineHeight": "25px",
+      "color": "rgb(102, 179, 255)",
+      "textDecorationLine": "underline",
+      "description": null
+    }
+  },
+  "rules": [],
+  "nav": [],
+  "images": [
+    {
+      "src": "https://lucumr.pocoo.org/static/avatar-large.jpg",
+      "alt": "Picture of me",
+      "width": 150,
+      "height": 150,
+      "borderRadius": "0px",
+      "objectFit": "fill"
+    }
+  ],
+  "rhythm": []
+}

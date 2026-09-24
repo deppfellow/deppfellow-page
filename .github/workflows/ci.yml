@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      WIKI_PATH: fixtures/vault
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run check
+      - run: npx tsc --noEmit -p tsconfig.json
+      - name: Gate build
+        run: |
+          npm run build 2>&1 | tee /tmp/gate.log
+          test -f dist/index.html
+          grep -q 'Loaded 21 notes from' /tmp/gate.log
+          grep -q 'skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created' /tmp/gate.log

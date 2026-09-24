@@ -1,0 +1,204 @@
+{
+  "capturedAt": "2026-09-12T10:26:13.526Z",
+  "browser": "attached",
+  "endpoint": "http://127.0.0.1:9222",
+  "targets": [
+    {
+      "slug": "lucumr-about",
+      "url": "https://lucumr.pocoo.org/about/",
+      "note": "index/about pattern",
+      "viewports": {
+        "desktop": {
+          "screenshot": ".docs/references/packs/lucumr-about/desktop.png",
+          "tokens": ".docs/references/packs/lucumr-about/desktop.json",
+          "meta": {
+            "url": "https://lucumr.pocoo.org/about/",
+            "title": "About Me | Armin Ronacher's Thoughts and Writings",
+            "viewport": {
+              "width": 1440,
+              "height": 900,
+              "dpr": 1
+            },
+            "docHeight": 2560,
+            "docWidth": 1425,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "div",
+              "class": "body",
+              "blocks": 11
+            }
+          }
+        },
+        "mobile": {
+          "screenshot": ".docs/references/packs/lucumr-about/mobile.png",
+          "tokens": ".docs/references/packs/lucumr-about/mobile.json",
+          "meta": {
+            "url": "https://lucumr.pocoo.org/about/",
+            "title": "About Me | Armin Ronacher's Thoughts and Writings",
+            "viewport": {
+              "width": 390,
+              "height": 844,
+              "dpr": 2
+            },
+            "docHeight": 3137,
+            "docWidth": 390,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "div",
+              "class": "body",
+              "blocks": 11
+            }
+          }
+        }
+      }
+    },
+    {
+      "slug": "morg-timeline",
+      "url": "https://morg.systems/78550a77",
+      "note": "articles list pattern",
+      "viewports": {
+        "desktop": {
+          "screenshot": ".docs/references/packs/morg-timeline/desktop.png",
+          "tokens": ".docs/references/packs/morg-timeline/desktop.json",
+          "meta": {
+            "url": "https://morg.systems/78550a77",
+            "title": "Full Timeline - Morg Systems",
+            "viewport": {
+              "width": 1440,
+              "height": 900,
+              "dpr": 1
+            },
+            "docHeight": 3509,
+            "docWidth": 1425,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "body",
+              "class": null,
+              "blocks": 0
+            }
+          }
+        },
+        "mobile": {
+          "screenshot": ".docs/references/packs/morg-timeline/mobile.png",
+          "tokens": ".docs/references/packs/morg-timeline/mobile.json",
+          "meta": {
+            "url": "https://morg.systems/78550a77",
+            "title": "Full Timeline - Morg Systems",
+            "viewport": {
+              "width": 390,
+              "height": 844,
+              "dpr": 2
+            },
+            "docHeight": 4037,
+            "docWidth": 390,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "body",
+              "class": null,
+              "blocks": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "slug": "lucumr-index",
+      "url": "https://lucumr.pocoo.org/",
+      "note": "posts list pattern",
+      "viewports": {
+        "desktop": {
+          "screenshot": ".docs/references/packs/lucumr-index/desktop.png",
+          "tokens": ".docs/references/packs/lucumr-index/desktop.json",
+          "meta": {
+            "url": "https://lucumr.pocoo.org/",
+            "title": "Blog | Armin Ronacher's Thoughts and Writings",
+            "viewport": {
+              "width": 1440,
+              "height": 900,
+              "dpr": 1
+            },
+            "docHeight": 1893,
+            "docWidth": 1425,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "div",
+              "class": "footer",
+              "blocks": 4
+            }
+          }
+        },
+        "mobile": {
+          "screenshot": ".docs/references/packs/lucumr-index/mobile.png",
+          "tokens": ".docs/references/packs/lucumr-index/mobile.json",
+          "meta": {
+            "url": "https://lucumr.pocoo.org/",
+            "title": "Blog | Armin Ronacher's Thoughts and Writings",
+            "viewport": {
+              "width": 390,
+              "height": 844,
+              "dpr": 2
+            },
+            "docHeight": 2241,
+            "docWidth": 390,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "div",
+              "class": "footer",
+              "blocks": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "slug": "rasyidanaf-notes",
+      "url": "https://rasyidanaf.com/notes/",
+      "note": "logs list pattern",
+      "toggleDark": true,
+      "viewports": {
+        "desktop": {
+          "screenshot": ".docs/references/packs/rasyidanaf-notes/desktop.png",
+          "tokens": ".docs/references/packs/rasyidanaf-notes/desktop.json",
+          "meta": {
+            "url": "https://rasyidanaf.com/notes/",
+            "title": "Notes | Rasyidan A F",
+            "viewport": {
+              "width": 1440,
+              "height": 900,
+              "dpr": 1
+            },
+            "docHeight": 2615,
+            "docWidth": 1425,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "section",
+              "class": "date-group",
+              "blocks": 6
+            }
+          }
+        },
+        "mobile": {
+          "screenshot": ".docs/references/packs/rasyidanaf-notes/mobile.png",
+          "tokens": ".docs/references/packs/rasyidanaf-notes/mobile.json",
+          "meta": {
+            "url": "https://rasyidanaf.com/notes/",
+            "title": "Notes | Rasyidan A F",
+            "viewport": {
+              "width": 390,
+              "height": 844,
+              "dpr": 2
+            },
+            "docHeight": 3251,
+            "docWidth": 390,
+            "prefersDark": true,
+            "contentRoot": {
+              "tag": "section",
+              "class": "date-group",
+              "blocks": 6
+            }
+          }
+        }
+      }
+    }
+  ]
+}

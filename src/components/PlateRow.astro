@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  created: Date;
+  description?: string;
+  newest?: boolean;
+}
+
+const { href, title, created, description, newest = false } = Astro.props;
+const iso = created.toISOString().slice(0, 10);
+---
+
+<li class="plate-row relative border-t border-rule first:border-t-0">
+  <a
+    href={href}
+    class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:items-baseline sm:gap-x-8 sm:gap-y-0"
+  >
+    <span class="label flex items-baseline gap-2 text-star">
+      {newest && (
+        <span
+          aria-hidden="true"
+          class="mt-[0.35em] h-1.5 w-1.5 shrink-0 bg-ember"
+        ></span>
+      )}
+      <time datetime={iso}>{iso}</time>
+    </span>
+    {description ? (
+      <span class="flex flex-col items-start gap-y-1">
+        <span class="plate-title font-serif text-title text-bone">{title}</span>
+        <span class="max-w-prose font-serif text-note text-star">
+          {description}
+        </span>
+      </span>
+    ) : (
+      <span class="plate-title font-serif text-title text-bone">{title}</span>
+    )}
+  </a>
+</li>

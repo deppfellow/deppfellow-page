@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import RuleBand from "../../components/RuleBand.astro";
+import PlateRow from "../../components/PlateRow.astro";
+import { readRegistry, vaultRoot } from "../../lib/vault";
+
+const categories = await readRegistry(vaultRoot());
+const notes = await getCollection("notes");
+
+const links = categories.map((category) => ({
+  label: category,
+  href: `/${category.toLowerCase()}/`,
+  count: notes.filter((note) => note.data.category === category).length,
+}));
+
+const projects = notes
+  .filter((note) => note.data.category === "Projects")
+  .sort(
+    (a, b) =>
+      b.data.created.getTime() - a.data.created.getTime() ||
+      a.data.slug.localeCompare(b.data.slug),
+  );
+---
+
+<Base title="Projects" search>
+  <RuleBand name="deppfellow" links={links} search />
+
+  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+    <section class="pb-24 sm:pb-32" aria-labelledby="projects-index">
+      <div class="mb-6 flex items-baseline justify-between gap-6 border-t border-rule pt-10">
+        <h1 id="projects-index" class="label text-star">
+          Projects
+        </h1>
+        <span class="label text-star/70">Newest first</span>
+      </div>
+
+      {projects.length > 0 ? (
+        <div class="relative">
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -bottom-3 left-3 right-3 h-full border-x border-b border-rule bg-plate-edge"
+          />
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -bottom-6 left-6 right-6 h-full border-x border-b border-rule bg-plate-edge"
+          />
+          <ol class="relative border border-rule bg-plate">
+            {projects.map((note) => (
+              <PlateRow
+                href={`/projects/${note.data.slug}/`}
+                title={note.data.title}
+                created={note.data.created}
+                description={note.data.summary}
+              />
+            ))}
+          </ol>
+        </div>
+      ) : (
+        <p class="text-bone">No projects published yet.</p>
+      )}
+    </section>
+  </main>
+</Base>

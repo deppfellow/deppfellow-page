@@ -1,0 +1,16 @@
+---
+import { tagPath } from "../lib/urls";
+
+interface Props {
+  tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<a
+  href={tagPath(tag)}
+  class="label inline-flex items-center border border-rule px-2.5 py-1 text-star transition-colors hover:border-rule-strong hover:text-iris"
+>
+  {tag}
+</a>
