@@ -15,6 +15,7 @@ import {
   registerResolveContexts,
   resolveVaultMarkup,
   routeFor,
+  tagPages,
 } from "./resolve.ts";
 import { readNotes } from "./vault.ts";
 
@@ -317,4 +318,24 @@ test("real fixture vault: private target leaks through no rendered note", async 
     .join("\n");
   assert.ok(!everything.includes("private-draft-notes"));
   assert.ok(!everything.includes("Private Draft Notes"));
+});
+
+test("tagPages is the normalized union of front-matter and inline tags", () => {
+  const pages = tagPages([
+    {
+      id: "a",
+      data: { tags: ["Agents", "Agent Memory"] },
+      body: "carries #agents inline too, plus #LLM",
+    },
+    { id: "b", data: { tags: ["agents"] }, body: "repeats #agents inline" },
+    { id: "c", data: { tags: [] } },
+  ]);
+
+  assert.deepEqual([...pages.keys()], ["agents", "agent-memory", "llm"]);
+  assert.equal(pages.get("agents")?.name, "Agents");
+  assert.equal(pages.get("agent-memory")?.name, "Agent Memory");
+  assert.deepEqual(
+    pages.get("agents")?.notes.map((note) => note.id),
+    ["a", "b"],
+  );
 });

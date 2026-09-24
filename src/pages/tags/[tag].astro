@@ -1,0 +1,94 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import RuleBand from "../../components/RuleBand.astro";
+import { tagPages } from "../../lib/resolve";
+import { notePath } from "../../lib/urls";
+import { readRegistry, vaultRoot } from "../../lib/vault";
+
+type Note = CollectionEntry<"notes">;
+
+interface Props {
+  name: string;
+  notes: Note[];
+  links: { label: string; href: string; count: number }[];
+}
+
+export async function getStaticPaths() {
+  const [categories, notes] = await Promise.all([
+    readRegistry(vaultRoot()),
+    getCollection("notes"),
+  ]);
+  const links = categories.map((category) => ({
+    label: category,
+    href: `/${category.toLowerCase()}/`,
+    count: notes.filter((note) => note.data.category === category).length,
+  }));
+
+  // A note carries a tag through its front matter (chips, sitemap) or an
+  // inline #tag (reading-page link); tagPages is the one union helper both
+  // this route set and the sitemap enumerate. Newest first, so page rows
+  // inherit that order.
+  const ordered = [...notes].sort(
+    (a, b) =>
+      b.data.created.getTime() - a.data.created.getTime() ||
+      a.data.slug.localeCompare(b.data.slug),
+  );
+
+  return [...tagPages(ordered)].map(([tag, { name, notes: tagged }]) => ({
+    params: { tag },
+    props: { name, notes: tagged, links },
+  }));
+}
+
+const { name, notes, links } = Astro.props;
+---
+
+<Base title={name}>
+  <RuleBand name="deppfellow" links={links} />
+
+  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+    <section class="pb-24 sm:pb-32" aria-labelledby="tag-name">
+      <div class="mb-6 flex items-baseline justify-between gap-6 border-t border-rule pt-10">
+        <h1 id="tag-name" class="label text-star">
+          {name}
+        </h1>
+        <span class="label text-star/70">Newest first</span>
+      </div>
+
+      <div class="relative">
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-3 left-3 right-3 h-full border-x border-b border-rule bg-plate-edge"
+        ></span>
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-6 left-6 right-6 h-full border-x border-b border-rule bg-plate-edge"
+        ></span>
+        <ol class="relative border border-rule bg-plate">
+          {notes.map((note) => {
+            const iso = note.data.created.toISOString().slice(0, 10);
+            return (
+              <li class="plate-row relative border-t border-rule first:border-t-0">
+                <a
+                  href={notePath(note.data)}
+                  class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:items-baseline sm:gap-x-8 sm:gap-y-0"
+                >
+                  <span class="label text-star">
+                    <time datetime={iso}>{iso}</time>
+                  </span>
+                  <span class="flex flex-col items-start gap-y-1">
+                    <span class="label text-star/70">{note.data.category}</span>
+                    <span class="plate-title font-serif text-title text-bone">
+                      {note.data.title}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  </main>
+</Base>

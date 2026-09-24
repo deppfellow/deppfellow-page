@@ -1,7 +1,7 @@
 ---
 description: Memory-layer in agentic engineering for long-run agentic system
 created: 2026-09-01
-tags: [agents, memory]
+tags: [agents, memory, Agent Memory]
 ---
 
 # Memory Layers for Long-Horizon Agents
