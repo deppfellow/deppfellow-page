@@ -27,3 +27,8 @@ Every ticket verification drives `.pi/skills/verify-deppfellow-page`. That skill
 
 - A fixture build loads 21 notes (22 found, 1 skipped by design). CI asserts the count and the exact skip warning; changing either needs a contract reason in the ticket.
 - There is no unit suite yet. Tests are T1-owned.
+
+## Reference Documents
+
+- `.docs/PRODUCT.md` captures the product context detailing the platform and essential information for design development.
+- `.docs/DESIGN.md` records the visual system contract and design decision. Any frontend work should follow it before implementing its own work.
