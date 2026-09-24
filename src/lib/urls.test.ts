@@ -1,6 +1,12 @@
 import { strict as assert } from "node:assert";
 import test from "node:test";
-import { absolute, notePath, tagPath, uniqueTags } from "./urls.ts";
+import {
+  absolute,
+  normalizeTag,
+  notePath,
+  tagPath,
+  uniqueTags,
+} from "./urls.ts";
 
 const date = (iso: string) => new Date(`${iso}T00:00:00Z`);
 
@@ -38,6 +44,14 @@ test("tagPath lowercases the tag", () => {
   assert.equal(tagPath("Agents"), "/tags/agents/");
 });
 
+test("normalizeTag lowercases and dashes spaces", () => {
+  assert.equal(normalizeTag("Agent Memory"), "agent-memory");
+});
+
+test("tagPath normalizes uppercase and spaces", () => {
+  assert.equal(tagPath("Agent Memory"), "/tags/agent-memory/");
+});
+
 test("uniqueTags lowercases, dedupes across notes, and sorts", () => {
   const tags = uniqueTags([
     { tags: ["Agents", "memory"] },
@@ -45,6 +59,10 @@ test("uniqueTags lowercases, dedupes across notes, and sorts", () => {
     { tags: [] },
   ]);
   assert.deepEqual(tags, ["agents", "llm", "memory"]);
+});
+
+test("uniqueTags normalizes uppercase and space tags", () => {
+  assert.deepEqual(uniqueTags([{ tags: ["Agent Memory"] }]), ["agent-memory"]);
 });
 
 test("absolute joins against the site root without path prefix surprises", () => {

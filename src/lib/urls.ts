@@ -1,6 +1,12 @@
-// URL shapes for the machine-facing surfaces (rss.xml, sitemap.xml). The
-// detail-route keys mirror the getStaticPaths of the page routes: slugs for
-// Articles/Projects, the created date for Logs ([...date].astro).
+// URL shapes for the machine-facing surfaces (rss.xml, sitemap.xml) and the
+// tag slug shared by every /tags/ emitter (chips, inline tags, sitemap,
+// tags/[tag].astro). The detail-route keys mirror the getStaticPaths of the
+// page routes: slugs for Articles/Projects, the created date for Logs
+// ([...date].astro), normalized tags for tags/[tag].astro.
+export function normalizeTag(tag: string): string {
+  return tag.toLowerCase().replaceAll(" ", "-");
+}
+
 export function notePath(note: {
   category: string;
   slug: string;
@@ -14,14 +20,12 @@ export function notePath(note: {
 }
 
 export function tagPath(tag: string): string {
-  return `/tags/${tag.toLowerCase()}/`;
+  return `/tags/${normalizeTag(tag)}/`;
 }
 
 export function uniqueTags(notes: { tags: string[] }[]): string[] {
   return [
-    ...new Set(
-      notes.flatMap((note) => note.tags.map((tag) => tag.toLowerCase())),
-    ),
+    ...new Set(notes.flatMap((note) => note.tags.map(normalizeTag))),
   ].sort((a, b) => a.localeCompare(b));
 }
 
