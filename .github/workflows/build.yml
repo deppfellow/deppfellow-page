@@ -1,0 +1,62 @@
+# Builds the site from the wiki's default branch, gates the emitted route
+# manifest, and deploys to GitHub Pages. The wiki-side sender workflow (T16)
+# fires this via repository_dispatch with the same event_type.
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [wiki-published]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Checkout wiki default branch
+        uses: actions/checkout@v4
+        with:
+          repository: deppfellow/deppfellow-wiki
+          ref: main
+          path: wiki
+          persist-credentials: false
+      - name: Build
+        run: npm run build
+        env:
+          WIKI_PATH: wiki
+      - name: Gate
+        run: npm run gate
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
