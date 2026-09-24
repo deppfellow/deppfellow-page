@@ -8,9 +8,22 @@ interface Link {
 interface Props {
   name: string;
   links: Link[];
+  search?: boolean;
 }
 
-const { name, links } = Astro.props;
+const { name, links, search = false } = Astro.props;
+
+// Mustache template consumed by Pagefind's <pagefind-results>; mustaches are
+// template syntax, never Astro expressions, so it travels as a raw string.
+// Result rows use the plate-row vocabulary: tabular date column, serif title.
+const resultTemplate = `
+<li class="result-item">
+  <a class="rule-row" href="{{ meta.url | default(url) | safeUrl }}">
+    <span class="rule-row-date">{{ meta.date }}</span>
+    <span class="rule-row-title">{{ meta.title | default("Untitled") }}</span>
+  </a>
+</li>
+`;
 ---
 
 <header class="border-b border-rule">
@@ -30,6 +43,45 @@ const { name, links } = Astro.props;
           </span>
         </a>
       ))}
+      {search && (
+        <pagefind-modal-trigger
+          instance="pf-modal"
+          placeholder="Search"
+          hide-shortcut
+        />
+      )}
     </nav>
   </div>
+  {search && (
+    <pagefind-modal instance="pf-modal">
+      <pagefind-modal-header>
+        <pagefind-input
+          instance="pf-modal"
+          placeholder="Search articles and projects"
+        />
+      </pagefind-modal-header>
+      <pagefind-modal-body>
+        <pagefind-summary instance="pf-modal" />
+        <pagefind-results instance="pf-modal">
+          <script
+            is:inline
+            type="text/pagefind-template"
+            set:html={resultTemplate}
+          ></script>
+        </pagefind-results>
+      </pagefind-modal-body>
+    </pagefind-modal>
+  )}
+  {search && <script is:inline type="module">
+    const pagefind = window.PagefindComponents;
+    if (pagefind) {
+      const manager = pagefind.getInstanceManager();
+      // Compound "any" filter: an array alone defaults to AND semantics,
+      // which no single page can satisfy across two type values.
+      manager.getInstance("pf-modal").searchFilters = {
+        type: { any: ["article", "project"] },
+      };
+      manager.getInstance("pf-logs").searchFilters = { type: ["log"] };
+    }
+  </script>}
 </header>
