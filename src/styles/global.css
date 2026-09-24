@@ -400,10 +400,19 @@ pagefind-modal-trigger {
   color: color-mix(in srgb, var(--color-star) 70%, transparent);
 }
 
+.rule-row:hover,
+.rule-row[data-pf-selected] {
+  background: var(--pf-hover);
+}
+
+.rule-row[data-pf-selected] {
+  outline: var(--pf-outline-width) solid var(--pf-outline-focus);
+  outline-offset: -2px;
+}
+
 .rule-row:hover .rule-row-title,
 .rule-row:focus-visible .rule-row-title {
   color: var(--color-iris);
-
 }
 
 @media (prefers-reduced-motion: reduce) {
