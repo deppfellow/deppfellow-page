@@ -21,20 +21,12 @@ const logs = notes
       b.data.created.getTime() - a.data.created.getTime() ||
       a.data.slug.localeCompare(b.data.slug),
   );
-
-const groups: { date: string; entries: typeof logs }[] = [];
-for (const note of logs) {
-  const date = note.data.created.toISOString().slice(0, 10);
-  const group = groups[groups.length - 1];
-  if (group && group.date === date) group.entries.push(note);
-  else groups.push({ date, entries: [note] });
-}
 ---
 
 <Base title="Logs">
   <RuleBand name="deppfellow" links={links} />
 
-  <main class="mx-auto w-full max-w-275 px-6 sm:px-10">
+  <main class="measure mx-auto w-full px-6 sm:px-10">
     <section class="pb-24 sm:pb-32" aria-labelledby="logs-index">
       <div class="mb-6 flex items-baseline justify-between gap-6 border-t border-rule pt-10">
         <h1 id="logs-index" class="label text-star">
@@ -43,21 +35,12 @@ for (const note of logs) {
         <span class="label text-star/70">Newest first</span>
       </div>
 
-      {groups.length > 0 ? (
-        <div class="flex flex-col gap-10">
-          {groups.map((group) => (
-            <section aria-label={group.date}>
-              <h2 class="label mb-3 text-star/70">
-                <time datetime={group.date}>{group.date}</time>
-              </h2>
-              <ol class="border border-rule bg-plate">
-                {group.entries.map((note) => (
-                  <LogRow note={note} />
-                ))}
-              </ol>
-            </section>
+      {logs.length > 0 ? (
+        <ol>
+          {logs.map((note) => (
+            <LogRow note={note} />
           ))}
-        </div>
+        </ol>
       ) : (
         <p class="text-bone">No logs published yet.</p>
       )}
