@@ -57,7 +57,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 ### Search, feed, and sitemap
 
-- REQ-21 — A dedicated `/search` page runs the Pagefind index, reachable from a Search control in the rule band. Home and list pages stay script-free. ({D-05, D-08, D-23})
+- REQ-21 — A Search control in the rule band opens a Pagefind modal finding article and project notes; the logs index carries a searchbox finding logs only. Note detail pages stay script-free. ({D-05, D-08, D-23, D-54})
 - REQ-22 — `/rss.xml` covers Articles and Projects only, newest-first by `created`, capped at 50, absolute links, `description` as the item summary. ({D-09})
 - REQ-23 — `sitemap.xml` generates per build with absolute root URLs. ({D-24})
 
@@ -70,7 +70,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 - REQ-26 — One `build.yml` on the default branch: shallow-clones the wiki's default branch explicitly as `WIKI_PATH`, runs `astro build` under the registry boundary, then deploys `dist/` to GitHub Pages. ({D-06, D-25, D-34})
 - REQ-27 — A wiki-side workflow fires `repository_dispatch` at the site repo on push, authenticated by a fine-grained PAT or GitHub App token (`contents: write` on the site repo) held as a wiki-repo secret. The workflow file and rotation docs are agent-owned (T16); creating the token, storing the secret, and the live test dispatch are human-owned (T17). ({D-28, D-39})
-- REQ-28 — The deploy gate asserts against a build-emitted manifest (routes + loader Article count), not grep of HTML strings. The required route set is every registered category index, `rss.xml`, `/search`, `404.html`, and `sitemap.xml`; any missing route fails the job. Zero Articles warns but does not fail until first content lands. ({D-14, D-22, D-29, D-38})
+- REQ-28 — The deploy gate asserts against a build-emitted manifest (routes + loader Article count), not grep of HTML strings. The required route set is every registered category index, `rss.xml`, `404.html`, and `sitemap.xml`; any missing route fails the job. Zero Articles warns but does not fail until first content lands. ({D-14, D-22, D-29, D-38, D-54})
 - REQ-29 — The repo rename to `deppfellow.github.io` and Pages-from-Actions enablement are human-owned GitHub-settings actions, sequenced before any ticket that bakes absolute URLs. ({D-19})
 - REQ-30 — The agent interface (JSON catalog and `llms.txt`) ships per ADR-0006, sharing the resolution pass. ({D-01, D-18})
 
@@ -81,7 +81,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 - SPEC-AC-03 — A visitor opens a tag chip on a reading page; it lands on `/tags/<tag>` listing that tag's notes across categories. ({D-30})
 - SPEC-AC-04 — A visitor opens `/articles/`, `/projects/`, and `/logs/`; each reflects its pinned pattern with no overflow at 390px, and a Projects row shows date, title, and description. ({D-03, D-10, D-11})
 - SPEC-AC-05 — A Projects row links to `/projects/<slug>`, which renders; a Logs row links to `/logs/<date>`, which renders with its prev/next chain. ({D-21})
-- SPEC-AC-06 — A visitor opens `/search` via the rule-band control and finds a published note; home and list pages still show no page script. ({D-05, D-23})
+- SPEC-AC-06 — A visitor opens Search from the rule band and the modal finds a published note; note detail pages still show no page script. ({D-05, D-23, D-54})
 - SPEC-AC-07 — `/rss.xml` contains Articles and Projects, no Logs, newest-first, every `<link>` absolute and resolving to a real page. ({D-09, D-21})
 - SPEC-AC-08 — The author opens `/import`, selects a local `.md` and a registry-listed category: small files open the `obsidian://` URI; a file past ~60KB encoded copies Markdown to the clipboard instead. Nothing is uploaded. ({D-12, D-27})
 - SPEC-AC-09 — A wiki push fires the dispatch; the site workflow clones the wiki default branch, builds, passes the gate, and the deploy reflects the pushed note. A route-missing build produces no deploy. A zero-Article build warns and still deploys the shell. ({D-06, D-28, D-29})
@@ -89,7 +89,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 ## Constraint
 
-- Home and list pages are script-free. JavaScript is permitted only on dedicated script-scoped surfaces (`/search`, `/import`) and as the reading page's FAB control; no framework runtime ships; scripts stay small and scoped (narrows ADR-0002; D-16, D-31).
+- Note detail pages are script-free. JavaScript is permitted only on the search-carrying home and index pages (the Pagefind Component UI bundle), the `/import` surface, and as the reading page's FAB control; no framework runtime ships; scripts stay small and scoped (narrows ADR-0002; D-16, D-31, D-54).
 
 ## Non-goals
 
@@ -108,19 +108,19 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 - Math: KaTeX at build via Astro's markdown pipeline.
 - Reading page: reuses `RuleBand`/`PlateRow` vocabulary; FAB is an Astro component with a small scoped script (disclosure semantics, focus return, Escape).
 - Tags: square label-caps anchors, no pills or fills.
-- Search: Pagefind indexer as a build post-step; `/search` mounts the Pagefind UI; entry link in the rule band.
+- Search: Pagefind indexer as a build post-step; a band-triggered modal (articles and projects) plus a scoped searchbox on the logs index; the `/search` route is deleted. ({D-54})
 - Import: `/import` with `<input type="file">`, `obsidian://new`, 60KB encoded cap, clipboard fallback.
 - Pipeline: `.github/workflows/build.yml` (receiver, default branch) plus a wiki-repo dispatch workflow; build emits a routes/Article-count manifest for the gate.
 - Gate: manifest assertions fail on missing routes; zero Articles warns only.
 
 ## Testing/Seam Decisions
 
-- Machine-checkable only: `astro build` success; manifest assertions for routes and Article count; fixture assertions for `description` presence and `origin` absence; a leak check that a private wikilink target's slug/title never appears in built HTML; a script-count check in whitelist mode (permitted only on `/search`, `/import`, reading pages).
+- Machine-checkable only: `astro build` success; manifest assertions for routes and Article count; fixture assertions for `description` presence and `origin` absence; a leak check that a private wikilink target's slug/title never appears in built HTML; a script-count check in whitelist mode (permitted only on the search-carrying home and index pages, `/import`, and note detail pages' FAB).
 - Every check is greppable, executable, or session-visible; no prose re-reading.
 
 ## Governing References
 
-- ADR-0002 Performance contract (narrowed by D-16/D-31: scoped JS on /search, /import, reading-page FAB)
+- ADR-0002 Performance contract (narrowed by D-16/D-31/D-54: scoped JS on search-carrying pages, /import, reading-page FAB)
 - ADR-0003 Routing and file layout
 - ADR-0005 Rendering fidelity scope (full V1 scope restored by D-32)
 - ADR-0006 Agent interface
@@ -149,7 +149,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T9 (td-725cf5)  | `/tags/<tag>` pages; reachable from chip-links.                                                                                                   | human-owned | T1, T4            |
 | T10 (td-a0f467) | Minimal 404: rule band, not-found line, home link.                                                                                                | human-owned | None              |
 | T11 (td-533f29) | `/rss.xml` (Articles + Projects, cap 50, absolute links) and `sitemap.xml`.                                                                       | human-owned | T1                |
-| T12 (td-3ba9ec) | `/search` Pagefind surface + rule-band entry; home and lists stay script-free.                                                                    | agent-owned | T2, T3, T4        |
+| T12 (td-3ba9ec) | Band Search modal (articles + projects) + scoped logs searchbox; note detail pages stay script-free.                                             | agent-owned | T2, T3, T4        |
 | T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback.                                                             | human-owned | None              |
 | T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass.                                                                 | human-owned | T5                |
 | T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy.                                                     | human-owned | T1, T10, T11, T12 |
