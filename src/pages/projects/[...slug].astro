@@ -11,8 +11,6 @@ type Note = CollectionEntry<"notes">;
 interface Props {
   note: Note;
   links: { label: string; href: string; count: number }[];
-  prev: Note | null;
-  next: Note | null;
 }
 
 export async function getStaticPaths() {
@@ -20,8 +18,8 @@ export async function getStaticPaths() {
     readRegistry(vaultRoot()),
     getCollection("notes"),
   ]);
-  const articles = notes
-    .filter((note) => note.data.category === "Articles")
+  const projects = notes
+    .filter((note) => note.data.category === "Projects")
     .sort(
       (a, b) =>
         a.data.created.getTime() - b.data.created.getTime() ||
@@ -33,18 +31,13 @@ export async function getStaticPaths() {
     count: notes.filter((note) => note.data.category === category).length,
   }));
 
-  return articles.map((note, index) => ({
+  return projects.map((note) => ({
     params: { slug: note.data.slug },
-    props: {
-      note,
-      links,
-      prev: index > 0 ? articles[index - 1] : null,
-      next: index < articles.length - 1 ? articles[index + 1] : null,
-    },
+    props: { note, links },
   }));
 }
 
-const { note, links, prev, next } = Astro.props;
+const { note, links } = Astro.props;
 const { Content } = await render(note);
 const iso = note.data.created.toISOString().slice(0, 10);
 ---
@@ -75,40 +68,11 @@ const iso = note.data.created.toISOString().slice(0, 10);
 
       <footer class="measure mx-auto mt-16 border-t border-rule pt-6">
         <a
-          href="/articles/"
+          href="/projects/"
           class="label text-star transition-colors hover:text-iris"
         >
           Back
         </a>
-        <nav
-          aria-label="Article neighbours"
-          class="mt-5 grid gap-x-10 gap-y-4 sm:grid-cols-2"
-        >
-          {prev ? (
-            <a
-              href={`/articles/${prev.data.slug}/`}
-              class="group block text-bone"
-            >
-              <span class="label block text-star/70">← Previous</span>
-              <span class="mt-1 block text-title transition-colors group-hover:text-iris">
-                {prev.data.title}
-              </span>
-            </a>
-          ) : (
-            <span />
-          )}
-          {next && (
-            <a
-              href={`/articles/${next.data.slug}/`}
-              class="group block text-right text-bone"
-            >
-              <span class="label block text-star/70">Next →</span>
-              <span class="mt-1 block text-title transition-colors group-hover:text-iris">
-                {next.data.title}
-              </span>
-            </a>
-          )}
-        </nav>
       </footer>
     </article>
   </main>
