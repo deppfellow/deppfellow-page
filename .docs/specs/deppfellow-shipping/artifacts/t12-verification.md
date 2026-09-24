@@ -19,13 +19,13 @@ Preserved Invariants) before reading the diff.
 
 ## Checks run and evidence
 
-| Check | Command | Result |
-| --- | --- | --- |
-| Fresh install | `npm ci` in /tmp/t12-clean | exit 0, 523 pkgs (`/tmp/t12-clean-install.log`) |
-| Ticket Gate | `rm -rf node_modules/.astro && WIKI_PATH=fixtures/vault npm run build` | exit 0; `Loaded 21 notes`; exact skip warning `skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created`; 26 pages built (`/tmp/t12-gate.log`) |
-| Typecheck | `npm run check` / `npx tsc --noEmit -p tsconfig.json` | 0 errors / exit 0 (`/tmp/t12-check.log`, `/tmp/t12-tsc.log`) |
-| Gate script | `npm run gate` | exit 1 on pre-existing T10/T11 routes only (`/rss.xml`, `/404.html`, `/sitemap.xml`); `/search` NOT reported missing (`/tmp/t12-gate-script.log`) |
-| Home regression | plate rows + ABOUT in `dist/index.html` | 10 `<li class="plate-row`; `survived being re-read` present |
+| Check           | Command                                                                | Result                                                                                                                                                            |
+| --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fresh install   | `npm ci` in /tmp/t12-clean                                             | exit 0, 523 pkgs (`/tmp/t12-clean-install.log`)                                                                                                                   |
+| Ticket Gate     | `rm -rf node_modules/.astro && WIKI_PATH=fixtures/vault npm run build` | exit 0; `Loaded 21 notes`; exact skip warning `skipped fixtures/vault/Articles/broken-note/broken-note.md: invalid created`; 26 pages built (`/tmp/t12-gate.log`) |
+| Typecheck       | `npm run check` / `npx tsc --noEmit -p tsconfig.json`                  | 0 errors / exit 0 (`/tmp/t12-check.log`, `/tmp/t12-tsc.log`)                                                                                                      |
+| Gate script     | `npm run gate`                                                         | exit 1 on pre-existing T10/T11 routes only (`/rss.xml`, `/404.html`, `/sitemap.xml`); `/search` NOT reported missing (`/tmp/t12-gate-script.log`)                 |
+| Home regression | plate rows + ABOUT in `dist/index.html`                                | 10 `<li class="plate-row`; `survived being re-read` present                                                                                                       |
 
 ## L-AC results
 

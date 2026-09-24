@@ -30,14 +30,14 @@ ADR-0010's human search, recast by the pilot (D-54) from the route version (PR #
 
 ## Examples
 
-| Action | Result |
-| --- | --- |
-| open home or any index, click band `Search` | modal opens in place; no page navigation |
-| type a phrase from a fixture article in the modal | result linking to that article's route |
-| type a phrase unique to a fixture log in the modal | no log result |
-| on `/logs/`, type that same log phrase in the searchbox | result linking to that log's route |
-| open `/articles/<slug>/` | no Search trigger; no script beyond the FAB |
-| build | Pagefind bundle present in output; `dist/search/` absent |
+| Action                                                  | Result                                                   |
+| ------------------------------------------------------- | -------------------------------------------------------- |
+| open home or any index, click band `Search`             | modal opens in place; no page navigation                 |
+| type a phrase from a fixture article in the modal       | result linking to that article's route                   |
+| type a phrase unique to a fixture log in the modal      | no log result                                            |
+| on `/logs/`, type that same log phrase in the searchbox | result linking to that log's route                       |
+| open `/articles/<slug>/`                                | no Search trigger; no script beyond the FAB              |
+| build                                                   | Pagefind bundle present in output; `dist/search/` absent |
 
 ## Setup
 
