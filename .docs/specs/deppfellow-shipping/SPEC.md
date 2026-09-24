@@ -50,7 +50,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 
 - REQ-15 — `/articles/` renders Articles as ruled rows with date and title only. ({D-03})
 - REQ-16 — `/projects/` renders Projects as date, title, and short description. ({D-01, D-11})
-- REQ-17 — `/logs/` renders date groups newest-first; each row shows date, an excerpt, and chip-linked tags. ({D-10, D-30})
+- REQ-17 — `/logs/` renders logs newest-first as a flat ruled list; each row shows date, an excerpt, and chip-linked tags. ({D-10, D-30, D-50})
 - REQ-18 — Detail pages ship for all three categories: `/articles/<slug>`, `/projects/<slug>`, `/logs/<date>`. ({D-21})
 - REQ-19 — `/tags/<tag>` pages generate from the secondary axis and are reachable from chip-links on reading pages and log rows. ({D-01, D-30})
 - REQ-20 — A minimal 404 renders the rule band, a not-found line, and a home link. ({D-01})
@@ -142,7 +142,7 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T1 (td-bffd30)  | Content model: `description` > `## Objective` > omit; per-note skip with logged warning; fixtures migrated.                                       | agent-owned | T0                |
 | T2 (td-9206eb)  | `/articles/` ruled rows, date + title only.                                                                                                       | agent-owned | T1                |
 | T3 (td-d84081)  | `/projects/` rows: date, title, description.                                                                                                      | agent-owned | T1                |
-| T4 (td-a0a097)  | `/logs/` date-grouped rows: excerpt + chip-linked tags, `created` ordering.                                                                       | agent-owned | T1                |
+| T4 (td-a0a097)  | `/logs/` flat ruled rows: date cell and content across a hairline, 65ch, `created` ordering.                                                      | agent-owned | T1                |
 | T5 (td-7e73c8)  | Resolution pass: wikilinks (registry-bound, degrade-to-plain-text), `_assets/` images, footnotes, task lists, inline tags; emits graph neighbors. | agent-owned | T1                |     | T6 (td-9a444b) | Reading page: metadata header, 65ch markdown (core + callouts + math + tables/code/blockquote), back + prev/next. | agent-owned | T5  |
 | T7 (td-99e20f)  | FAB: collapsed bottom-right, h2/h3 index, disclosure semantics, empty-index and keyboard behavior.                                                | human-owned | T6                |
 | T8 (td-2a7cd5)  | Detail pages for Projects and Logs (`/projects/<slug>`, `/logs/<date>`).                                                                          | human-owned | T5, T6            |
