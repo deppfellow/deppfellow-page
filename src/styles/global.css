@@ -232,7 +232,7 @@
     overflow-y: hidden;
   }
 
-  .plate-row:hover .plate-title {
+  .plate-row:hover :is(.plate-title, .row-anchor) {
     color: var(--color-iris);
     animation: plate-step 120ms steps(2, end) forwards;
   }
