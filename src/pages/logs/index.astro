@@ -36,6 +36,7 @@ const searchboxTemplate = `
 >
   <span class="rule-row-date">{{ meta.date }}</span>
   <span class="rule-row-title" id="{{ aria.title_id }}">{{ meta.title | default("Untitled") }}</span>
+  <span class="rule-row-excerpt">{{+ excerpt +}}</span>
 </a>
 `;
 ---
@@ -56,6 +57,7 @@ const searchboxTemplate = `
         instance="pf-logs"
         placeholder="Search logs"
         hide-shortcut
+        excerpt-length="60"
         class="mb-10 w-full"
       >
         <script

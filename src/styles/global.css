@@ -388,9 +388,21 @@ pagefind-modal-trigger {
   line-height: var(--text-title--line-height);
 }
 
+.rule-row-excerpt {
+  grid-column: 1 / -1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-family: var(--font-serif);
+  font-size: var(--text-note);
+  color: color-mix(in srgb, var(--color-star) 70%, transparent);
+}
+
 .rule-row:hover .rule-row-title,
 .rule-row:focus-visible .rule-row-title {
   color: var(--color-iris);
+
 }
 
 @media (prefers-reduced-motion: reduce) {
