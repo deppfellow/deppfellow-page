@@ -3,6 +3,10 @@
 Site-facing repository for the personal site, rendering articles from the wiki-facing repository.
 The project local wiki is in `/mnt/c/Users/%USERPROFILE%/Documents/vaults/deppfellow-wiki`.
 
+Rules of the project:
+
+- If concreteness is needed, ask instead of guessing
+
 ## Checks (CI-enforced)
 
 `.github/workflows/ci.yml` runs the full suite on every push and every PR, and the same checks are required before any work is called done. Run the suite locally before opening a PR:

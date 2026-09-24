@@ -2,30 +2,23 @@
 import type { CollectionEntry } from "astro:content";
 import TagChip from "./TagChip.astro";
 import { excerpt } from "../lib/excerpt";
-import { routeFor } from "../lib/resolve";
 
 interface Props {
   note: CollectionEntry<"notes">;
 }
 
 const { note } = Astro.props;
-const { created, slug, tags, title } = note.data;
+const { created, tags } = note.data;
 const iso = created.toISOString().slice(0, 10);
 const text = note.body ? excerpt(note.body) : undefined;
 ---
 
 <li class="plate-row relative border-t border-rule first:border-t-0">
-  <div class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:items-baseline sm:gap-x-8 sm:gap-y-0">
-    <span class="label text-star">
+  <div class="grid grid-cols-1 gap-y-2 px-3 py-5 sm:grid-cols-[9rem_1fr] sm:gap-y-0">
+    <a href={`/logs/${iso}/`} class="row-anchor label text-star sm:pr-6">
       <time datetime={iso}>{iso}</time>
-    </span>
-    <div class="flex flex-col items-start gap-y-2">
-      <a
-        href={routeFor("Logs", slug)}
-        class="plate-title font-serif text-title text-bone"
-      >
-        {title}
-      </a>
+    </a>
+    <div class="flex flex-col items-start gap-y-2 sm:border-l sm:border-rule sm:pl-6">
       {text && <p class="max-w-prose font-serif text-note text-star">{text}</p>}
       {tags.length > 0 && (
         <div class="flex flex-wrap gap-2">

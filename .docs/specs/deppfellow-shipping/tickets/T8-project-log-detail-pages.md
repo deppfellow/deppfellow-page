@@ -2,7 +2,7 @@
 td: td-2a7cd5
 type: feature
 priority: P1
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T5, T6
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T8
 ---
@@ -22,17 +22,18 @@ Routes: `src/pages/projects/[...slug].astro` and `src/pages/logs/[...date].astro
 - Both reuse the T6 reading-page body component (header, 65ch resolved body, footer).
 - Header: `h1` title; description-lede when a summary resolves; metadata line with ISO `created` (Logs: also the log's own date) and chip-linked tags.
 - Logs additionally render the prev/next chain by `created`; Projects render a Back link to `/projects/`.
-- A Logs route uses the note's `created` date as the URL segment, consistent with T4 grouping.
+- A Logs route uses the note's `created` date as the URL segment, consistent with T4's `created` ordering.
 - No FAB on these routes (FAB is Article-only).
+- The reading-page h1 renders at title scale (`text-title` on the reading-page h1 class only; the `--text-title` and `--text-note` tokens are unchanged). (D-48)
 
 ## Examples
 
-| URL                               | Renders                          |
-| --------------------------------- | -------------------------------- |
-| `/projects/smart-camera-monitor/` | h1, lede, date, tags, body, back |
-| `/logs/2026-09-02/`               | h1, date, tags, body, prev/next  |
-| oldest log                        | next only                        |
-| unknown slug                      | 404 (T10)                        |
+| URL                              | Renders                          |
+| -------------------------------- | -------------------------------- |
+| `/projects/wikilink-resolution/` | h1, lede, date, tags, body, back |
+| `/logs/2026-09-09/`              | h1, date, tags, body, prev/next  |
+| oldest log                       | next only                        |
+| unknown slug                     | 404 (T10)                        |
 
 ## Setup
 
@@ -41,7 +42,7 @@ Routes: `src/pages/projects/[...slug].astro` and `src/pages/logs/[...date].astro
 ## Gate
 
 ```sh
-WIKI_PATH=fixtures/vault npm run build && test -f dist/logs/2026-09-02/index.html
+WIKI_PATH=fixtures/vault npm run build && test -f dist/logs/2026-09-11/index.html
 ```
 
 ## Acceptance Criteria
@@ -51,6 +52,7 @@ WIKI_PATH=fixtures/vault npm run build && test -f dist/logs/2026-09-02/index.htm
 - L-AC-03 — Logs detail pages contain a prev/next chain resolving to existing routes; the oldest omits the absent neighbour. (REQ-14, REQ-18)
 - L-AC-04 — Detail page bodies are 65ch and contain no unrendered wikilink brackets. (REQ-11, REQ-04)
 - L-AC-05 — No FAB element appears on Project or Log detail pages. (REQ-12)
+- L-AC-06 — The reading-page h1 renders at the title scale, not the body note scale; list surfaces and the body measure are unaffected. (D-48)
 
 ## Specification Coverage
 
@@ -58,7 +60,7 @@ REQ-18, REQ-11, REQ-14.
 
 ## Preserved Invariants
 
-- List surfaces unchanged; Articles reading page unchanged.
+- List surfaces unchanged; Articles reading page unchanged apart from the h1 title-scale class (L-AC-06).
 
 ## Out of Scope
 
