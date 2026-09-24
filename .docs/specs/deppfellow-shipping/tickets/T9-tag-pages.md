@@ -2,7 +2,7 @@
 td: td-725cf5
 type: feature
 priority: P2
-ownership: human-owned
+ownership: agent-owned
 blocked-by: T1, T4
 spec: .docs/specs/deppfellow-shipping/SPEC.md §Ticket Decomposition slice T9
 ---
@@ -25,14 +25,16 @@ Route: `src/pages/tags/[tag].astro` (new), generated per distinct tag across all
 - Tag slugs are normalized (lowercase, spaces to `-`); the same normalization is used by chip-links so links always match generated routes.
 - A tag with a single note still generates a valid page.
 - Every chip generated in T4 (log rows) and T6/T8 (reading pages) resolves to a generated route.
+- Tag normalization is one shared helper consumed by every emitter: `TagChip.astro`, `tagPath`/`uniqueTags` in `src/lib/urls.ts` (sitemap), and the inline-tag rewrite in `src/lib/resolve.ts`. Every `/tags/` href emitted by the build (chips, inline tags, sitemap.xml) resolves to a generated route.
+- Fixture scope (worker): `memory-layers-for-long-horizon-agents.md` gains the tag `Agent Memory`. Its page `/tags/agent-memory/` lists that one note; route, chip href, and sitemap loc normalize identically.
 
 ## Examples
 
-| Tag                                          | Page                                               |
-| -------------------------------------------- | -------------------------------------------------- |
-| `agents` on 3 notes across Articles and Logs | `/tags/agents/` with 3 rows, category labels shown |
-| `synthesis` on 1 note                        | `/tags/synthesis/` with 1 row                      |
-| tag `Agent Memory`                           | route `/tags/agent-memory/`; chip href matches     |
+| Tag                                          | Page                                                |
+| -------------------------------------------- | --------------------------------------------------- |
+| `agents` on 8 notes across Articles and Logs | `/tags/agents/` with 8 rows, category labels shown  |
+| `synthesis` on 1 note                        | `/tags/synthesis/` with 1 row                       |
+| tag `Agent Memory` on 1 note                 | `/tags/agent-memory/` with 1 row; chip href matches |
 
 ## Setup
 
@@ -51,6 +53,7 @@ WIKI_PATH=fixtures/vault npm run build && test -f dist/tags/agents/index.html
 - L-AC-02 — A tag page lists exactly the notes carrying it, across categories, with category labels. (REQ-19)
 - L-AC-03 — Every chip `href` emitted in T4/T6/T8 has a corresponding generated tag route (no dead chips). (REQ-19, SPEC-AC-03)
 - L-AC-04 — Tag normalization is identical between generation and chip-link emission. (REQ-19)
+- L-AC-05 — The multi-word fixture tag `Agent Memory` generates `/tags/agent-memory/`, and its chip href, any inline-tag href, and its sitemap loc are byte-identical to that route. (REQ-19)
 
 ## Specification Coverage
 
