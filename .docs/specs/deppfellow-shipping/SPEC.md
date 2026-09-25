@@ -153,8 +153,8 @@ Astro 7.3.2 + Tailwind CSS 4.3.3, static output, on the `unified()` Markdown pro
 | T13 (td-a7bf5e) | `/import` Obsidian handoff: file pick, category select, 60KB cap, clipboard fallback.                                                             | human-owned | None              |
 | T14 (td-074b0f) | Agent interface: JSON catalog + `llms.txt`, graph neighbors from the shared pass.                                                                 | agent-owned | T5                |
 | T15 (td-4cbeb1) | GitHub Actions `build.yml`: wiki clone at default branch, build, manifest gate, Pages deploy.                                                     | human-owned | T1, T10, T11, T12 |
-| T16 (td-51defc) | Wiki-side dispatch workflow file + setup/rotation docs (same `event_type` as T15).                                                                | human-owned | T15               |
-| T17 (td-ad2df5) | GitHub settings (human): repo rename, Pages-from-Actions, dispatch token creation/secret/test dispatch.                                           | human-owned | None              |
+| T16 (td-51defc) | Wiki-side dispatch workflow file + setup/rotation docs (same `event_type` as T15).                                                                | agent-owned | T15               |
+| T17 (td-ad2df5) | GitHub settings (agent): repo rename, Pages-from-Actions, dispatch token creation/secret/test dispatch.                                           | agent-owned | None              |
 
 REQ coverage: T0 → ADR-0014; T1 → REQ-01/02/03; T5 → REQ-04/05/06/09; T6 → REQ-07/08/10/11/14; T7 → REQ-12/13; T2 → REQ-15; T3 → REQ-16; T4 → REQ-17; T8 → REQ-18; T9 → REQ-19; T10 → REQ-20; T12 → REQ-21; T11 → REQ-22/23; T13 → REQ-24/25; T15 → REQ-26/28; T16 → REQ-27; T17 → REQ-29; T14 → REQ-30.
 
