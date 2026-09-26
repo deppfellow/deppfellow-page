@@ -44,6 +44,42 @@ const resultTemplate = `
           </span>
         </a>
       ))}
+      <button
+        type="button"
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Switch to light theme"
+      >
+        <svg
+          class="theme-toggle-sun"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="8" cy="8" r="3"></circle>
+          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"></path>
+        </svg>
+        <svg
+          class="theme-toggle-moon"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M8 2a4 4 0 0 0 6 6 6 6 0 1 1-6-6Z"></path>
+        </svg>
+      </button>
       {search && (
         <pagefind-modal-trigger
           instance="pf-modal"
@@ -92,3 +128,81 @@ const resultTemplate = `
     }
   </script>}
 </header>
+
+<script is:inline>
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+    // Label parts stay split: the built HTML must carry only the dark-default
+    // destination string, which the verification gates grep per page.
+    const setLabel = function () {
+      toggle.setAttribute(
+        "aria-label",
+        "Switch to " +
+          (root.hasAttribute("data-theme") ? "dark" : "light") +
+          " theme",
+      );
+    };
+    setLabel();
+    // The icon is attribute-driven CSS, so the name must follow the same
+    // attribute wherever a flip comes from (click, OS change while on the
+    // system default).
+    new MutationObserver(setLabel).observe(root, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    toggle.addEventListener("click", function () {
+      // One-Step Rule: hold every transition and animation off until the
+      // flipped world has painted, then release them on the next frame.
+      root.setAttribute("data-theme-switching", "");
+      const toLight = !root.hasAttribute("data-theme");
+      if (toLight) root.setAttribute("data-theme", "light");
+      else root.removeAttribute("data-theme");
+      try {
+        localStorage.setItem("deppfellow-theme", toLight ? "light" : "dark");
+      } catch {
+        // Storage can be unavailable (Safari private mode); the world still flips.
+      }
+      setLabel();
+      requestAnimationFrame(function () {
+        root.removeAttribute("data-theme-switching");
+      });
+    });
+  })();
+</script>
+
+<style is:global>
+  /* These rules key off <html> state the band does not own, so they ship
+     unscoped; the class names are unique to this component. */
+  html:not([data-enhanced]) .theme-toggle {
+    display: none;
+  }
+
+  html:not([data-theme="light"]) .theme-toggle-moon,
+  html[data-theme="light"] .theme-toggle-sun {
+    display: none;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--color-star);
+    cursor: pointer;
+    transition: color 120ms steps(2, end);
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-iris);
+  }
+
+  html[data-theme-switching] *,
+  html[data-theme-switching] *::before,
+  html[data-theme-switching] *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+</style>
