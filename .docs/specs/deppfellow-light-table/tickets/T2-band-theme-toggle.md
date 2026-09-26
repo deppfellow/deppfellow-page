@@ -38,7 +38,7 @@ When this ticket closes, every band page carries a keyboard-operable button that
 ## Gate
 
 ```sh
-npm run lint && rm -rf node_modules/.astro && WIKI_PATH=fixtures/vault timeout 300 npm run build && grep -o 'Switch to [a-z]* theme' dist/index.html | sort -u && grep -o 'Switch to [a-z]* theme' dist/articles/memory-layers/index.html | sort -u
+npm run lint && rm -rf node_modules/.astro && WIKI_PATH=fixtures/vault timeout 300 npm run build && grep -o 'Switch to [a-z]* theme' dist/index.html | sort -u && grep -o 'Switch to [a-z]* theme' dist/articles/memory-layers-for-long-horizon-agents/index.html | sort -u
 ```
 
 Build exits 0; the greps show exactly one destination-label form per page in the default (dark) render.
