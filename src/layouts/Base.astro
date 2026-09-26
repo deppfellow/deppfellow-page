@@ -38,6 +38,13 @@ const canonical = Astro.site
         root.setAttribute("data-enhanced", "");
         if (stored !== "light" && stored !== "dark") {
           system.addEventListener("change", function (event) {
+            let current;
+            try {
+              current = localStorage.getItem("deppfellow-theme");
+            } catch {
+              current = null;
+            }
+            if (current === "light" || current === "dark") return;
             if (event.matches) root.setAttribute("data-theme", "light");
             else root.removeAttribute("data-theme");
           });
