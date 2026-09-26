@@ -27,12 +27,12 @@ const resultTemplate = `
 `;
 ---
 
-<header class="border-b border-rule">
+<header class="relative border-b border-rule">
   <div class="mx-auto flex max-w-275 flex-wrap items-baseline justify-between gap-x-10 gap-y-3 px-6 py-5 sm:px-10">
     <a href="/" class="label text-name tracking-[0.22em] text-bone">
       {name}
     </a>
-    <nav aria-label="Categories" class="flex items-center gap-6">
+    <nav aria-label="Categories" class="band-nav flex items-center gap-6">
       {links.map((link) => (
         <a
           href={link.href}
@@ -89,6 +89,33 @@ const resultTemplate = `
         />
       )}
     </nav>
+    <button
+      type="button"
+      id="band-menu-trigger"
+      class="band-menu-trigger label"
+      aria-expanded="false"
+      aria-controls="band-menu-panel"
+    >
+      Menu
+    </button>
+  </div>
+  <div class="band-menu-stack" id="band-menu-panel" hidden>
+    <nav class="band-menu-panel" aria-label="Site menu">
+      {links.map((link) => (
+        <a href={link.href} class="band-menu-row label">
+          {link.label}
+          <span class="ml-1.5 text-star/70">
+            {String(link.count).padStart(2, "0")}
+          </span>
+        </a>
+      ))}
+      {search && <div class="band-menu-row" data-menu-search />}
+      <div class="band-menu-row label" data-menu-theme>
+        <span class="ml-2" data-menu-destination>
+          Light
+        </span>
+      </div>
+    </nav>
   </div>
   {search && (
     <pagefind-modal instance="pf-modal">
@@ -132,17 +159,22 @@ const resultTemplate = `
 <script is:inline>
   (function () {
     const root = document.documentElement;
+    const header = document.querySelector("body > header");
     const toggle = document.getElementById("theme-toggle");
     if (!toggle) return;
+    const panel = document.getElementById("band-menu-panel");
+    const destination = panel
+      ? panel.querySelector("[data-menu-destination]")
+      : null;
     // Label parts stay split: the built HTML must carry only the dark-default
-    // destination string, which the verification gates grep per page.
+    // destination strings, which the verification gates grep per page.
     const setLabel = function () {
+      const light = root.hasAttribute("data-theme");
       toggle.setAttribute(
         "aria-label",
-        "Switch to " +
-          (root.hasAttribute("data-theme") ? "dark" : "light") +
-          " theme",
+        "Switch to " + (light ? "dark" : "light") + " theme",
       );
+      if (destination) destination.textContent = light ? "Dark" : "Light";
     };
     setLabel();
     // The icon is attribute-driven CSS, so the name must follow the same
@@ -169,6 +201,76 @@ const resultTemplate = `
         root.removeAttribute("data-theme-switching");
       });
     });
+
+    const trigger = document.getElementById("band-menu-trigger");
+    if (!header || !trigger || !panel || !root.hasAttribute("data-enhanced"))
+      return;
+    // Must match the CSS media query byte for byte so placement and the
+    // collapsed styles can never disagree at the breakpoint.
+    const collapsed = matchMedia("(max-width: 639.98px)");
+    const nav = header.querySelector(".band-nav");
+    const themeRow = panel.querySelector("[data-menu-theme]");
+    const searchRow = panel.querySelector("[data-menu-search]");
+    const searchTrigger = nav
+      ? nav.querySelector("pagefind-modal-trigger")
+      : null;
+    // One #theme-toggle serves band and panel: the built HTML keeps it inside
+    // the band nav (the T2 gate greps it there), so below 640px the node
+    // itself re-parents into the panel row instead of being duplicated. The
+    // expanded branch re-appends in nav order to restore the T2 placement.
+    const place = function () {
+      if (!nav) return;
+      if (collapsed.matches) {
+        if (searchRow && searchTrigger) searchRow.appendChild(searchTrigger);
+        if (themeRow && destination) themeRow.insertBefore(toggle, destination);
+      } else {
+        nav.appendChild(toggle);
+        if (searchTrigger) nav.appendChild(searchTrigger);
+      }
+    };
+    const setOpen = function (open) {
+      trigger.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    };
+
+    trigger.addEventListener("click", function () {
+      setOpen(panel.hidden);
+    });
+    if (themeRow) {
+      // Any click on the row that did not land on the button routes through
+      // the button's own handler: one source of truth for the world flip.
+      themeRow.addEventListener("click", function (event) {
+        if (
+          event.target instanceof Element &&
+          event.target.closest("#theme-toggle")
+        )
+          return;
+        toggle.click();
+      });
+    }
+    panel.addEventListener("click", function (event) {
+      if (
+        event.target instanceof Element &&
+        event.target.closest("a, button, pagefind-modal-trigger")
+      ) {
+        setOpen(false);
+      }
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !panel.hidden) {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+    document.addEventListener("click", function (event) {
+      if (panel.hidden || !(event.target instanceof Element)) return;
+      if (!header.contains(event.target)) setOpen(false);
+    });
+    collapsed.addEventListener("change", function () {
+      if (!collapsed.matches) setOpen(false);
+      place();
+    });
+    place();
   })();
 </script>
 
@@ -196,6 +298,98 @@ const resultTemplate = `
   }
 
   .theme-toggle:hover {
+    color: var(--color-iris);
+  }
+
+  [data-menu-theme] .theme-toggle {
+    color: inherit;
+  }
+
+  /* Collapsed band presentation: enhancement-gated and viewport-gated, so
+     no-JS and desktop both render the untouched T2 band. The query string is
+     matched byte for byte by the band script. */
+  .band-menu-trigger {
+    display: none;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--color-plate);
+    border: 1px solid var(--color-rule-strong);
+    color: var(--color-star);
+    cursor: pointer;
+    transition:
+      color 120ms steps(2, end),
+      border-color 120ms steps(2, end);
+  }
+
+  .band-menu-trigger:hover {
+    color: var(--color-iris);
+  }
+
+  .band-menu-trigger[aria-expanded="true"] {
+    border-color: var(--color-iris);
+    color: var(--color-bone);
+  }
+
+  @media (max-width: 639.98px) {
+    html[data-enhanced] .band-nav {
+      display: none;
+    }
+
+    html[data-enhanced] .band-menu-trigger {
+      display: inline-flex;
+    }
+  }
+
+  .band-menu-stack {
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    left: 1.5rem;
+    z-index: 20;
+  }
+
+  .band-menu-stack::before,
+  .band-menu-stack::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: -3px;
+    left: 3px;
+    right: 3px;
+    border: 1px solid var(--color-rule);
+    background-color: var(--color-plate-edge);
+  }
+
+  .band-menu-stack::after {
+    bottom: -6px;
+    left: 6px;
+    right: 6px;
+  }
+
+  .band-menu-panel {
+    max-height: min(60vh, 24rem);
+    overflow-y: auto;
+    background-color: var(--color-plate);
+    border: 1px solid var(--color-rule);
+  }
+
+  .band-menu-row {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    color: var(--color-star);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 120ms steps(2, end);
+  }
+
+  .band-menu-row + .band-menu-row {
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .band-menu-row:hover,
+  .band-menu-row:focus-within {
     color: var(--color-iris);
   }
 
