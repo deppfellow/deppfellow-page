@@ -33,6 +33,9 @@
     background-color: var(--color-plate);
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
+    /* Pagefind's mark has no token slot: white against the dark plate,
+       the ink slot against the light plate. */
+    --world-mark: #ffffff;
   }
 
   body {
@@ -52,6 +55,31 @@
       var(--color-plate)
     );
     color: #ffffff;
+  }
+
+  /* Light world: the light table. Same slots, D-05 values as amended by
+     D-15; the dark world above stays the fallback when the attribute is
+     absent. */
+  html[data-theme="light"] {
+    --color-plate: #f3f5f9;
+    --color-plate-edge: #e8ecf2;
+    --color-rule: #7f8ca1;
+    --color-rule-strong: #748096;
+    --color-bone: #0c1220;
+    --color-star: #4d6087;
+    --color-iris: #3a6bce;
+    --color-ember: #e0612e;
+    --world-mark: var(--color-bone);
+    color-scheme: light;
+  }
+
+  html[data-theme="light"] ::selection {
+    background-color: color-mix(
+      in oklab,
+      var(--color-iris) 55%,
+      var(--color-plate)
+    );
+    color: var(--color-bone);
   }
 
   html {
@@ -278,7 +306,7 @@ pagefind-searchbox {
   --pf-border: var(--color-rule);
   --pf-border-focus: var(--color-iris);
   --pf-hover: var(--color-plate-edge);
-  --pf-mark: #ffffff;
+  --pf-mark: var(--world-mark);
   --pf-skeleton: var(--color-plate-edge);
   --pf-skeleton-shine: var(--color-rule);
   --pf-scroll-shadow: transparent;
