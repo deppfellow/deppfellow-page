@@ -1,6 +1,7 @@
 ---
 status: accepted
 date: 2026-09-10
+superseded-by: in part - the "ordinary pages stay script-free" line, by .docs/adr/0015-light-table-dual-world-palette.md (spec deppfellow-light-table D-09/D-13, 2026-09-26)
 ---
 
 # Performance contract: client-side budget, CDN TTFB accepted
