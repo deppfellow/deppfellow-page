@@ -2,14 +2,30 @@
 name: deppfellow
 description: An observatory plate atlas for a public wiki of notes on agents and memory.
 colors:
-  plate: "#05070c"
-  plate-edge: "#0a0d15"
-  rule: "#1b2230"
-  rule-strong: "#2a3446"
-  bone: "#e8eef7"
-  star: "#9fb6d9"
-  iris: "#5683da"
-  ember: "#ff8964"
+  plate:
+    dark: "#05070c"
+    light: "#f3f5f9"
+  plate-edge:
+    dark: "#0a0d15"
+    light: "#e8ecf2"
+  rule:
+    dark: "#1b2230"
+    light: "#7f8ca1"
+  rule-strong:
+    dark: "#2a3446"
+    light: "#748096"
+  bone:
+    dark: "#e8eef7"
+    light: "#0c1220"
+  star:
+    dark: "#9fb6d9"
+    light: "#4d6087"
+  iris:
+    dark: "#5683da"
+    light: "#3a6bce"
+  ember:
+    dark: "#ff8964"
+    light: "#e0612e"
 typography:
   note:
     fontFamily: "Spectral, ui-serif, Georgia, serif"
@@ -55,6 +71,30 @@ components:
   recency-mark:
     backgroundColor: "{colors.ember}"
     size: "6px"
+  theme-toggle:
+    icon: "sun/moon line icon, 16px, 1.5px stroke, currentColor, no fill"
+    semantics: "destination, sun while dark and moon while light"
+    textColor: "{colors.star}"
+  theme-toggle-hover:
+    textColor: "{colors.iris}"
+  menu-trigger:
+    label: "Menu"
+    typography: "{typography.label}"
+    textColor: "{colors.star}"
+    backgroundColor: "{colors.plate}"
+    border: "1px solid {colors.rule-strong}"
+  menu-trigger-open:
+    textColor: "{colors.bone}"
+    borderColor: "{colors.iris}"
+  menu-panel:
+    backgroundColor: "{colors.plate}"
+    border: "1px solid {colors.rule}"
+    textColor: "{colors.star}"
+    typography: "{typography.label}"
+    stack: "two hairline edges in {colors.plate-edge}"
+    disclosure: "one-step, closes on activation"
+  menu-panel-row-hover:
+    textColor: "{colors.iris}"
 ---
 
 # Design System: deppfellow
@@ -88,6 +128,31 @@ The palette is monochrome plus one lived accent. It refuses both the warm-paper 
 **The Two-Ink Rule.** Prose is bone, metadata is star, and nothing else receives colour. If a third ink appears in body copy, the hierarchy has failed.
 
 **The One Ember Rule.** Ember appears once per view and only as a mark of recency. Two ember marks in one viewport means one of them is wrong.
+
+Every slot above carries a second value on the light table - plate `#f3f5f9`, plate edge `#e8ecf2`, rule `#7f8ca1`, rule strong `#748096`, bone `#0c1220`, star `#4d6087`, iris `#3a6bce`, ember `#e0612e`. The roles do not change with the world; only the values do. The light rule and rule strong are the contrast-pass amendment of the approved palette (spec `deppfellow-light-table` D-15, amending D-05), which put a hard `3:1` floor under the light hairlines; the dark hairlines are unchanged. The front matter carries both tables, and `global.css` remains the source of record.
+
+## The Two Worlds
+
+The site renders one design in two lightings. The dark world is the default - the near-black plate this document describes. The light world is the light table, the plate held against cold light - a cold paper ground carrying the same catalogue in cold ink. The two voices, the rules and the components are one system in both worlds; only the slot values change.
+
+The light table refuses warmth. The paper is cold, never cream and never ivory, and the prose ink is a near-black cold blue rather than black-brown. The system already refuses the warm-paper blog default in its dark form; a warm light world would be a different product, not a second lighting of this one. The refusal is the world's identity, not a tuning preference.
+
+**Theme model.** The world is a property of the visitor, not of the page. A first visit follows the system preference (`prefers-color-scheme`), and while the visitor is on the system default, live OS changes are followed. A manual choice is two-state - light or dark, with no third "system" state - and persists in `localStorage`, suppressing live changes. An inline script in the head applies the stored or system choice before first paint, so no page flashes the wrong world. Switching worlds is instant, with no fade and no transition, under the One-Step Rule.
+
+**The single icon exception.** The band's vocabulary is words. The theme toggle's sun/moon line icon - `16px`, `1.5px` stroke, `currentColor`, no fill - is the single icon exception to the no-icon vocabulary, recorded as a deliberate one (spec `deppfellow-light-table` D-04) so that it stays closed. A second icon anywhere is a defect, not a precedent.
+
+Every rule in this document holds in either world. Each is restated here with that clause made explicit.
+
+- **The Two-Ink Rule.** In either world, prose is bone, metadata is star, and nothing else receives colour. If a third ink appears in body copy, the hierarchy has failed.
+- **The One Ember Rule.** In either world, ember appears once per view and only as a mark of recency. Two ember marks in one viewport means one of them is wrong.
+- **The Two-Voice Rule.** In either world, serif is for sentences and condensed caps are for identifiers. A label in the serif face or a sentence in the label face is a defect in either direction.
+- **The Tabular Rule.** In either world, every number that can be compared with another number is set in tabular figures, including dates, counts and legends.
+- **The Measure Rule.** In either world, prose never exceeds `65ch`, at any viewport. Lists are exempt because their job is alignment, not reading.
+- **The Rule-Band Rule.** In either world, navigation is always a band bounded by hairlines, never a floating or shadowed header.
+- **The Flat-Plate Rule.** In either world, no element casts a shadow. If something must lift, it steps (as the stacked edges do) or it changes ink.
+- **The Square Rule.** In either world, nothing is rounded, at any size, for any state.
+- **The Ruled Row Rule.** In either world, lists are ruled rows, never cards and never nested containers. Every row spans the container so that columns align down the page.
+- **The One-Step Rule.** In either world, motion is one mechanical step - `120ms` with `steps(2, end)` and a `3px` overshoot that settles at `2px`. Nothing glides, nothing fades in, and `prefers-reduced-motion` removes it entirely. A world switch goes further still; the new world paints in place with no motion at all.
 
 ## Typography
 
@@ -125,7 +190,11 @@ Square corners everywhere (`0` radius). Rectangles are the plate's own shape; th
 
 ## Components
 
-**Rule band.** The header: hairline above and below, site name in bone at `0.9375rem` with `0.22em` tracking, category links in star with tabular counts at 70% star. Hover moves a link to iris.
+**Rule band.** The header: hairline above and below, site name in bone at `0.9375rem` with `0.22em` tracking, category links in star with tabular counts at 70% star. Hover moves a link to iris. The theme toggle sits left of Search where Search renders (the home page and the three category indexes) and is the last item on the band's right everywhere else. Below `640px` the band collapses to the site name plus a Menu trigger that opens the Menu panel below it; without JavaScript the band renders exactly as the wide band, all links visible and wrapped, because the collapse and the toggle are gated on a script-set attribute on `html`.
+
+**Theme toggle.** The band's world switch. A sun/moon line icon at `16px` with a `1.5px` stroke in `currentColor` and no fill, and it always names its destination - a sun while dark (the press goes light), a moon while light (the press goes dark). Its accessible name states the action. Hover moves it to iris exactly like every other band trigger.
+
+**Menu trigger and panel.** Below `640px` the Menu trigger stands in for the band's right side - Scales caps (the label voice) on a bordered rectangle over the plate ground, a `1px` rule-strong border, `10px 20px` padding, star text, hover to iris; the open state draws the iris border and bone text. The panel drops from the band, full width, hairline-bounded with the two stacked plate-edge edges below it, and lists the category rows with their tabular counts, then Search where the page provides it, then the theme row of line icon plus destination word. Rows sit on hairlines and hover to iris. The disclosure is one step - the panel closes on any activation (a category link, Search, the theme toggle), on Escape, and on outside click.
 
 **Stack.** A bordered list container (`1px` rule) with two hairline edge layers offset below it. The stack is the list's signature; a bare unordered list is not the component.
 
@@ -166,3 +235,4 @@ Square corners everywhere (`0` radius). Rectangles are the plate's own shape; th
 - **Don't** turn a list row into a card, a chip, or a nested surface.
 - **Don't** put colour on body copy or use ember as decoration; it means "new" or it does not appear.
 - **Don't** add a kicker, eyebrow, or decorative label above a heading; the heading speaks for itself.
+- **Don't** introduce a second icon; the sun/moon pair is the single icon exception, and the vocabulary stays words.
